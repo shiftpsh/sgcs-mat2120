@@ -1,0 +1,64 @@
+\documentclass[runningheads,11pt]{../llncs}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{import}
+\usepackage{kotex}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fancyvrb}
+\usepackage{listings}
+\usepackage{indentfirst}
+\usepackage{tabularx}
+\usepackage{underscore}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{menukeys}
+\usepackage{amsmath}
+\usepackage{clrscode3e} % https://www.ctan.org/pkg/clrscode3e?lang=en
+\usepackage[numbers,square,super]{natbib}
+\usepackage{inconsolata} % Inconsolata
+\usepackage{mathptmx} % Times New Roman
+\usepackage{amsmath}
+\usepackage{amssymb}
+\newcommand{\divides}{\bigm|}
+\newcommand{\ndivides}{%
+  \mathrel{\mkern.5mu % small adjustment
+    % superimpose \nmid to \big|
+    \ooalign{\hidewidth$\big|$\hidewidth\cr$\nmid$\cr}%
+  }%
+}
+\setmainfont{Times New Roman}
+\setmonofont{Fira Code}
+\usepackage{minted}
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+\renewcommand{\bibname}{참고문헌}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{1em}
+\linespread{1.2}
+{\renewcommand{\arraystretch}{1.5}%
+\setlength{\tabcolsep}{0.5em}%
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+\newcommand{\translation}[1]{\textsuperscript{#1}}
+\newcommand{\complexity}[1]{$\mathcal{O}\left({#1}\right)$}
+
+\makeatletter
+\renewcommand\NAT@citesuper[3]{\ifNAT@swa
+\if*#2*\else#2\NAT@spacechar\fi
+\unskip\kern\p@\textsuperscript{\NAT@@open#1\if*#3*\else,\NAT@spacechar#3\fi\NAT@@close}%
+   \else #1\fi\endgroup}
+\makeatother
+
+\definecolor{codehighlight}{RGB}{0,118,191}
+\definecolor{codebg}{RGB}{250,250,250}
+
+\setminted{fontsize=\footnotesize, 
+		   linenos,
+		   numbersep=8pt,
+		   gobble=0,
+		   frame=lines,
+		   bgcolor=codebg,
+       framesep=3mm,
+       highlightcolor=codehighlight!15,
+       mathescape=true} 
