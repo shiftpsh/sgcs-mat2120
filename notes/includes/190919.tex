@@ -1,0 +1,171 @@
+
+\begin{proof}
+    $S \subset \mathbb{Z} \Rightarrow S = m\mathbb{Z}$
+
+    Since $S \neq \emptyset$, $\exists a \in S$
+
+    Since $S$ is closed under $+$, $-$, $0 \in S$. We may assume that
+    $S \neq \left\{0\right\}$. (if $S = \left\{0\right\}$, then $S = 0\cdot \mathbb{Z}$)
+
+    Take any $n \in S$. Then $0 - n = -n \in S$.
+    Thus we may also assume that $S$ has a positive integer.
+
+    In all, WLOG\footnote{Without loss of generality},
+    we may assume that $S$ has a positive integer.
+
+    By WOP, $S$ has a least positive integer $m$. We want to show that $S=m\mathbb{Z}$.
+
+    \marginpar{
+        $A = B \Rightarrow A \subset B \mbox{ and } B \subset A$
+        
+        $A \subset B \Rightarrow \mbox{if } x \in A \mbox{ then } x \in B$
+    }
+
+    \begin{enumerate}
+        \item $m\mathbb{Z} \subset S$
+        
+        $m \in S$ and $S$ is closed under $+$, $-$. So $S$ must have all multiples of $m$.
+
+        \item $S \subset m\mathbb{Z}$
+        
+        Take any $a \in S$. By division algorithm, $\exists q,\, r \in \mathbb{Z}$ such that
+        $a = qm + r$ where $0 \leq r < m$.
+        Since $mq \in S$ and $a \in S$, \[r = a - mq \in S\].
+        Thus $r = 0$ by the minimality of $m$. Hence $a = mq \in m\mathbb{Z}$.
+
+        Remains to show the uniqueness of $m$. Suppose $m\mathbb{Z} = S = m^\prime\mathbb{Z}$.
+        Then $m = \pm m^\prime$.
+        Since $m,\,m^\prime > 0$, $m=m^\prime$.
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    Let $d=\left(a,\,b\right)$. Then $d=ax+by$ for some $x,\,y \in \mathbb{Z}$
+    and $\left\{ax+by \mid x,\,y \in \mathbb{Z}\right\}$ is the set of all multiples of $d$.
+    i. e. $a\mathbb{Z}+b\mathbb{Z} = \left\{ax+by \mid x,\,y \in \mathbb{Z}\right\}$.
+\end{theorem}
+
+\begin{proof}
+    We knew that $d=ax+by$ for some $x,\,y \in \mathbb{Z}$. (by the theorem in the last class)
+
+    Define $S := a\mathbb{Z} + b\mathbb{Z}$. Then $a\mathbb{Z} \subset S$ and $b\mathbb{Z} \subset S$.
+    Since $S$ is closed under $+$, $-$, it follows the previous theorem that
+    \[\exists m \geq 0 \in \mathbb{Z} \mbox{ such that } S = m\mathbb{Z}.\]
+
+    We want to show that $m=d$. Since $a,\,b \in S = m\mathbb{Z}$, $m \divides a$, $m \divides b$.
+    If $e \divides a$ and $e \divides b$, then $e \divides m$.
+    ($\because m + as + bt \mbox{ for some } s,\,t \in \mathbb{Z}$)
+    
+    By the definition of GCD, $m=d$.
+\end{proof}
+
+\begin{remark}
+    The GCD of $a$ and $b$ (not both 0)
+    is the least positive integer that is a linear combination of $a$ and $b$.
+\end{remark}
+
+
+\begin{theorem}[Euclidean Algorithm]
+    $a,\,b \in \mathbb{Z}$, $a \neq 0$.
+    Using the division algorithm, \[b = aq_1 + r_1\mbox{, where }0<r_1<\left|a\right|.\]
+    If $r_1 = 0$, terminate process.
+
+    Repeating process,
+    \begin{align*}
+        a &= r_1q_2 + r_2 & 0<r_2<r_1 \\
+        r_1 &= r_2q_3 + r_3 & 0<r_3<r_2 \\
+        &\vdots \\
+        r_{n-2} &= r_{n-1}q_n + r_n & 0<r_n<r_{n-1} \\
+        r_{n-1} &= r_nq_{n+1}
+    \end{align*}
+    Then $\left(a,\,b\right)=r_n$.
+\end{theorem}
+
+\begin{proof}
+    Clearly, $r_n > 0$.
+    Note that
+    \begin{align*}
+        r_n \divides r_{n-1}, r_n \divides r_n &\Rightarrow r_n \divides r_{n-2} \\
+        r_n \divides r_{n-2}, r_n \divides r_{n-1} &\Rightarrow r_n \divides r_{n-3} \\
+        &\vdots \\
+        r_n \divides r_1, r_n \divides r_2 &\Rightarrow r_n \divides a \\
+        r_n \divides a, r_n \divides r_1 &\Rightarrow r_n \divides b
+    \end{align*}
+
+    Note also that if
+    \begin{align*}
+        k \divides a,\, k \divides b &\Rightarrow k\divides r_1 \\
+        k \divides r_1,\, k \divides a &\Rightarrow k\divides r_2 \\
+        &\vdots \\
+        k \divides r_n,\, k \divides r_{n-1} &\Rightarrow k\divides r_n
+    \end{align*}
+    
+    Hence we conclude that $r_n = \left(a,\,b\right)$.
+\end{proof}
+
+\begin{proof}[Alternate proof]
+    \[
+        b = aq + r \Rightarrow \left(a,\,b\right) = \left(a,\,r\right)
+        \qquad
+        r=a\left(-q\right)+b,\,b=aq+r
+    \]
+    Note that $e\divides a$, $e\divides b$ iff $e\divides r$, $e\divides a$.
+    Thus $\left(a,\,b\right)\divides\left(a,\,b\right)$ and 
+    $\left(a,\,k\right)\divides\left(a,\,b\right)$.
+
+    Hence $\left(a,\,b\right) = \left(a,\,r\right)$, since $\left(a,\,b\right) > 0$ and
+    $\left(a,\,k\right) > 0$. Therefore we can see that
+    \[
+        \left(a,\,b\right) = \left(a,\,r\right) = \left(r_1,\,r_2\right) = \cdots
+        = \left(r_{n-1},\,r_n\right).
+    \]
+\end{proof}
+
+\paragraph{Example}
+\begin{align*}
+    \left(68,\,710\right) &= 2 \\
+    710 &= 68 \cdot 10 + 30 \\
+    68 &= 30 \cdot 2 + 8 \\
+    30 &= 8 \cdot 3 + 6 \\
+    8 &= 6 \cdot 1 + 2 \\
+    6 &= 2 \cdot 3
+\end{align*}
+\begin{align*}
+    2 &= 8 - 6\cdot 1 \\
+    &= 8 - \left(30 - 8 \cdot 3\right) \\
+    &= 8 \cdot 4 + 30 \cdot \left(-1\right) \\
+    &= \left(68-30\cdot 2\right) \cdot 4 + 30\cdot\left(-1\right) \\
+    &= 68 \cdot 4 + 30 \cdot \left(-1\right) \\
+    &= 68 \cdot 4 + \left(710 - 68 \cdot 10\right) \cdot \left(-9\right) \\
+    &= 68 \cdot 94 + 710 \cdot \left(-9\right)
+\end{align*}
+
+\begin{definition}[Diophantine Equation]
+    A \textbf{Diophantine equation} is a polynomial equation that allows two or more variables
+    to take integer values only.
+\end{definition}
+
+e. g.
+\[ax+by=c\] \[x^n+y^n=z^n\] \[x^2-dy^2=1\]
+
+\begin{theorem}
+    $a\neq 0$, $b\neq 0$.
+    \begin{enumerate}
+        \item The equation $ax+by=c$ has integer solutions if and only if
+        $\left(a,\,b\right) \divides c$.
+        \item Suppose that $\left(a,\,b\right) \divides c$.
+        Then the general solution of the equation $ax+by=c$ has form the of
+        \[
+            \left\{x_0 + \frac{b}{\left(a,\,b\right)}t,\, y_0 - \frac{a}{\left(a,\,b\right)}t\right\}    
+        \]
+        where $t \in \mathbb{Z}$ and $\left(x_0,\,y_0\right)$ is an arbitrary solution of the equation.
+    \end{enumerate}
+\end{theorem}
+
+\marginpar{
+    General solution for $y^{\prime\prime}-4y^\prime+3y = 0$?
+
+    $\Rightarrow c_1e^x + c_2e^{3x}$
+    
+    -- 2 bases
+}

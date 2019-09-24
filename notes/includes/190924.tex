@@ -1,0 +1,211 @@
+
+\begin{proof}
+    Note that
+
+    \begin{align*}
+        & a \divides b,\, a \divides c \Rightarrow a \divides \left(bx+cy\right) \qquad\forall x,\,y\in\mathbb{Z} \\
+        & m \divides ab,\, \left(m,\,a\right)=1 \Rightarrow m\divides b \qquad \because \left(m,\,a\right)=1,\, \exists s,\,t \in \mathbb{Z} \qquad as+mt=1
+    \end{align*}
+
+    Then $bas+bmt=b$.
+
+    Since $m\divides ab$, it follows that $m \divides b$.
+
+    \begin{enumerate}
+        \item ($\Rightarrow$)
+        $\left(a,\,b\right)\divides a$, $\left(a,\,b\right)\divides b$ $\Rightarrow$
+        $\left(a,\,b\right)\divides \left(ax+by\right)=c$
+
+        ($\Leftarrow$)
+        Let $\left(a,\,b\right)=d$ and $c=c_1d$. Then $\exists s,\,t \in \mathbb{Z}$ such that $as+bt = d$.
+        thus
+        \begin{align*}
+            c=c_1d &= c_1\left(as+bt\right) \\
+            &=ac_1s + bc_1t
+        \end{align*}
+        hence $\left(c_1s,\,c_1t\right)$ is a solution.
+
+        \item Note that
+        \begin{align*}
+            &a\left(x_0+\frac{b}{d}t\right) + b\left(y_0-\frac{a}{d}t\right)\\
+            =&ax_0+\frac{ab}{d}t+by_0-\frac{ba}{d}t \\
+            =& ax_0+by_0=c
+        \end{align*}
+        
+        Suppose that $\left(x,\,y\right)$ is an arbitrary solution of $ax+by=c$.
+        Since $ax+by=c=ax_0+by_0$, we have
+        \[
+            a\left(x-x_0\right)=b\left(y_0-y\right).
+        \]
+        Let $a=a_1d$, $b=b_1d$, where $d=\left(a,\,b\right)$. Then
+        \[
+            a_1\left(x-x_0\right)=b_1\left(y_0-y\right).
+        \]
+        Since $\left(a,\,b\right)=1$, $b_1\divides \left(x-x_0\right)$. Then
+        $\exists t \in \mathbb{Z}$ such that $x-x_0=b_1t$, and similarily $y_0-y=a_1t$.
+
+        Hence \[
+            x=x_0+\frac{b}{\left(a,\,b\right)}t,\, y=y_0-\frac{a}{\left(a,\,b\right)}t
+        .\]
+    \end{enumerate}
+\end{proof}
+
+\paragraph{Example}
+\[
+    710 x + 68 y = 6
+\]\footnote{Maybe an eaxm problem?}
+Recall
+\begin{align*}
+    710\cdot\left(-9\right)+68\cdot94&=2 \\
+    710\cdot\left(-9\times 3\right)+68\cdot\left(94\times 3\right)&=2\times3=6 \\
+\end{align*}
+Hence
+\begin{align*}
+    x&=-27+\frac{68}{2}t=-27+34t \\
+    x&=282-\frac{710}{2}t=282-355t
+\end{align*}
+
+\begin{definition}[Least Common Multiple]
+    The \textbf{least common multiple} of two nonzero integers $a$ and $b$,
+    denoted $\left[a,\,b\right]$ or $\mathop{\mathrm{lcm}}\left(a,\,b\right)$
+    is the integer $l$ satisfying the followings:
+    \begin{enumerate}
+        \item $l>0$.
+        \item $a\divides l$, $b\divides l$.
+        \item $a\divides c$, $b\divides c$ $\Rightarrow m\divides c$.
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+    For $a\neq 0,\,b\neq 0 \in \mathbb{Z},$ $\left[a,\,b\right]$ uniquely exists.
+    Moreover, $a\mathbb{Z} \cap b\mathbb{Z} = \left[a,\,b\right]\mathbb{Z}$.
+\end{theorem}
+
+\begin{proof}
+    Let $S=a\mathbb{Z} \cap b\mathbb{Z}$.
+    Since $ab \in S$, $S \neq \emptyset$. Clearly, $S$ is closed under $+$, $-$.
+
+    By theorem, $\exists l$ such that $S = l\mathbb{Z}$.
+
+    We want to show that $l=\left[a,\,b\right]$. Since $l\in S$, $a\divides l$,
+    $b\divides l$. If $a\divides c$, $b\divides c$, then $c \in S = l\mathbb{Z}$ and $l\divides c$.
+
+    Remains to show the uniqueness of $l$. Suppose $l_1$ and $l_2$ are both the
+    LCMs of $a$ and $b$. Then $l_1 \divides l_2$ and $l_2 \divides l_1$.
+    By (2), (3), $l_1=l_2$, since $l_1>0,\,l_2>0$.
+\end{proof}
+
+\begin{remark}
+    \begin{align*}
+        \left(a,\,b\right)\mathbb{Z} &= a\mathbb{Z} + b\mathbb{Z} = \left\{ax+by \mid x,\,y\in\mathbb{Z}\right\} \\
+    \end{align*}
+\end{remark}
+
+Recall
+\begin{enumerate}
+    \item $\left(0,\,0\right) := 0$
+    \item $\left(a,\,0\right) := \left|a\right|$
+    \item $\left[0,\,0\right] := 0$
+    \item $\left[a,\,0\right] := 0$
+\end{enumerate}
+
+\begin{theorem}
+    For $a>0,\,b>0\in\mathbb{Z}$, \[\left(a,\,b\right)\left[a,\,b\right] = ab.\]
+\end{theorem}
+
+\begin{proof}
+    (Proof left for homework -- due September 26th.)
+\end{proof}
+
+\begin{theorem}
+    Let $b$ be a positive integer with $b>1$. Then every positive integer
+    $n$ can be expressed in unique form of
+    \[
+        n=a_kb^k + a_{k-1}b^{k-1} + \cdots + a_1b^1 + a_0
+    \]  
+    where $a_i \in \mathbb{Z}$, $0 \leq a_i \leq b-1$ for $i=0,\,1,\,\cdots,\,k$
+    and $a_k \neq 0$.
+\end{theorem}
+\marginpar{$b$ $\Rightarrow$ base.}
+
+\begin{proof}
+    We use the division algorithm. (Proof left for homework -- due September 26th.)
+\end{proof}
+
+\begin{definition}[Prime Numbers]
+    A \textbf{prime} is an integer $p$ such that
+    \begin{enumerate}
+        \item $p>1$.
+        \item $a\divides p \Rightarrow a = \pm 1 \mbox{ or } \pm p$.
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    $p$ is prime.
+
+    \begin{enumerate}
+        \item $\forall a \in \mathbb{Z},\, \left(a,\,p\right) = 1 \mbox{ or } \left(a,\,p\right) = p$. (iff $p$ is prime)
+        \item $p \divides ab \Rightarrow p \divides a \mbox{ or } p \divides b$. (iff $p$ is prime)
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}[Infinitude of Primes]
+    There exists infinitely many primes.
+\end{theorem}
+
+\begin{proof}[Euclid's]
+    \begin{lemma}\label{primefactorlemma}
+        Every positive integer $n \geq 2$ has a prime factor.
+    \end{lemma}
+
+    \begin{proof}
+        Consider the set $S=\left\{m \mid m\mbox{ is a divisor of }n\right\}$.
+        Then $S \neq \emptyset$.
+
+        By WOP, $\exists$ least positive integer $p\in S$. Note that
+        every divisor of $p$ is also a divisor of $n$.
+        Thus $p$ is a prime number by the minimality of $p$.
+    \end{proof}
+
+    Suppose there exists finitely many primes
+    \[
+        p_1,\,p_2,\,\cdots,\,p_k.    
+    \]
+    Let
+    \[
+        n := p_1p_2\times\cdots\times p_k.    
+    \]
+    Then $n > 1$ and $\exists$ prime $p$ such that $p\divides n$ by Lemma \ref{primefactorlemma}.
+
+    Thus $p=p_i$ for some $1 \leq i \leq k$, hence $p \divides p_1p_2\times\cdots\times p_k$, thus
+    \[
+        p \divides \left(n-p_1p_2\times\cdots\times p_k\right)
+        \Rightarrow p\divides 1.
+    \]
+    Which is a contradiction to the definition of prime numbers. Thus there exists infinitely many primes.
+\end{proof}
+
+\begin{theorem}
+    There are arbitrary large gaps between successive primes.
+    i. e. For any positive integer $n$, there exists at least $n$ consecutive composite
+    positive integers.
+\end{theorem}
+
+\begin{proof}
+    Consider $n$ consecutive integers
+    \[
+        \left(n+1\right)!+2,\,\left(n+1\right)!+3,\,\cdots,\,\left(n+1\right)!+\left(n+1\right).
+    \]
+    For $2\leq j \leq n+1$, it is clear that $j \divides \left(n+1\right)!$.
+    Thus $j \divides \left(\left(n+1\right)!+j\right)$.
+
+    Hence $\exists n$ consecutive integers which are all composites.
+\end{proof}
+
+\begin{definition}[Mersenne Primes]
+    A \textbf{Mersenne prime} is a Mersenne number\footnote{$M_n = 2^n - 1$}
+    which is also prime.
+\end{definition}
+
+e. g. $M_2 = 2^2-1 = 3$, $M_3 = 2^3-1 = 7$, $M_5 = 2^5-1 = 31$,
+$M_7 = 2^7-1 = 127$, $\cdots$ but $M_{11} = 2^{11}-1 = 2047 = 23 \times 89$
