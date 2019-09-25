@@ -1,0 +1,123 @@
+\input{header}
+
+\begin{document}
+
+\title{MAT2120 Number Theory\newline Homework, September 26th}
+\author{Suhyun Park (20181634)}
+\institute{Department of Computer Science and Engineering, Sogang University}
+
+\maketitle
+
+\begin{theorem}
+    For $a>0,\,b>0\in\mathbb{Z}$,
+    \[
+        \left(a,\,b\right)\left[a,\,b\right] = ab.    
+    \]
+\end{theorem}
+
+\begin{lemma}\label{lemma1}
+    For $k > 0 \in \mathbb{Z}$, $\left[ka,\,kb\right] = k\left[a,\,b\right]$.
+\end{lemma}
+\begin{proof}
+    Since $ka \divides \left[ka,\,kb\right]$, $k \divides \left[ka,\,kb\right]$.
+
+    Let $l = \left[a,\,b\right]$ and $km = \left[ka,\,kb\right]$.
+    Then
+    \[
+        ka \divides km \Rightarrow a \divides m \qquad \mbox{and} \qquad
+        kb \divides km \Rightarrow b \divides m.
+    \]
+    Hence $m$ is a common multiple of $a$ and $b$, giving that
+    \begin{equation}
+        m \geq l \label{eqn1}
+    \end{equation}
+    because $l$ is the least common multiple of $a$ and $b$.
+
+    Similarily, 
+    \[
+        a \divides l \Rightarrow ka \divides kl \qquad \mbox{and} \qquad
+        b \divides l \Rightarrow kb \divides kl.
+    \]
+    Hence $kl$ is a common multiple of $ka$ and $kb$, giving that
+    \begin{equation}
+        kl \geq km \Rightarrow l \geq m \label{eqn2}
+    \end{equation}
+    because $km$ is the least common multiple of $ka$ and $kb$.
+
+    By \eqref{eqn1} and \eqref{eqn2}, we can conclude that $l=m$. Therefore
+    \[
+        \left[ka,\,kb\right] = km = kl = k\left[a,\,b\right].
+    \]
+    \qed
+\end{proof}
+
+\begin{proof}[Conclusion of Proof of Theorem]
+    Let $d=\left(a,\,b\right)$. Then $d \divides a$ and $d \divides b$ is true by definition.
+
+    Hence we let $a=a_0d$, $b=b_0d$. Then $\left(a_0,\,b_0\right)=1$.
+
+    Now we want to show that $\left[a_0,\,b_0\right]=a_0b_0$. Since $a_0 \divides \left[a_0,\,b_0\right]$,
+    we let $\left[a_0,\,b_0\right]=ka_0$.
+
+    Since $b_0 \divides \left[a_0,\,b_0\right] \Rightarrow b_0 \divides ka_0$ and $\left(a_0,\,b_0\right)=1$,
+    we know that $b_0 \divides k$. Thus, $b_0a_0 \leq ka_0$.
+
+    Note that $ka_0$ is the least common multiple of $a_0$, $b_0$ and
+    $b_0a_0$ is the common multiple of $a_0$, $b_0$, thus $b_0a_0 \geq ka_0$.
+    Hence $a_0b_0 = ka_0 = \left[a_0,\,b_0\right]$.
+
+    Using Lemma \ref{lemma1}, we can conclude that
+    \begin{align*}
+        & \left(a,\,b\right)\left[a,\,b\right] \\  
+        =& d \left[a_0d,\,b_0d\right] \\
+        =& d^2 \left[a_0,\,b_0\right] \\
+        =& d^2a_0b_0 = \left(da_0\right)\left(db_0\right) \\
+        =& ab.
+    \end{align*}
+    \qed
+\end{proof}
+
+\begin{theorem}
+    Let $b$ be a positive integer with $b>1$. Then every positive integer
+    $n$ can be expressed in unique form of
+    \[
+        n=a_kb^k + a_{k-1}b^{k-1} + \cdots + a_1b^1 + a_0
+    \]  
+    where $a_i \in \mathbb{Z}$, $0 \leq a_i \leq b-1$ for $i=0,\,1,\,\cdots,\,k$
+    and $a_k \neq 0$.
+\end{theorem}
+
+\begin{proof}
+    We use the division algorithm. For $0\leq a_0 < b$, we can express $n$ as
+    \[
+        n = q_0 b + a_0 .
+    \]
+    If $q_0 \geq b$, we can express $q_0$ as
+    \[
+        q_0 = q_1 b + a_1 .    
+    \]
+    We can repeat this process for $q_i$ while $q_i \geq b$. This gives
+    \begin{align*}
+        n &= q_0 b^1 + a_0 \\
+        &= q_1 b^2 + a_1 b^1 + a_0 \\
+        & \vdots \\
+        &= a_kb^k + a_{k-1}b^{k-1} + \cdots + a_1b^1 + a_0. 
+    \end{align*}
+
+    Now we want to show that such $a_0,\, a_1,\, \cdots,\, a_k$ uniquely exists.
+    Let
+    \[
+        n=a^\prime_kb^k + a^\prime_{k-1}b^{k-1} + \cdots + a^\prime_1b^1 + a^\prime_0.
+    \]
+    Then
+    \begin{align*}
+        a_kb^k + a_{k-1}b^{k-1} + \cdots + a_1b^1 + a_0&=a^\prime_kb^k + a^\prime_{k-1}b^{k-1} + \cdots + a^\prime_1b^1 + a^\prime_0\\
+        \Rightarrow q_0b^1 + a_0&=q^\prime_0b^1 + a^\prime_0.\\
+        \Rightarrow \left(q_0 - q^\prime_0\right)b^1 &= a^\prime_0 - a_0.\\
+    \end{align*}
+    If $q_0 \neq q^\prime_0$, $b \divides \left(a^\prime_0 - a_0\right)$, but since $0\leq a_0, a^\prime_0 < b$, $-b<a^\prime_0 - a_0<b$, 
+    which falls into contradiction. Hence $q_0 = q^\prime_0$ and also $a_0 = a^\prime_0$. Similarlily we can repeat this process for
+    $q_i$ to show that $a_i = a^\prime_i$ for $0 \leq i \leq k$, proving that $a_0,\, a_1,\, \cdots,\, a_k$ uniquely exists. \qed
+\end{proof}
+
+\end{document}

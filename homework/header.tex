@@ -1,0 +1,54 @@
+\documentclass[runningheads,11pt]{llncs}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{import}
+\usepackage{kotex}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{underscore}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage[numbers,square,super]{natbib}
+\usepackage{mathptmx} % Times New Roman
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{framed}
+\usepackage{etoolbox}
+
+\colorlet{shadecolor}{gray!30}
+
+\newcommand\enclosebox[2]{%
+  \BeforeBeginEnvironment{#1}{\begin{#2}}%
+  \AfterEndEnvironment{#1}{\end{#2}}%
+}
+
+\enclosebox{theorem}{oframed}
+\enclosebox{definition}{leftbar}
+
+\newcommand{\divides}{\bigm|}
+\newcommand{\ndivides}{%
+  \mathrel{\mkern.5mu % small adjustment
+    % superimpose \nmid to \big|
+    \ooalign{\hidewidth$\big|$\hidewidth\cr$\nmid$\cr}%
+  }%
+}
+\setmainfont{Times New Roman}
+\setmonofont{Fira Code}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{1em}
+\linespread{1.2}
+{\renewcommand{\arraystretch}{1.5}%
+\setlength{\tabcolsep}{0.5em}%
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+\newcommand{\translation}[1]{\textsuperscript{#1}}
+
+\makeatletter
+\renewcommand\NAT@citesuper[3]{\ifNAT@swa
+\if*#2*\else#2\NAT@spacechar\fi
+\unskip\kern\p@\textsuperscript{\NAT@@open#1\if*#3*\else,\NAT@spacechar#3\fi\NAT@@close}%
+   \else #1\fi\endgroup}
+\makeatother
