@@ -1,0 +1,166 @@
+It can be seen that
+\begin{enumerate}
+    \item If $2^n-1$ is prime, then $n$ is prime.
+    \item If $a$ and $p$ are positive integers such that $a^p-1$ is
+    prime, then $a=2$ or $p=1$.
+    \footnote{Proof exists at Wikipedia}
+\end{enumerate}
+The converse of 1. does not hold. (e. g. $2^{11}-1 = 23\times 89$)
+
+\paragraph{Question} Are there infinitely many Mersenne primes?
+$\Rightarrow$ yet unknown!
+\marginpar{\textbf{O}nly \textbf{G}od \textbf{K}nows}
+
+\begin{remark}
+    Using Mersenne numbers and some theorem of groups\footnote{Lagrange theorem},
+    we can show the infinitude of primes.
+\end{remark}
+
+\paragraph{Example} $2^{11213}-1$ is prime (1963)
+
+$2^{82589933}-1$ is prime (2018)
+
+\begin{definition}[Fermat Primes]
+    A \textbf{Fermat prime} is a Fermat number\footnote{$F_n := 2^{2^n} + 1$} which is also prime.
+\end{definition}
+
+e.g. $F_0=3$, $F_1=5$, $F_2=17$, $F_3=257$, $F_4=65537$: the only known Fermat primes.
+
+\begin{theorem}
+    If $2^m+1$ is an odd prime, then $m$ is a power of 2.     
+\end{theorem}
+\begin{proof}
+    If $m$ is a positive integer and is not a power of 2, then
+    \[
+        m=rs    
+    \]
+    where $1 \leq r,\,s < m$ and $s$ is odd.
+    Note that for any $n \in \mathbb{Z}^+$,
+    \[
+        \left(a-b\right) \divides \left(a^l-b^l\right).    
+    \]
+    Put $a=2^r$, $b=-1$, $l=s$. Then
+    \[
+        \left(2^r+1\right) \divides \left(2^{rs}+1\right)
+        \Rightarrow \left(2^r+1\right) \divides \left(2^{m}+1\right).
+    \]
+    Since $1<2^r+1<2^m+1$, it follows that $2^m+1$ is not prime. $\rightarrow\leftarrow$
+\end{proof}
+
+\begin{theorem}
+    A regular polygon of $n$ sides can be constructed using an unmarked ruler
+    and compass if and only if
+    \[
+        n=2^m \qquad\mbox{or}\qquad n=2^rp_1p_2\times\cdots\times p_k
+    \]
+    where $m \geq 2$, $r \geq 0$ and $p_1,\,p_2,\,\cdots,\,p_k$ are
+    distinct Fermat primes.
+\end{theorem}
+
+e. g.
+\begin{align*}
+    3 &= 2^{2^0} + 1 & \mbox{: constructive} \\
+    5 &= 2^{2^1} + 1 & \mbox{: constructive} \\
+    7 & & \mbox{: not constructive} \\
+    17 &= 2^{2^2} + 1 & \mbox{: constructive} \\
+\end{align*}
+
+\begin{theorem}
+    \[
+        \left(F_m,\,F_n\right)=1    
+    \]
+    if $m \neq n \in \mathbb{Z}^+ \cup \left\{0\right\}$.
+\end{theorem}
+
+\begin{proof}
+    \textbf{Claim} $F_n = F_0F_1 \times \cdots \times F_{n-1} + 2$ where $n\geq 1$.
+
+    \begin{itemize}
+        \item[$n=1.$] $F_1=5$; $F_0+2=3+2=5.$ 
+        \item[$n=2.$] $F_2=17$; $F_0F_1+2=3\times 5+2=17.$
+        \item[Inductive step.] Assume that the claim is true for $s \leq k$. Then
+        \begin{align*}
+            & F_0F_1 \times \cdots \times F_k + 2 \\
+            =& \left(F_0F_1 \times \cdots \times F_{k-1}\right)F_k + 2 \\
+            =& \left(F_k + 2\right)F_k + 2 \\
+            =& F_k^2 - 2F_k + 2 \\
+            =& \left(F_k-1\right)^2+1 \\
+            =& 2^{2^{k+1}}+1=F_{k+1}.
+        \end{align*}   
+    \end{itemize}
+
+    Note that for $i=0,\,1,\,\cdots,\,n-1$,
+    \[
+        {F_n} \div {F_i}=\left(F_0F_1\times\cdots\times F_{n-1}+2\right) \div {F_i}
+    \]
+    leaves the remainder of 2. i. e. $F_n=qF_i+2$.
+
+    Thus if $m\divides F_n$, then $m\divides 2$, and so $m=1$ or $m=2$.
+    Since $F_n$ and $F_i$ are odd, it follows that $m=1$.
+\end{proof}
+
+\begin{corollary}
+    There are infinitely many primes.
+\end{corollary}
+
+\begin{proof}
+    It follows immediately by the following statements.
+
+    \begin{enumerate}
+        \item $\left\{F_n \mid n\geq 0\right\}$ is an infinite set.
+        \item $F_n$ has a prime factor of $p_n$.
+        \item $\left(F_m,\,F_n\right)=1$ if $m \neq n$.
+    \end{enumerate}
+\end{proof}
+
+\begin{remark}
+    \begin{enumerate}
+        \item Fermat conjectured all Fermat numbers are primes, but it's not true:
+        \[F_5 = 4294967297 = 641 \times 6700417.\]
+        \item Open questions remains:
+        \begin{enumerate}
+            \item Are there infinitely many Fermat primes?
+            \item Are there infinitely many composite Fermat numbers?
+            \item Is it true that $F_n$ is composite for all $n>4$?
+        \end{enumerate}
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}[Prime Number Theorem]
+    If
+    \[
+        \pi\left(x\right) := \left(\mbox{number of primes less than or equal to $x$}\right)
+    \]
+    Then
+    \[
+        \lim_{x\rightarrow \infty} \frac{\pi\left(x\right)}{\frac{x}{\ln x}} = 1.    
+    \]
+\end{theorem}
+\marginpar{e. g. $\pi\left(10\right)=4.$}
+It was conjectured by Gauss and Legendre; proved by Hadamad and Poisson independently
+using complex analysis.
+
+\begin{theorem}
+    If $n$ is a positive composite integer, then $n$ has a prime factor
+    not exceeding $\sqrt{n}$.
+
+    i. e. $\exists$ prime factor $p$ such that $p \divides n$ and $p \leq \sqrt{n}$.
+\end{theorem}
+
+\begin{corollary}
+    If $n$ has no prime factors not exceeding $\sqrt{n}$, then $n$ is prime.
+\end{corollary}
+
+\begin{proof}[by the contrapositive of the theorem above]
+    (Proof left for students.)
+\end{proof}
+
+\begin{theorem}[Fundamental Theorem of Arithmetic]
+    Let $n>1$ be an integer. Then $n$ can be expressed as a product of
+    prime factors in an unique way, except for the order of factors.
+    i. e. $\mathbb{Z}$ is an
+    unique factorization domain\footnote{Integral domain -- no zero divisors}.
+\end{theorem}
+\begin{proof}
+    (Using WOP; see the book.)
+\end{proof}
