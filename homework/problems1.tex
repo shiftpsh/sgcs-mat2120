@@ -1,0 +1,361 @@
+\input{header}
+
+\begin{document}
+
+\title{MAT2120 Number Theory\newline\space Problems I}
+\author{Suhyun Park (20181634)}
+\institute{Department of Computer Science and Engineering, Sogang University}
+
+\maketitle
+
+% Question 1.
+\subsubsection{1.} Show that $\left(a,\,c\right)=1$, $\left(b,\,c\right)=1$
+if and only if $\left(ab,\,c\right)=1$.
+
+\begin{proof}
+    ($\Rightarrow$) Suppose $\left(ab,\,c\right)=d>1$. Then
+    \[
+        d \divides c,\, d \divides ab.    
+    \]
+    For all integers $d_1$, $d_2$ such that $d_1 \divides a$, $d_2 \divides b$
+    and $d=d_1d_2$,
+    \[
+        d_1 \divides c,\, d_2\divides c \Rightarrow \left(a,\,c\right) = d_1,\, \left(b,\,c\right) = d_2.    
+    \]
+    Since $d_1d_2 = d > 1$, $d_1 > 1$ or $d_2 > 1$. This is a contradiction;
+    thus $\left(ab,\,c\right)=1$ if $\left(a,\,c\right)=1$, $\left(b,\,c\right)=1$.
+
+    ($\Leftarrow$) Suppose $\left(a,\,c\right)=d>1$. Then $d \divides ab$, thus
+    $\left(ab,\,c\right)=d>1$, which contradicts. Similarily when if
+    $\left(b,\,c\right)=d>1$, $\left(ab,\,c\right)=d>1$. Thus $\left(a,\,c\right)=1$, $\left(b,\,c\right)=1$
+    if $\left(ab,\,c\right)=1$. \qed
+\end{proof}
+
+% Question 2.
+\subsubsection{2.} If $\left(a,\,b\right)=1$, prove that $\left(a+b,\,a-b\right)=1$ or 2.
+
+\begin{proof}
+    Since $\left(a,\,b\right)=1$, $\left(2a,\,2b\right)=2$.
+
+    Let $\left(a+b,\,a-b\right)=d$. Then
+    \begin{align*}
+        & d \divides \left(a+b\right),\, d\divides \left(a-b\right) \\
+        \Rightarrow & d \divides \left[\left(a+b\right)+\left(a-b\right)\right],\,
+        d \divides \left[\left(a+b\right)-\left(a-b\right)\right] \\
+        \Rightarrow & d \divides 2a,\, d\divides 2b
+    \end{align*}
+
+    Thus $d = 1$ or 2, given the fact that $\left(2a,\,2b\right)=2$. \qed
+\end{proof}
+
+% Question 3.
+\subsubsection{3.} Let $\left(a,\,b\right)=10$.
+Find all possible values of $\left(a^3,\,b^4\right)$.
+
+\begin{lemma}
+    If $\left(x,\,y\right)=1$, $\left(x^a,\,y^b\right)=1$ for nonnegative integers
+    $a$ and $b$.
+\end{lemma}
+
+\begin{proof}
+    If the set of prime factors of $x$ is $P = \left\{p_1,\,p_2,\,\cdots,\,p_n\right\}$,
+    and that of $y$ is $Q = \left\{q_1,\,q_2,\,\cdots,\,q_m\right\}$, i. e. 
+    \begin{align*}
+        x&= \prod_{k=1}^n p_k^{e_k} \\
+        y&= \prod_{k=1}^m q_k^{e^\prime_k}
+    \end{align*}
+    for $e_i,\, e^\prime_i \in \mathbb{Z}^+$, then clearly if and only if
+    $P \cap Q = \emptyset$, then $\left(x,\,y\right)=1$.
+    
+    Since
+    \begin{align*}
+        x^a&= \left[\prod_{k=1}^n p_k^{e_k}\right]^a=\prod_{k=1}^n p_k^{ae_k} \\
+        y^b&= \left[\prod_{k=1}^m q_k^{e^\prime_k}\right]^b=\prod_{k=1}^m q_k^{be^\prime_k},
+    \end{align*}
+    the set of prime factors of $x^a$ is also $P$, and that of $y^b$ is also $Q$. Since $P \cap Q = \emptyset$, 
+    $\left(x^a,\,y^b\right)=1$. \qed
+\end{proof}
+
+Since $\left(a,\,b\right)=10$, $10\divides a$, $10\divides b$.
+We let $a=10a_0$ and $b=10b_0$, hence $\left(a_0,\,b_0\right)=1$. Then
+\begin{align*}
+    \left(a^3,\,b^4\right) &= \left(10^3a_0^3,\,10^4b_0^4\right) \\
+    &= 10^3 \left(a_0^3,\, 10b_0^4\right) 
+\end{align*}
+
+Suppose $\left(a_0^3,\, 10b_0^4\right) =k$, which $k \divides a_0^3$
+and $k \divides 10b_0^4$. Note that $\left(a_0^3,\,b_0^4\right)=1$ by Lemma and $k \divides a_0^3$,
+hence $k \ndivides b_0^4$, thus $k \divides 10$.
+
+Since $a$ and $b$ are nonnegative, possible values for $k$ is 1, 2, 5, and 10. Thus, possible values
+of $\left(a^3,\,b^4\right) = 10^3k$ is $10^3$, $2 \cdot 10^3$, $5 \cdot 10^3$, and $10^4$.
+
+% Question 4.
+\subsubsection{4.} Show that $e=\sum_{n=0}^\infty \frac{1}{n!}$ is irrational.
+(Hint. Suppose $e=\frac{p}{q}$ with positive integers $p$ and $q$.
+Show that $q!e$ and $q!\sum_{n=0}^q \frac{1}{n!}$ are both integers.)
+
+\begin{proof}
+    Suppose that $e=\sum_{n=0}^\infty \frac{1}{n!}$ is rational. i. e.,
+    there exists positive integers $p$ and $q$ such that $e=\frac{p}{q}$.
+
+    Then $q!e = \left(q-1\right)!qe = \left(q-1\right)!p$ is an integer.
+    Also,
+    \begin{align*}
+        q! \sum_{n=0}^q \frac{1}{n!} &= \sum_{n=0}^q \frac{q!}{n!} \\
+        &= \sum_{n=0}^q \prod_{k=n+1}^q k
+    \end{align*}
+    is an integer. Thus,
+    \begin{align*}
+        q!e - q!\sum_{n=0}^q \frac{1}{n!}
+        &= q!\sum_{n=0}^\infty \frac{1}{n!} - q!\sum_{n=0}^q \frac{1}{n!} \\
+        &= q!\sum_{n=q+1}^\infty \frac{1}{n!}
+    \end{align*}
+    should be also an (positive) integer.
+
+    Since
+    \[
+        \frac{q!}{n!} = \frac{1}{\prod_{k=q+1}^n k} \leq \frac{1}{\left(q+1\right)^{n-q}}
+    \]
+    is strict for every $n \geq b+2$, we can conclude that
+    \begin{align*}
+        q!\sum_{n=q+1}^\infty \frac{1}{n!} &< \sum_{n=q+1}^\infty \frac{1}{\left(q+1\right)^{n-q}} \\
+        &= \sum_{k=1}^\infty \frac{1}{\left(q+1\right)^k} \\
+        &= \frac{1}{q}.
+    \end{align*}
+
+    Note that $q!\sum_{n=q+1}^\infty \frac{1}{n!}$ should be a positive integer,
+    but it is impossible that a positive integer is less than $\frac{1}{q}$, given the fact that $q$ is also
+    a positive integer. Hence $e$ is not rational, thus irrational.
+\end{proof}
+
+% Question 5.
+\subsubsection{5.} Show that if $k$ is an integer, then the integers
+$6k-1$, $6k+1$, $6k+2$, $6k+3$, and $6k+5$ are pairwise relatively prime.
+
+\begin{proof}
+    If $\left(a,\,b\right)=d$, then $d \divides a$ and $d \divides b$;
+    giving that $d \divides \left(a-b\right)$.
+
+    Hence for some integer $k$, if $a+k=b$ and $\left(a,\,k\right)=1$
+    and $\left(b,\,k\right)=1$,
+    then $\left(a,\,b\right)=1$ because $\left(a,\,b\right) \divides \left(b-a\right) \Rightarrow \left(a,\,b\right) \divides k$,
+    giving that $\left(a,\,b\right)$ is a common divisor of $a$ and $k$.
+
+    For $k=1$,
+    $\left(6k+1,\,6k+2\right)=1$
+    and $\left(6k+2,\,6k+3\right)=1$.
+
+    For $k=2$,
+    $\left(6k-1,\,6k+1\right)=1$,
+    $\left(6k+1,\,6k+3\right)=1$,
+    and $\left(6k+3,\,6k+5\right)=1$.
+
+    For $k=3$,
+    $\left(6k-1,\,6k+2\right)=1$,
+    and $\left(6k+2,\,6k+5\right)=1$.
+
+    For $k=4$,
+    $\left(6k-1,\,6k+3\right)=1$,
+    and $\left(6k+1,\,6k+5\right)=1$.
+
+    For $k=6$,
+    $\left(6k-1,\,6k+5\right)=1$.
+
+    Hence the integers
+    $6k-1$, $6k+1$, $6k+2$, $6k+3$, and $6k+5$ are pairwise relatively prime. \qed
+\end{proof}
+
+% Question 6.
+\subsubsection{6.} Show that if $a$ and $p$ are positive integers such that $a^p-1$
+is prime, then $a=2$ or $p=1$.
+
+\begin{proof}
+    Note that
+    \[
+        a^p-1=\sum_{r=0}^{p-1}\left(a^{r+1}-a^r\right)=\left(a-1\right)\sum_{r=0}^{p-1} a^r.
+    \]
+    Thus $\left(a-1\right) \divides \left(a^p-1\right)$ and $\left(\sum_{r=0}^{p-1} a^r\right) \divides \left(a^p-1\right)$.
+
+    Suppose that $a^p-1$ is prime.
+    \begin{enumerate}
+        \item If $a < 2$, then $a=1 \Rightarrow 1^p-1=0$ is not prime.
+        
+        \item If $a > 2$, then $a-1 \geq 2$.
+        
+        Since $a^p-1$ is prime, the only prime
+        factor for $a^p-1$ has to be $a-1$, implying that $\sum_{r=0}^{p-1} a^r=1 \Rightarrow p=1$.
+        
+        \item If $p > 1$, then $\sum_{r=0}^{p-1} a^r \geq \sum_{r=0}^{2-1} a^r= 1+a \geq 2$.
+        
+        Since $a^p-1$ is prime, the only prime factor for $a^p-1$ has to be $\sum_{r=0}^{p-1} a^r$,
+        implying that $a-1=1 \Rightarrow a=2$.
+    \end{enumerate}
+    Hence if $a^p-1$ is prime, then $a=2$ or $p=1$. \qed
+\end{proof}
+
+% Question 7.
+\subsubsection{7.} Show that if $2^p-1$ is prime, then $p$ is prime.
+
+\begin{proof}
+    Note that
+    \[
+        2^p-1 = \sum_{k=0}^{p-1} 2^k.    
+    \]
+    
+    Suppose $p$ is not prime, giving the fact that there exists some integers
+    $p_1,\,p_2 \geq 2$ such that $p=p_1p_2$. Then
+    \begin{align*}
+        2^p-1 &= \sum_{k=0}^{p-1} 2^k \\
+        &= \sum_{k=0\cdot p_1}^{1\cdot p_1-1} 2^k
+        + \sum_{k=1\cdot p_1}^{2\cdot p_1-1} 2^k
+        + \cdots
+        + \sum_{k=\left(p_2-2\right) p_1}^{\left(p_2-1\right) p_1-1} 2^k
+        + \sum_{k=\left(p_2-1\right) p_1}^{p_2p_1-1} 2^k \\
+        &= \left(2^{p_1}\right)^0 \sum_{k=0}^{p_1-1} 2^k
+        + \left(2^{p_1}\right)^1 \sum_{k=0}^{p_1-1} 2^k
+        + \cdots
+        + \left(2^{p_1}\right)^{p_2-2} \sum_{k=0}^{p_1-1} 2^k
+        + \left(2^{p_1}\right)^{p_2-1} \sum_{k=0}^{p_1-1} 2^k \\
+        &= \left[\sum_{k=0}^{p_2-1} \left(2^{p_1}\right)^k\right]
+        \left[\sum_{k=0}^{p_1-1} 2^k\right]
+    \end{align*}
+    which $2^p-1$ is clearly not prime. Hence if $2^p-1$ is prime, then $p$ is also prime.
+    \qed
+\end{proof}
+
+% Question 8.
+\subsubsection{8.} Show that if $a$ is a positive integer and $a^m+1$ is an odd
+prime, then $m=2^n$ for some nonnegative integer $n$.
+
+\begin{proof}
+    Suppose that $a^m+1$ is prime and $m\neq 2^n$ for any integer $n$. Then
+    $m$ can be expressed as $m=rs$, where $1\leq r,\,s < m$, and $s$ is odd.
+
+    Note that for any $l \in \mathbb{Z}^+$, 
+    \[
+        \left(x-y\right) \divides \left(x^l-y^l\right).
+    \]
+
+    Put $x=a^r$ and $y=-1$. then
+    \begin{align*}
+        & \left(a^r-1\right) \divides \left[\left(a^r\right)^s - \left(-1\right)^s\right] \\
+        \Rightarrow & \left(a^r-1\right) \divides \left(a^{rs} + 1\right) \\
+        \Rightarrow & \left(a^r-1\right) \divides \left(a^m+1\right).
+    \end{align*}
+
+    Hence if $m \leq 2^n$, $a^m+1$ is clearly not prime; thus
+    if $a^m+1$ is prime then $m=2^n$ for some nonnegative integer $n$.
+\end{proof}
+
+% Question 9.
+\subsubsection{9.} Show that if $a$ and $b$ are positive integers and if
+$a^3 \divides b^2$, then $a \divides b$.
+
+Let
+\begin{align*}
+    a &= p_1^{a_1} p_2^{a_2} \times \cdots \times p_{n-1}^{a_{n-1}} p_n^{a_n} \\
+    b &= p_1^{b_1} p_2^{b_2} \times \cdots \times p_{n-1}^{b_{n-1}} p_n^{b_n}.
+\end{align*}
+where $a_i,\,b_i \in \mathbb{Z}^+ \cup \left\{0\right\}$ and $p_i$ is prime for $1 \leq i \leq n$.
+
+Then if $a^3 \divides b^2$, it is clear that
+\begin{align*}
+    & \left(p_1^{a_1} p_2^{a_2} \times \cdots \times p_{n-1}^{a_{n-1}} p_n^{a_n}\right)^3
+    \divides \left(p_1^{b_1} p_2^{b_2} \times \cdots \times p_{n-1}^{b_{n-1}} p_n^{b_n}\right)^2 \\
+    \Rightarrow & \left(p_1^{3a_1} p_2^{3a_2} \times \cdots \times p_{n-1}^{3a_{n-1}} p_n^{3a_n}\right)
+    \divides \left(p_1^{2b_1} p_2^{2b_2} \times \cdots \times p_{n-1}^{2b_{n-1}} p_n^{2b_n}\right).
+\end{align*}
+Since $p_1,\, p_2,\, \cdots,\, p_n$ are primes,
+\begin{align*}
+    & 3a_i \leq 2b_i \\
+    \Rightarrow & a_i \leq b_i \qquad \mbox{for all } 1 \leq i \leq n.
+\end{align*}
+Hence
+\begin{align*}
+    & \left(p_1^{a_1} p_2^{a_2} \times \cdots \times p_{n-1}^{a_{n-1}} p_n^{a_n}\right)
+    \divides \left(p_1^{b_1} p_2^{b_2} \times \cdots \times p_{n-1}^{b_{n-1}} p_n^{b_n}\right) \\
+    \Rightarrow & a \divides b.
+\end{align*}
+\qed
+
+% Question 10.
+\subsubsection{10.} Find all integer solutions of the following system of
+Diophantine equations:
+\[
+\begin{cases}
+    x+y+z=100\\
+    x+8y+50z=156
+\end{cases}
+\]
+
+Subtracting the first equation from the second equation, we get
+\[
+    7y + 49z = 56 \Rightarrow y + 7z = 8.
+\]
+Then the arbitary solution for $y$ and $z$ is given by $y_0=1,\,x_0=1$,
+and the general solution exists as
+
+\[
+    \left\{y,\,z\right\}
+    = \left\{y_0 + \frac{7}{\left(1,\,7\right)}t,\, z_0 - \frac{1}{\left(1,\,7\right)}t\right\}
+    = \left\{1 + 7t,\, 1 - t\right\}
+\]
+for any integer $t$.
+
+Given the fact that $y+z=\left(1+7t\right)+\left(1-t\right)=2+6t$,
+\[
+    x+\left(y+z\right)=100 \Rightarrow x+2+6t=100 \Rightarrow x+6t=98.  
+\]
+Then the arbitary solution for $x$ and $t$ is given by $x_0=98,\,t_0=0$,
+and the general solution exists as
+
+\[
+    \left\{x,\,t\right\}
+    = \left\{x_0 + \frac{6}{\left(1,\,6\right)}u,\, t_0 + \frac{1}{\left(1,\,6\right)}u\right\}
+    = \left\{98 + 6u,\, -u\right\}
+\]
+for any integer $u$.
+
+Thus the general solution for $\left\{x,\,y,\,z\right\}$ is
+\begin{align*}
+    \left\{x,\,y,\,z\right\} &= \left\{98+6u, 1+7t,\,1-t\right\} \\
+    &= \left\{98+6u, 1-7u,\,1+u\right\}
+\end{align*}
+for any integer $u$.
+
+% Question 11.
+\subsubsection{11.} What is the smallest positive rational number that can be expressed
+in the form of $\frac{x}{30}+ \frac{y}{36}$ with integers $x$ and $y$?
+
+Note that $\frac{x}{30}+\frac{y}{36}=\frac{6x+5y}{180}$.
+Since $\left(6,\,5\right)=1$, there exists integer solution to equation
+$6x+5y=1$, given that $1\divides 1$.
+
+Therefore the smallest positive rational number that can be expressed
+in the form of $\frac{x}{30}+ \frac{y}{36}$ is $\frac{1}{180}$.
+
+% Question 12.
+\subsubsection{12.} Let $m_1,\,\cdots,\,m_k$ be positive integers and $a,\,b\in\mathbb{Z}$.
+Show that $a\equiv b$ (mod $m_i$) for each $i$ if and only if $a \equiv b$ (mod $\left[m_1,\,\cdots,\,m_k\right]$). % LCM
+
+\begin{proof}
+    By definition, if $a \equiv b$ (mod $m$), then $m \divides \left(a-b\right)$.
+    Let $l$ = $\left[m_1,\,\cdots,\,m_k\right]$.
+
+    ($\Rightarrow$) If $a \equiv b$ (mod $m_i$) for all $i$,
+    then $m_i \divides \left(a-b\right)$ for all $i$.
+    Suppose $l \ndivides \left(a-b\right)$. Then by the division algorithm, $\left(a-b\right) = lp + q$, where
+    $p,\,q \in \mathbb{Z}$ and $1 \leq q < l$.
+
+    Suppose $a\equiv b$ (mod $m_i$) for each $i$. Then $m_i \divides \left(a-b\right) = \left(lp + q\right)$ for all $i$.
+    Since $m_i \divides l$, $m_i \divides q$ for all $i$, which means that $q$ is a common multiple of
+    $m_1,\,m_2,\,\cdots,\,m_n$, but the fact that the LCM of $m_1,\,m_2,\,\cdots,\,m_n$ is $l$ and $1 \leq q < l$
+    leads to contradiction. Thus if $a\equiv b$ (mod $m_i$) for each $i$, then $a \equiv b$ (mod $\left[m_1,\,\cdots,\,m_k\right]$).
+
+    ($\Leftarrow$) If $a \equiv b$ (mod $l$), then $l \divides \left(a-b\right)$.
+    Since $m_i \divides l$ for all $i$, $m_i \divides \left(a-b\right)$ for all $i$.
+    Thus if $a \equiv b$ (mod $\left[m_1,\,\cdots,\,m_k\right]$), then $a\equiv b$ (mod $m_i$) for each $i$.
+\end{proof}
+
+\end{document}
