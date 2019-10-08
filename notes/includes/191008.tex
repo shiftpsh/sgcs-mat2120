@@ -1,0 +1,217 @@
+\begin{definition}[Euler $\phi$ Function]
+    Let $n \in \mathbb{Z}^+$. The \textbf{Euler $\mathbf{\phi}$--function}
+    $\phi\left(n\right)$ is defined to be the count of positive 
+    integers not exceeding $n$ which are relatively prime to $n$.
+\end{definition}
+
+e. g. $\phi\left(1\right)=1$, $\phi\left(2\right)=1$, $\phi\left(3\right)=2$, 
+$\phi\left(8\right)=4$, $\phi\left(12\right)=4$
+
+In general, if $p$ is prime, then $\phi\left(p\right) = p-1$.
+
+\paragraph{Question.} How to compute $\phi\left(n\right)$?
+Goal: $\phi\left(mn\right)=\phi\left(m\right)\phi\left(n\right)$
+if $\left(m,\,n\right)=1$, i. e. $\phi$ is multiplicative.
+
+\begin{definition}[Reduced Residue System]
+    A \textbf{reduced residue system} modulo $n$ is 
+    a set of $\phi\left(n\right)$ integers such that each element of
+    the set is relatively prime to $n$ and no two distinct elements
+    of the set are congrugent modulo $n$.
+\end{definition}
+
+e. g. $n=8\Rightarrow\left\{1,\,3,\,5,\,7\right\}$ : a reduced residue
+system modulo 8.
+
+\begin{lemma}
+    If $\left\{r_1,\,r_2,\,\cdots,\,r_{\phi\left(n\right)}\right\}$ is a reduced
+    residue system modulo $n$ and if $a\in\mathbb{Z}^+$ with $\left(a,\,n\right)=1$
+    then $\left\{ar_1,\,ar_2,\,\cdots,\,ar_{\phi\left(n\right)}\right\}$
+    is also a reduced residue system modulo $n$.
+\end{lemma}
+\marginpar{Only multiplication holds; addition does not hold.}
+\begin{proof}
+    (See the textbook.)
+\end{proof}
+
+\begin{theorem}[Euler's Theorem]
+    If $m\in\mathbb{Z}^+$ and $a\in\mathbb{Z}$ with $\left(a,\,m\right)=1$
+    then
+    \[
+        a^{\phi\left(m\right)} \equiv 1 \mbox{ (mod $m$)}.    
+    \]
+\end{theorem}
+\begin{proof}
+    Let $\left\{r_1,\,r_2,\,\cdots,\,r_{\phi\left(m\right)}\right\}$ be 
+    a reduced residue system modulo $m$.
+    Since $\left(a,\,m\right)=1$, the set $\left\{ar_1,\,ar_2,\,\cdots,\,ar_{\phi\left(m\right)}\right\}$
+    is a reduced residue system modulo $m$ by Lemma.
+
+    Then
+    \[
+        ar_1\times ar_2 \times \cdots \times ar_{\phi\left(m\right)}
+        \equiv r_1\times r_2 \times \cdots \times r_{\phi\left(m\right)} \mbox{ (mod $m$)}
+    \]
+    and so
+    \[
+        a^{\phi\left(m\right)} \times r_1\times r_2 \times \cdots \times r_{\phi\left(m\right)}
+        = r_1\times r_2 \times \cdots \times r_{\phi\left(m\right)} \mbox{ (mod $m$)}. 
+    \]
+    Hence $a^{\phi\left(m\right)} \equiv 1$ (mod $m$).\footnote{Note that $\left(r_1r_2\times\cdots\times r_{\phi\left(m\right)},\,m\right)=1$} \qed
+\end{proof}
+
+\begin{corollary}[Fermat's Little Theorem]
+    If $p$ is prime and $p \ndivides a$ ($\Rightarrow \left(a,\,p\right)=1$), then
+    \[
+        a^{p-1} \equiv 1 \mbox{ (mod $p$)}.
+    \]
+\end{corollary}
+
+\begin{corollary}
+    Let $p$ : prime. Then
+    \[
+        a^p \equiv a \mbox{ (mod $p$)}.
+    \]
+\end{corollary}
+\begin{proof}
+    If $a \equiv 0$ (mod $p$), then $a^p \equiv 0 \equiv a$ (mod $p$).
+
+    If $a \not\equiv 0$ (mod $p$), then $a^{p-1} \equiv 1$ (mod $p$) thus 
+    $a^{p-1} \equiv a$ (mod $p$). \qed
+\end{proof}
+
+\begin{example}
+    $2^{1137}$ (mod 17)?
+
+    By Euler's theorem, $2^{16} \equiv 1$ (mod 17). Thus
+    \[
+        2^{1137} = \left(2^{16}\right)^{71} \cdot 2 \equiv 1 \cdot 2 \equiv 2 \mbox{ (mod 17)}.
+    \]
+\end{example}
+
+\begin{example}
+    Show that 117 is not a prime.
+
+    Suppose 117 is prime. then
+    \[
+        2^{117} \equiv 2 \mbox{ (mod 117)}.    
+    \]
+    Note that
+    \[
+        2^7 \equiv 128 \equiv 11 \mbox{ (mod 117)}.    
+    \]
+    Thus
+    \begin{align*}
+        2^{117} &\equiv \left(2^7\right)^{16} \cdot 2^5 \\
+        &\equiv 11^{16} \cdot 2^5 \\
+        &\equiv 121^8 \cdot 2^5 \\
+        &\equiv 4^8 \cdot 2^5 \\
+        &\equiv 2^{21} \equiv 11^3 \not\equiv 2 \mbox{ (mod 17)}.
+    \end{align*}
+\end{example}
+
+\begin{example}
+    Solve $x^{35}+5x^{19}+11x^3 \equiv 0$ (mod 17).
+
+    By Fermat's little theorem,
+    \[
+        x^{17} \equiv x \mbox{ (mod 17)}.   
+    \]
+    Then
+    \begin{align*}
+        x^{35} &= x\left(x^{17}\right)^2 \equiv x^3 \\
+        x^{19} &= x^2\left(x^{17}\right) \equiv x^3 \\
+    \end{align*}
+    Thus
+    \[
+        x^{35}+5x^{19}+11x^3 \equiv \left(1+5+11\right)x^3 \equiv 0\cdot x^3 \equiv 0
+        \mbox{ (mod 17)}.
+    \]
+    Hence $x$ can be any integer.
+\end{example}
+
+\begin{theorem}[Wilson's Theorem]
+    If $p$ is a prime, then
+    \[
+        \left(p-1\right)! \equiv -1 \mbox{ (mod $p$)}.
+    \]
+\end{theorem}
+\marginpar{
+    Was conjectured by Wilson; and proved by Lagrange.
+}
+
+\begin{lemma}
+    Let $p$ be prime. $a$ is self-invertible modulo $p$,
+    i. e. $a\cdot a \equiv 1$ (mod $p$), if and only if $a \equiv \pm 1$ (mod $p$).
+\end{lemma}
+
+\begin{proof}[of lemma]
+    ($\Leftarrow$) It's trivial.
+
+    ($\Rightarrow$) Note that
+    \[
+        a^2 \equiv 1 \mbox{ (mod $p$)}
+    \]
+    and so $p \divides \left(a-1\right)\left(a+1\right)$.
+
+    Since $p$ is prime, $p \divides \left(a-1\right)$ or $p \divides \left(a+1\right)$.
+    Thus $a \equiv 1$ or $a \equiv -1$ (mod $p$). \qed
+\end{proof}
+
+\begin{proof}[of theorem]
+    If $p=2$, then $\left(p-1\right)!=1\equiv-1$ (mod 2).
+
+    Consider for $p>2$. Note that $\left\{1,\,2,\,\cdots,\,p-1\right\}$ is a reduced
+    residue system modulo $p$. By lemma, 1 and $p-1$ are self-invertible.
+    Thus we can group the remaining $p-3$ residues
+    $\frac{p-3}{2}$ pair of inverses $a$ and $b$ such that $ab \equiv 1$ (mod $p$).
+
+    Hence
+    \begin{align*}
+        \left(p-1\right)!&=1\cdot\left[2\cdot3\times\cdots\times\left(p-2\right)\right]\left(p-1\right)\\
+        &\equiv 1\cdot1\times\cdots\times1\left(p-1\right) \\
+        &\equiv p-1 \equiv -1 \mbox{ (mod $p$)}.
+    \end{align*}
+    \qed
+\end{proof}
+
+e. g. $\left(6-1\right)!+1=121\not\equiv 0$ (mod 6), thus 6 is not prime.
+
+In fact, the converse of Wilson's theorem also holds,
+but is inefficient to test primality.
+
+\begin{theorem}
+    If $n\in\mathbb{Z}^+$ and
+    \[
+        \left(n-1\right)!\equiv -1 \mbox{ (mod $m$)},
+    \]
+    then $n$ is prime.
+\end{theorem}
+
+\begin{proof}
+    Suppose that $n$ is composite. Then $n=ab$ where $1<a<n$ and $1<b<n$.
+    Since $a<n$, $a \divides \left(n-1\right)!$.
+    Since $\left(n-1\right)\equiv -1$ (mod $n$),
+    \[
+        n \divides \left[\left(n-1\right)!+1\right].
+    \]
+    Thus $a \divides \left[\left(n-1\right)!+1\right]$, hence $a \divides 1$,
+    which is a contradiction.
+\end{proof}
+
+\begin{remark}
+    $p$ is prime if and only if $\left(p-1\right)! \equiv -1$ (mod $p$),
+    and also $\left(p-2\right)! \equiv 1$ (mod $p$).
+\end{remark}
+
+\paragraph{Applications of Euler's and Wilson's theorem.}
+\begin{enumerate}
+    \item $p$ is odd prime. Then 
+    \[
+        \left[1\cdot 3\cdot 5 \times \cdots \times \left(p-2\right)\right]^2
+        \equiv \left[2\cdot 4\cdot 6 \times \cdots \times \left(p-1\right)\right]^2
+        \equiv \left(-1\right)^{\frac{p+1}{2}} \mbox{ (mod $p$)}.
+    \]
+    \item $p$ is odd prime. Then $x^2 \equiv -1$ (mod $p$)
+    has a solution if and only if $p \equiv 1$ (mod 4).
+\end{enumerate}
