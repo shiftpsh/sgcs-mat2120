@@ -1,0 +1,260 @@
+\begin{proof}
+    \begin{enumerate}
+        \item As $x$ runs through $\frac{p-1}{2}$ even integers from 2 to $p-1$, then
+        $p-x$ runs through odd integers from $p-2$ down to 1.
+        Then 
+        \[
+            \left(2\cdot 4\cdot 6 \times \cdots \times \left(p-1\right)\right)
+            \equiv \left(-1\right)^{\frac{p-1}{2}} \left(1\cdot 3\cdot 5\times \cdots \times \left(p-2\right)\right)
+            \mbox{ (mod $p$)}
+        \]
+        and so
+        \[
+            \left(2\cdot 4\cdot 6 \times \cdots \times \left(p-1\right)\right)^2
+            \equiv \left(1\cdot 3\cdot 5\times \cdots \times \left(p-2\right)\right)^2
+            \mbox{ (mod $p$)}.
+        \]
+
+        By Wilson's theorem,
+        \[
+            -1 \equiv \left(p-1\right)! = \left(1 \cdot 3 \cdot 5 \times \cdots \times \left(p-2\right)\right)
+            \left(2\cdot 4\cdot 6 \times \cdots \times \left(p-1\right)\right)
+            \mbox{ (mod $p$)}.
+        \]
+        Thus
+        \[
+            \left(-1\right)^{\frac{p-1}{2}}\left(1\cdot 3\cdot 5\times \cdots \times \left(p-2\right)\right)^2
+            \equiv -1 \mbox{ (mod $p$)},
+        \]
+        hence
+        \[
+            \left(1\cdot 3\cdot 5\times \cdots \times \left(p-2\right)\right)^2
+            \equiv \left(-1\right)^{\frac{p+1}{2}} \mbox{ (mod $p$)}.
+        \]
+        \qed
+    \item ($\Rightarrow$) Suppose $x_0^2 \equiv -1$ (mod $p$) for some $x \in \mathbb{Z}$. Then
+        \[
+            x_0^{p-1} = \left(x_0^2\right)^{\frac{p-1}{2}} \equiv \left(-1\right)^{\frac{p-1}{2}}.
+        \]
+        On the other hand, by Euler's theorem, $x_0^{p-1} \equiv 1$ (mod $p$).
+        \footnote{
+            Note that $x_0^2 \equiv -1$ (mod $p$), thus $\left(x_0,\,p\right) \divides 1$,
+            and so $\left(x_0,\,p\right)=1$; i. e. $p \ndivides x_0$.
+        }
+        Thus $\left(-1\right)^{\frac{p-1}{2}} \equiv 1$ (mod $p$); i. e. 
+        \[
+            p \divides \left[1-\left(-1\right)^{\frac{p-1}{2}}\right].
+        \]
+        Hence $1-\left(-1\right)^{\frac{p-1}{2}}=0$.
+        \footnote{
+            If $1-\left(-1\right)^{\frac{p-1}{2}}=2\neq 0$, then $p \divides 2$. $\rightarrow\leftarrow$
+        }
+        Therefore $\frac{p-1}{2}$ is even and so $p \equiv 1$ (mod 4).
+
+        ($\Leftarrow$) Note that
+        \begin{align*}
+            \left(p-1\right)!
+            &= \left(1 \cdot 2 \cdot 3 \times \cdots \times \frac{p-1}{2}\right)
+            \left(\left(p-1\right) \left(p-2\right) \left(p-3\right) \times \cdots \times \frac{p+1}{2}\right) \\
+            &\equiv \left(1 \cdot 2 \cdot 3 \times \cdots \times \frac{p-1}{2}\right)
+            \left(\left(-1\right) \left(-2\right) \left(-3\right) \times \cdots \times \frac{-\left(p-1\right)}{2}\right)
+            \mbox{ (mod $p$)} \\
+            &\equiv \left(-1\right)^{\frac{p-1}{2}} \times 1^2 \cdot 2^2 \cdot 3^2 \times \cdots \times \left(\frac{p+1}{2}\right)^2
+            \mbox{ (mod $p$)} \\
+        \end{align*}
+        Thus
+        \[
+            -1 \equiv \left(p-1\right)! \equiv \left(1 \cdot 2 \cdot 3 \times \cdots \times \frac{p-1}{2}\right)^2 \mbox{ (mod $p$)}.
+        \]
+        Put $x_0 = 1 \cdot 2 \cdot 3 \times \cdots \times \frac{p-1}{2}$. Then $x_0^2 \equiv -1$ (mod $p$).
+        \qed
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    Let $p$ be a prime number and $e \in \mathbb{Z}^+$. Then
+    \[
+        \phi\left(p^e\right) = p^e - p^{e-1}.    
+    \]
+\end{theorem}
+
+\begin{proof}
+    Note that
+    \begin{align*}
+        \phi\left(p^2\right) &= \mbox{(the number of positive integers $\leq p^e$ which are relatively prime to $p^e$)} \\
+        &= p^e - \mbox{(the number of positive integers $\leq p^e$ which are NOT relatively prime to $p^e$)} \\
+    \end{align*}
+    while the positive integers $\leq p^e$ which are NOT relatively prime to $p^e$ are
+    \[
+        p,\,2p,\,3p,\,\cdots,\,\left(p^{e-1}\right)p.
+    \]
+    \qed
+\end{proof}
+
+\begin{remark}
+    \begin{enumerate}
+        \item $\phi\left(p^e\right) = p^e-p^{e-1} = p^e\left(1-\frac{1}{p}\right)$.
+        \item Let $n=p_1^{e_1}p_2^{e_2}\times\cdots\times p_k^{e_k}$. Then
+        \begin{align*}
+            \phi\left(n\right)&=  \phi\left(p_1^{e_1}\right) \phi\left(p_2^{e_2}\right)\times\cdots\times \phi\left(p_k^{e_k}\right) \\
+            &= p_1^{e_1} \left(1-\frac{1}{p_1}\right) p_2^{e_2} \left(1-\frac{1}{p_2}\right) \times\cdots\times p_k^{e_k} \left(1-\frac{1}{p_k}\right) \\
+            &= \left[p_1^{e_1} p_2^{e_2} \times\cdots\times p_k^{e_k}\right] \times \left[\left(1-\frac{1}{p_1}\right) \left(1-\frac{1}{p_2}\right) \times\cdots\times \left(1-\frac{1}{p_k}\right)\right] \\
+            &= n \left[\left(1-\frac{1}{p_1}\right) \left(1-\frac{1}{p_2}\right) \times\cdots\times \left(1-\frac{1}{p_k}\right)\right].
+        \end{align*}
+    \end{enumerate}
+\end{remark}
+
+\begin{note}
+    $m=4$, $n=7$ ($\left(m,\,n\right)=1$)
+
+    $\phi\left(mn\right)=\phi\left(28\right) = 12 = 2 \times 6 =\phi\left(4\right)\phi\left(7\right)$.
+\end{note}
+
+\begin{lemma}
+    If $m,\,n \in \mathbb{Z}^+,$ $r \in \mathbb{Z},$ $\left(m,\,n\right)=1,$ then
+    the integers $r,\,m+r,\,2m+r,\,\cdots,\,\left(m-1\right)m+r$
+    are congrufent to $0,\,1,\,2,\,\cdots,\,n-1$ modulo $n$.
+\end{lemma}
+\begin{proof}
+    Suffies to show that no two integers in the list are congrugent modulo $n$.
+
+    Suppose that $km+r \equiv lm+r$ (mod $n$) where $0 \leq k,\,l < n$. Then
+    $km \equiv lm$ (mod $n$).
+    Since $\left(m,\,n\right)=1$, hence $k \equiv l$ (mod $n$).
+    Since $0 \leq k,\,l < n$, $k=l$. \qed
+\end{proof}
+
+\begin{theorem}
+    $\phi\left(mn\right)=\phi\left(m\right)\phi\left(n\right)$ if $\left(m,\,n\right)=1$.
+\end{theorem}
+\begin{proof}
+    Consider
+    \begingroup
+    \setlength{\arraycolsep}{10pt}
+    \[
+        \begin{matrix}
+            1 & m+1 & 2m+1 & \cdots & \left(n-1\right)m+1 \\
+            2 & m+2 & 2m+2 & \cdots & \left(n-1\right)m+2 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            m & 2m & 3m & \cdots & nm
+        \end{matrix}
+    \]
+    \endgroup
+    Let $r \leq m$ be a positive integer with $\left(r,\,m\right)>1$. Let $d=\left(r,\,m\right)$.
+    Then $d\divides r$, $d\divides m$, and so $d \divides \left(km+r\right)$ for any $k \in \mathbb{Z}$;
+    i. e. $d$ is a factor of every element in the $r$\textsuperscript{th} row.
+
+    Thus no element in the $r$\textsuperscript{th} row is relatively prime to $m$ and hence
+    to $mn$ if $\left(r,\,m\right)>1$. Hence, there are $\phi\left(m\right)$ rows
+    satisfying $\left(r,\,m\right)=1$.
+
+    Consider now the $r$\textsuperscript{th} row where $\left(r,\,m\right)=1$.
+    \[
+        r,\,m+r,\,2m+r,\,\cdots,\,\left(n-1\right)m+r
+    \]
+    By Lemma, exactly $\phi\left(n\right)$ elements in the $r$\textsuperscript{th}
+    row are relatively prime to $n$, and hence to $mn$.
+    Hence we conclude that $\phi\left(mn\right)=\phi\left(m\right)\phi\left(n\right)$ if $\left(m,\,n\right)=1$.
+    \qed
+\end{proof}
+
+\begin{note}
+    $n=28$, $d=n$. $C_d :=$ (the class of positive integers $m \leq n$ satisfying $\left(m,\,n\right)=d$). Then
+
+    \begin{align*}
+        C_1 &= \left\{1,\,3,\,5,\,9,\,11,\,13,\,15,\,17,\,19,\,23,\,25,\,27\right\} & 12&=\phi\left(28\right)=\phi\left(\frac{28}{1}\right) \\
+        C_2 &= \left\{2,\,6,\,10,\,18,\,22,\,26\right\} & 6&=\phi\left(14\right)=\phi\left(\frac{28}{2}\right) \\
+        C_4 &= \left\{4,\,8,\,12,\,20,\,24,\,28\right\} & 6&=\phi\left(7\right)=\phi\left(\frac{28}{4}\right) \\
+        C_7 &= \left\{7,\,21\right\} & 2&=\phi\left(4\right)=\phi\left(\frac{28}{7}\right) \\
+        C_{14} &= \left\{14\right\} & 1&=\phi\left(2\right)=\phi\left(\frac{28}{14}\right) \\
+        C_{28} &= \left\{28\right\} & 1&=\phi\left(1\right)=\phi\left(\frac{28}{28}\right) \\
+    \end{align*}
+    \[
+        12+6+6+2+1+1=28.
+    \]
+\end{note}
+
+\begin{theorem}
+    For $n \in \mathbb{Z}^+$,
+    \[
+        n = \sum_{d \divides n} \phi\left(d\right) = \sum_{d \divides n} \phi\left(\frac{n}{d}\right).
+    \]
+\end{theorem}
+
+\begin{proof}
+    Let $m \in \mathbb{Z}^+$ such that $m \leq n$.
+    Then $m \in C_d$ if and only if $\left(m,\,n\right)=d$, if and only if $\left(\frac{m}{d},\,\frac{n}{d}\right)=1$.
+
+    Thus the number of positive integers $\leq\frac{n}{d}$ which are relatively prime to $\frac{n}{d}$
+    is equlal to the number og elements $m$ in $C_d$.
+    Hence each class $C_d$ has $\phi\left(\frac{n}{d}\right)$ elements.
+
+    Since there is a class corresponding to elery factor $d$ of $n$ and every integer $m\leq n$ belongs to
+    exactly one class, it follows that the sum of the count of elements in various classes is $n$;
+    i. e. $\sum_{d \divides n} \phi\left(\frac{n}{d}\right)=n$.
+
+    As $d$ runs over the divisors of $n$, so does $\frac{n}{d}$.
+    Hence $\sum_{d \divides n} \phi\left(d\right)=n$.
+    \qed 
+\end{proof}
+
+\begin{theorem}[Chinese Remainder Theorem]
+    Let $m_1,\,m_2,\,\cdots,\,m_r$ are pairwise relatively prime positive integers.
+    Then the system of congrugences
+    \[
+        \begin{cases}
+            x\equiv a_1 & \mbox{(mod $m_1$)} \\
+            x\equiv a_2 & \mbox{(mod $m_2$)} \\
+            & \vdots \\
+            x\equiv a_r & \mbox{(mod $m_r$)} \\
+        \end{cases}
+    \]
+    where $a_i \in \mathbb{Z}$, has a unique solution modulo $M=m_1m_2\times\cdots\times m_r$.
+\end{theorem}
+
+\begin{proof}
+    (Proof left for homework -- due October 15th.)
+\end{proof}
+
+\begin{example}
+    \begin{enumerate}
+        \item \[
+            \begin{cases}
+                x \equiv 1 & \mbox{(mod 4)} \\
+                x \equiv 3 & \mbox{(mod 5)} \\
+                x \equiv 2 & \mbox{(mod 7)}
+            \end{cases}    
+        \]
+        \begin{align*}
+            35 \times \underline{?}_\text{3} &\equiv 1 & \mbox{(mod 4)}\\
+            28 \times \underline{?}_\text{2} &\equiv 3 & \mbox{(mod 5)}\\
+            20 \times \underline{?}_\text{6} &\equiv 2 & \mbox{(mod 7)}
+        \end{align*}
+        
+        Note that
+        \begin{align*}
+            M=4\cdot 5\cdot 7 &= 35 \cdot 4 = M_1m_1 \\
+            &= 28 \cdot 5 = M_2m_2 \\
+            &= 20 \cdot 7 = M_3m_3
+        \end{align*}
+        thus $x=1\cdot 35\cdot 3 + 3\cdot 28\cdot 2 + 2 \cdot 20 \cdot 6 = 93$ (mod 140)
+        \item \begin{align*}
+            & \begin{cases}
+                8x \equiv 4 & \mbox{(mod 14)} \\
+                5x \equiv 3 & \mbox{(mod 11)} \\
+            \end{cases} \\
+            & \Leftrightarrow \begin{cases}
+                4x \equiv 2 & \mbox{(mod 7)} \\
+                5x \equiv 3 & \mbox{(mod 11)} \\
+            \end{cases} \\
+            & \Leftrightarrow \begin{cases}
+                x \equiv 4 & \mbox{(mod 7)} \\
+                x \equiv 5 & \mbox{(mod 11)} \\
+            \end{cases}
+        \end{align*}
+
+        By CRT, $x=4 \cdot 11 \cdot 2 + 5 \cdot 7 \cdot 8 \equiv 368 \equiv 60$ (mod 77)
+
+        Note that $x \equiv 60$ (mod 77) $\Leftrightarrow$ $x \equiv 60$, $x \equiv 137$ (mod 154).
+    \end{enumerate}
+\end{example}
