@@ -1,0 +1,225 @@
+\input{header}
+
+\begin{document}
+
+\title{MAT2120 Number Theory\newline\space Problems II}
+\author{Suhyun Park (20181634)}
+\institute{Department of Computer Science and Engineering, Sogang University}
+
+\maketitle
+
+% Question 1.
+\subsubsection{1.} Find all solutions of $87x \equiv 57$ (mod 105). 
+
+\paragraph{Solution.}
+\[
+    87x \equiv 57 \mbox{ (mod 105)} \Leftrightarrow 29x \equiv 19 \mbox{ (mod 35)}.
+\]
+Using the extended Euclidean algorithm to find $a$, $b$ that satisfies
+$29a + 35b = \left(29,\,35\right)= 1$ yields
+\begin{align*}
+    35 &= \underline{29} \cdot 1 + \underline{6} \\
+    29 &= \underline{6} \cdot 4 + \underline{5} \\
+    6 &= \underline{5} \cdot 1 + \underline{1} \\
+    5 &= 1 \cdot 5 \\
+    \therefore 1 &= 6 - 5 \cdot 1 \\
+     &= 6 - \left(29 - 6 \times 4\right) \cdot 1 = 6 \times 5 - 29 \\
+     &= \left(35 - 29 \cdot 1\right) \times 5 - 29 = 35 \times 5 - 29 \times 6 \\
+     & \Rightarrow a = -6,\,b = 5.
+\end{align*}
+Hence,
+\begin{align*}
+    19\left(29a+35b\right)=19\times 1 &\Rightarrow 19a \times 29 = 19 - 35b \\
+    &\Rightarrow 19a \times 29 \equiv 19 \mbox{ (mod 35)} \\
+    & 29 \times \left(-114\right) \equiv 19 \mbox{ (mod 35)}.
+\end{align*}
+Thus $x \equiv -114 \equiv 26$ (mod 35),
+so $x \equiv 26$ or $x \equiv 61$ or $x \equiv 96$ modulo 105.
+
+% Question 2.
+\subsubsection{2.} Show that $n\left(n-1\right)\left(2n-1\right)$ is
+divisible by 6 for every positive integer $n$.
+
+\begin{proof}
+    Suppose $n=6k+r$ where $k \in \mathbb{Z}$ and $0 \leq r < 6$ and $r \in \mathbb{Z}$.
+    Then
+    \begin{align*}
+        n\left(n-1\right)\left(2n-1\right) &= \left(6k+r\right)\left(6k+r-1\right)\left(12k+2r-1\right) \\
+        &\equiv r\left(r-1\right)\left(2r-1\right) \\
+        &\equiv 2r^3-3r^2+r \mbox{ (mod 6)}.
+    \end{align*}
+    \begin{enumerate}
+        \item Suppose $r=2q_2+r_2$ where $q_2,\,r_2 \in \mathbb{Z}$ and $0\leq r_2<2$. Then
+        \begin{align*}
+            2r^3-3r^2+r &\equiv r^2 + r \\
+            &\equiv \left(2q_2+r_2\right)^2 + \left(2q_2+r_2\right) \\
+            &\equiv r_2^2 + r_2 \equiv r_2\left(r_2+1\right) \mbox{ (mod 2)}.
+        \end{align*}
+        Since $0\left(0+1\right) \equiv 1\left(1+1\right) \equiv 0$ (mod 2),
+        $2 \divides n\left(n-1\right)\left(2n-1\right)$.
+        \item Similarily, suppose $r=3q_3+r_3$ where $q_3,\,r_3 \in \mathbb{Z}$ and $0\leq r_3<3$. Then
+        \begin{align*}
+            2r^3-3r^2+r &\equiv 2r^3 + r \\
+            &\equiv 2\left(3q_3+r_3\right)^3 + \left(3q_3+r_3\right) \\
+            &\equiv 2r_3^3 + r_3 \equiv r_3\left(2r_3^2+1\right) \mbox{ (mod 3)}.
+        \end{align*}
+        Since $0\left(2\cdot 0^2+1\right) \equiv 1\left(2\cdot 1^2+1\right) \equiv 2\left(2\cdot 2^2+1\right) \equiv 0$ (mod 3),
+        $3 \divides n\left(n-1\right)\left(2n-1\right)$.
+    \end{enumerate}
+    By 1. and 2., $2\times 3 = 6 \divides n\left(n-1\right)\left(2n-1\right)$ for any integer $n$.
+\end{proof}
+
+% Question 3.
+\subsubsection{3.} What are the remainders when $3^{40}$ and $43^{37}$
+are divided by 11?
+
+\paragraph{Solution.}
+\begin{enumerate}
+    \item By Fermat's Little Theorem, $3^{11-1} \equiv 1$ (mod 11). Hence
+    \begin{align*}
+        3^{40} &\equiv \left(3^{10}\right)^4 \\
+        &\equiv 1^4 \equiv 1 \mbox{ (mod 11)}.
+    \end{align*}
+    \item Note that $43 \equiv -1$ (mod 11). Thus
+    \begin{align*}
+        43^{37} &\equiv \left(-1\right)^{37} \\
+        &\equiv -1 \equiv 10 \mbox{ (mod 11)}.
+    \end{align*}
+\end{enumerate}
+
+% Question 4.
+\subsubsection{4.} Find all solutions to the pair of congrugences
+$3x-7y \equiv 4$ (mod 15), $7x-3y \equiv 1$ (mod 15).
+
+\paragraph{Solution.} Since
+\begin{align*}
+    \left(3x-7y\right)\times 3 - \left(7x-3y\right)\times 7 &\equiv 4\times 3 - 1\times 7 = 5 \mbox{ (mod 15)} \\
+    \Rightarrow 9x - 21x - 49x + 21y &\equiv 5 \mbox{ (mod 15)} \\
+    \Rightarrow -40x \equiv 5x &\equiv 5 \mbox{ (mod 15)} \\
+    \Rightarrow x &\equiv 1 \mbox{ (mod 3)} \\
+    \Rightarrow x &\equiv 1 + 5k \mbox{ (mod 15)}
+\end{align*}
+where $k \in \mathbb{Z}$,
+\begin{align*}
+    3x-7y &\equiv 4 \mbox{ (mod 15)} \\
+    \Rightarrow 3\left(1+5k\right) -7y &\equiv 4 \mbox{ (mod 15)} \\
+    \Rightarrow 3+15k-7y &\equiv 4 \mbox{ (mod 15)} \\
+    \Rightarrow 8y &\equiv 1 \mbox{ (mod 15)}.
+\end{align*}
+Thus $x \equiv 1$ (mod 3) and $y \equiv 2$ (mod 15).
+
+% Question 5.
+\subsubsection{5.} Find all integers between 3000 and 5000 that leave remainders of
+1, 3, and 5 when divided by 7, 11, and 13, respectively.
+
+\paragraph{Solution.} Let $x$ be an integer such that
+\[
+    \begin{cases}
+        x \equiv 1 & \mbox{(mod 7)} \\
+        x \equiv 3 & \mbox{(mod 11)} \\
+        x \equiv 5 & \mbox{(mod 13)}
+    \end{cases}.
+\]
+We derive $x$ by using the Chinese remainder theorem. Note that the solution of
+\begin{align*}
+    11\times 13 \times m_1 \equiv 3m_1 & \equiv 1 \mbox{ (mod 7)} \\
+    7\times 13 \times m_2 \equiv 3m_2 & \equiv 3 \mbox{ (mod 11)} \\
+    7\times 11 \times m_3 \equiv -m_3 & \equiv 5 \mbox{ (mod 13)}
+\end{align*}
+is given by $m_1 \equiv 5$ (mod 7), $m_2 \equiv 1$ (mod 11), $m_3 \equiv -5$ (mod 13),
+thus
+\[
+    x \equiv 5\cdot 11\cdot 13 + 1 \cdot 7 \cdot 13 - 5 \cdot 7 \cdot 11 \equiv 421 \mbox{ (mod 1001)}.
+\]
+Hence integers between 3000 and 5000 that leave remainders of
+1, 3, and 5 when divided by 7, 11, and 13 are:
+\[
+    3424,\, 4425.
+\]
+
+% Question 6.
+\subsubsection{6.} Find the remainder when $13 \cdot 12^{45}$ is divided by 47.
+
+\paragraph{Solution.} $13\cdot 12^{45}=12^{46}+12^{45}$. By Fermat's little theorem, 
+$12^{47-1} \equiv 1$ (mod 47). Hence
+\begin{align*}
+    13\cdot 12^{45}=12^{46}+12^{45} &\equiv 1 + 12^{45} \\
+    &\equiv 1+\left(12^2\right)^{22} \times 12 \equiv 1+\left(47 \times 3 + 3\right)^{22} \times 12 \\
+    &\equiv 1+ 3^{22} \times 12 \\
+    &\equiv 1+ \left(3^5\right)^4 \times 9 \times 12 \equiv 1+\left(47\times 5 + 8\right)^4 \times 108 \\
+    &\equiv 1+8^4 \times \left(47 \times 2 + 14\right) \equiv 1 + 8^4 \times 14 \\
+    &\equiv 1+\left(8^2\right)^2\times 14 \equiv 1+\left(47+17\right)^2\times 14 \\
+    &\equiv 1+17^2\times 14 \\
+    &\equiv 4047 \equiv 5.
+\end{align*}
+
+% Question 7.
+\subsubsection{7.} Let $p$ and $q$ be distinct odd primes such that
+$p-1$ divides $q-1$. If $\left(a,\,pq\right)=1$, prove that $a^{q-1}\equiv 1$ (mod $pq$).
+
+\begin{proof}
+    By Fermat's theorem, it is clear that $a^{q-1} \equiv 1$ (mod $q$) and
+    $a^{p-1} \equiv 1$ (mod $p$).
+
+    Since $\left(p-1\right)\divides \left(q-1\right)$, we can let $\left(q-1\right)=k\left(p-1\right)$,
+    where $2 \leq k$ and $k \in \mathbb{Z}$. Then
+    \begin{align*}
+        \left(a^{p-1}\right)^k \equiv 1^k &\equiv 1 \mbox{ (mod $p$)} \\
+        \Rightarrow a^{k\left(p-1\right)} &\equiv 1 \mbox{ (mod $p$)} \\
+        \Rightarrow a^{q-1} &\equiv 1 \mbox{ (mod $p$)}.
+    \end{align*}
+    Since $p$ and $q$ are distinct primes; i. e. $\left(p,\,q\right)=1$, and since
+    $a^{q-1}$ is congrugent to 1 both modulo $p$ and $q$, $a^{q-1}\equiv 1$ (mod $pq$).
+    \qed
+\end{proof}
+
+% Question 8.
+\subsubsection{8.} Show that if $a$ is not divisible by 2 or by 5, then $a^{101}$
+ends in the same three decimal digits as does $a$. (Here we use the convention that
+21, for example, ends with 021.)
+
+\begin{proof}
+    We want to show that $a^{101} \equiv a$ (mod 1000).
+    
+    Since $a$ is not divisible by 2 nor 5 but the only prime factor of 125 is 5,
+    $\left(a,\,125\right)=1$. Note that
+    \begin{align*}
+        \phi\left(125\right) &= 125 \left(1-\frac{1}{5}\right) \\
+        &= 100.
+    \end{align*}
+    By Euler's theorem, $a^{\phi\left(125\right)} = a^{100} \equiv 1$ (mod 125).
+
+    Also for 8, since only prime factor of 8 is 2 and $\phi\left(8\right) = 4$,
+    By Euler's theorem, $a^{\phi\left(8\right)} = a^{4} \equiv 1$ (mod 8). Hence,
+    $\left(a^{4}\right)^{25} \equiv a^{100} \equiv 1$ (mod 8).
+
+    Thus since $\left(8,\,125\right)=1$, $a^{100} \equiv 1$ (mod 1000); therefore $a^{101} \equiv a$ (mod 1000).
+    \qed
+\end{proof}
+
+% Question 9.
+\subsubsection{9.} Explain why every year has at least one Friday the 13\textsuperscript{th}.
+
+\begin{proof}
+    If January begins on day $k$, where $0 \leq k < 7$ and $k = 0$ being Sunday,
+    then on a non-leap year,
+    \begin{itemize}
+        \item February begins on day $k+31 \equiv k+3$ (mod 7)
+        \item March begins on day $k+3+28 \equiv k+3$ (mod 7)
+        \item April begins on day $k+3+31 \equiv k+6$ (mod 7)
+        \item May begins on day $k+6+30 \equiv k+1$ (mod 7)
+        \item June begins on day $k+1+31 \equiv k+4$ (mod 7)
+        \item July begins on day $k+4+30 \equiv k+6$ (mod 7)
+        \item August begins on day $k+6+31 \equiv k+2$ (mod 7)
+        \item September begins on day $k+2+31 \equiv k+5$ (mod 7)
+        \item October begins on day $k+5+30 \equiv k$ (mod 7)
+        \item November begins on day $k+31 \equiv k+3$ (mod 7)
+        \item December begins on day $k+3+30 \equiv k+5$ (mod 7)
+    \end{itemize}
+    Then the set of starting days of each month forms a complete residue system, hence
+    the set of days of the 13\textsuperscript{th} of each month also does. Similarily, this
+    also holds in leap years. Thus it is guaranteed that every year will have at least one
+    Friday the 13\textsuperscript{th}.
+\end{proof}
+
+\end{document}
