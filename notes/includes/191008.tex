@@ -38,7 +38,7 @@ system modulo 8.
     If $m\in\mathbb{Z}^+$ and $a\in\mathbb{Z}$ with $\left(a,\,m\right)=1$
     then
     \[
-        a^{\phi\left(m\right)} \equiv 1 \mbox{ (mod $m$)}.    
+        a^{\phi\left(m\right)} \equiv 1 \pmod{m}.    
     \]
 \end{theorem}
 \begin{proof}
@@ -50,42 +50,42 @@ system modulo 8.
     Then
     \[
         ar_1\times ar_2 \times \cdots \times ar_{\phi\left(m\right)}
-        \equiv r_1\times r_2 \times \cdots \times r_{\phi\left(m\right)} \mbox{ (mod $m$)}
+        \equiv r_1\times r_2 \times \cdots \times r_{\phi\left(m\right)} \pmod{m}
     \]
     and so
     \[
         a^{\phi\left(m\right)} \times r_1\times r_2 \times \cdots \times r_{\phi\left(m\right)}
-        = r_1\times r_2 \times \cdots \times r_{\phi\left(m\right)} \mbox{ (mod $m$)}. 
+        = r_1\times r_2 \times \cdots \times r_{\phi\left(m\right)} \pmod{m}. 
     \]
-    Hence $a^{\phi\left(m\right)} \equiv 1$ (mod $m$).\footnote{Note that $\left(r_1r_2\times\cdots\times r_{\phi\left(m\right)},\,m\right)=1$} \qed
+    Hence $a^{\phi\left(m\right)} \equiv 1\pmod{m}$.\footnote{Note that $\left(r_1r_2\times\cdots\times r_{\phi\left(m\right)},\,m\right)=1$} \qed
 \end{proof}
 
 \begin{corollary}[Fermat's Little Theorem]
     If $p$ is prime and $p \ndivides a$ ($\Rightarrow \left(a,\,p\right)=1$), then
     \[
-        a^{p-1} \equiv 1 \mbox{ (mod $p$)}.
+        a^{p-1} \equiv 1 \pmod{p}.
     \]
 \end{corollary}
 
 \begin{corollary}
     Let $p$ : prime. Then
     \[
-        a^p \equiv a \mbox{ (mod $p$)}.
+        a^p \equiv a \pmod{p}.
     \]
 \end{corollary}
 \begin{proof}
-    If $a \equiv 0$ (mod $p$), then $a^p \equiv 0 \equiv a$ (mod $p$).
+    If $a \equiv 0\pmod{p}$, then $a^p \equiv 0 \equiv a\pmod{p}$.
 
-    If $a \not\equiv 0$ (mod $p$), then $a^{p-1} \equiv 1$ (mod $p$) thus 
-    $a^{p-1} \equiv a$ (mod $p$). \qed
+    If $a \not\equiv 0\pmod{p}$, then $a^{p-1} \equiv 1\pmod{p}$ thus 
+    $a^{p-1} \equiv a\pmod{p}$. \qed
 \end{proof}
 
 \begin{example}
-    $2^{1137}$ (mod 17)?
+    $2^{1137}\pmod{17}$?
 
-    By Euler's theorem, $2^{16} \equiv 1$ (mod 17). Thus
+    By Euler's theorem, $2^{16} \equiv 1\pmod{17}$. Thus
     \[
-        2^{1137} = \left(2^{16}\right)^{71} \cdot 2 \equiv 1 \cdot 2 \equiv 2 \mbox{ (mod 17)}.
+        2^{1137} = \left(2^{16}\right)^{71} \cdot 2 \equiv 1 \cdot 2 \equiv 2 \pmod{17}.
     \]
 \end{example}
 
@@ -94,11 +94,11 @@ system modulo 8.
 
     Suppose 117 is prime. then
     \[
-        2^{117} \equiv 2 \mbox{ (mod 117)}.    
+        2^{117} \equiv 2 \pmod{117}.    
     \]
     Note that
     \[
-        2^7 \equiv 128 \equiv 11 \mbox{ (mod 117)}.    
+        2^7 \equiv 128 \equiv 11 \pmod{117}.    
     \]
     Thus
     \begin{align*}
@@ -106,16 +106,16 @@ system modulo 8.
         &\equiv 11^{16} \cdot 2^5 \\
         &\equiv 121^8 \cdot 2^5 \\
         &\equiv 4^8 \cdot 2^5 \\
-        &\equiv 2^{21} \equiv 11^3 \not\equiv 2 \mbox{ (mod 17)}.
+        &\equiv 2^{21} \equiv 11^3 \not\equiv 2 \pmod{17}.
     \end{align*}
 \end{example}
 
 \begin{example}
-    Solve $x^{35}+5x^{19}+11x^3 \equiv 0$ (mod 17).
+    Solve $x^{35}+5x^{19}+11x^3 \equiv 0\pmod{17}$.
 
     By Fermat's little theorem,
     \[
-        x^{17} \equiv x \mbox{ (mod 17)}.   
+        x^{17} \equiv x \pmod{17}.   
     \]
     Then
     \begin{align*}
@@ -125,7 +125,7 @@ system modulo 8.
     Thus
     \[
         x^{35}+5x^{19}+11x^3 \equiv \left(1+5+11\right)x^3 \equiv 0\cdot x^3 \equiv 0
-        \mbox{ (mod 17)}.
+        \pmod{17}.
     \]
     Hence $x$ can be any integer.
 \end{example}
@@ -133,7 +133,7 @@ system modulo 8.
 \begin{theorem}[Wilson's Theorem]
     If $p$ is a prime, then
     \[
-        \left(p-1\right)! \equiv -1 \mbox{ (mod $p$)}.
+        \left(p-1\right)! \equiv -1 \pmod{p}.
     \]
 \end{theorem}
 \marginpar{
@@ -142,7 +142,7 @@ system modulo 8.
 
 \begin{lemma}
     Let $p$ be prime. $a$ is self-invertible modulo $p$,
-    i. e. $a\cdot a \equiv 1$ (mod $p$), if and only if $a \equiv \pm 1$ (mod $p$).
+    i. e. $a\cdot a \equiv 1\pmod{p}$, if and only if $a \equiv \pm 1\pmod{p}$.
 \end{lemma}
 
 \begin{proof}[of lemma]
@@ -150,32 +150,32 @@ system modulo 8.
 
     ($\Rightarrow$) Note that
     \[
-        a^2 \equiv 1 \mbox{ (mod $p$)}
+        a^2 \equiv 1 \pmod{p}
     \]
     and so $p \divides \left(a-1\right)\left(a+1\right)$.
 
     Since $p$ is prime, $p \divides \left(a-1\right)$ or $p \divides \left(a+1\right)$.
-    Thus $a \equiv 1$ or $a \equiv -1$ (mod $p$). \qed
+    Thus $a \equiv 1$ or $a \equiv -1\pmod{p}$. \qed
 \end{proof}
 
 \begin{proof}[of theorem]
-    If $p=2$, then $\left(p-1\right)!=1\equiv-1$ (mod 2).
+    If $p=2$, then $\left(p-1\right)!=1\equiv-1\pmod{2}$.
 
     Consider for $p>2$. Note that $\left\{1,\,2,\,\cdots,\,p-1\right\}$ is a reduced
     residue system modulo $p$. By lemma, 1 and $p-1$ are self-invertible.
     Thus we can group the remaining $p-3$ residues
-    $\frac{p-3}{2}$ pair of inverses $a$ and $b$ such that $ab \equiv 1$ (mod $p$).
+    $\frac{p-3}{2}$ pair of inverses $a$ and $b$ such that $ab \equiv 1\pmod{p}$.
 
     Hence
     \begin{align*}
         \left(p-1\right)!&=1\cdot\left[2\cdot3\times\cdots\times\left(p-2\right)\right]\left(p-1\right)\\
         &\equiv 1\cdot1\times\cdots\times1\left(p-1\right) \\
-        &\equiv p-1 \equiv -1 \mbox{ (mod $p$)}.
+        &\equiv p-1 \equiv -1 \pmod{p}.
     \end{align*}
     \qed
 \end{proof}
 
-e. g. $\left(6-1\right)!+1=121\not\equiv 0$ (mod 6), thus 6 is not prime.
+e. g. $\left(6-1\right)!+1=121\not\equiv 0\pmod{6}$, thus 6 is not prime.
 
 In fact, the converse of Wilson's theorem also holds,
 but is inefficient to test primality.
@@ -183,7 +183,7 @@ but is inefficient to test primality.
 \begin{theorem}
     If $n\in\mathbb{Z}^+$ and
     \[
-        \left(n-1\right)!\equiv -1 \mbox{ (mod $m$)},
+        \left(n-1\right)!\equiv -1 \pmod{m},
     \]
     then $n$ is prime.
 \end{theorem}
@@ -191,7 +191,7 @@ but is inefficient to test primality.
 \begin{proof}
     Suppose that $n$ is composite. Then $n=ab$ where $1<a<n$ and $1<b<n$.
     Since $a<n$, $a \divides \left(n-1\right)!$.
-    Since $\left(n-1\right)\equiv -1$ (mod $n$),
+    Since $\left(n-1\right)\equiv -1\pmod{n}$,
     \[
         n \divides \left[\left(n-1\right)!+1\right].
     \]
@@ -200,8 +200,8 @@ but is inefficient to test primality.
 \end{proof}
 
 \begin{remark}
-    $p$ is prime if and only if $\left(p-1\right)! \equiv -1$ (mod $p$),
-    and also $\left(p-2\right)! \equiv 1$ (mod $p$).
+    $p$ is prime if and only if $\left(p-1\right)! \equiv -1\pmod{p}$,
+    and also $\left(p-2\right)! \equiv 1\pmod{p}$.
 \end{remark}
 
 \paragraph{Applications of Euler's and Wilson's theorem.}
@@ -210,8 +210,8 @@ but is inefficient to test primality.
     \[
         \left[1\cdot 3\cdot 5 \times \cdots \times \left(p-2\right)\right]^2
         \equiv \left[2\cdot 4\cdot 6 \times \cdots \times \left(p-1\right)\right]^2
-        \equiv \left(-1\right)^{\frac{p+1}{2}} \mbox{ (mod $p$)}.
+        \equiv \left(-1\right)^{\frac{p+1}{2}} \pmod{p}.
     \]
-    \item $p$ is odd prime. Then $x^2 \equiv -1$ (mod $p$)
-    has a solution if and only if $p \equiv 1$ (mod 4).
+    \item $p$ is odd prime. Then $x^2 \equiv -1\pmod{p}$
+    has a solution if and only if $p \equiv 1\pmod{4}$.
 \end{enumerate}

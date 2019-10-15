@@ -7,43 +7,43 @@
 
 \begin{theorem}
     \begin{enumerate}
-        \item $a \equiv a$ (mod $m$)
+        \item $a \equiv a\pmod{m}$
         \item $a \equiv b \Rightarrow b \equiv a$
         \item $a \equiv b,\, b \equiv c \Rightarrow a \equiv c$
         \item $a \equiv b,\, c \equiv d \Rightarrow a \pm c \equiv b \pm d,\, ac \equiv bd$.
         \item[$\mathit{4\frac{1}{2}}$.] $1 \leq i \leq n$. Then
         $a_i \equiv b_i \Rightarrow \sum_1^n a_i \equiv \sum_1^n b_i,\, \prod_1^n a_i \equiv \prod_1^n b_i$ 
         \item Let $f\left(x\right) = a_0 + a_1x + \cdots + a_nx^n$, $g\left(x\right) = b_0 + b_1x + \cdots + b_nx^n$,
-        where $a_i,\,b_i \in \mathbb{Z}$. Suppose $a_i \equiv b_i$ (mod $m$). If $a \equiv b$, then $f\left(a\right) \equiv g\left(b\right)$.
+        where $a_i,\,b_i \in \mathbb{Z}$. Suppose $a_i \equiv b_i\pmod{m}$. If $a \equiv b$, then $f\left(a\right) \equiv g\left(b\right)$.
     \end{enumerate}
 \end{theorem}
 
 \begin{example}
-    $10 \equiv 1$ (mod 3).
+    $10 \equiv 1\pmod{3}$.
 
-    $10 \equiv 1$ (mod 9).
+    $10 \equiv 1\pmod{9}$.
     
-    $10 \equiv -1$ (mod 11).
+    $10 \equiv -1\pmod{11}$.
 
     Let $a=a_n \cdot 10^n+\cdots+a_1 \cdot 10+a_0$. Then
     \begin{align*}
-        a &\equiv a_0 + a_1 + \cdots + a_n \mbox{ (mod 3)} \\
-        &\equiv a_0 + a_1 + \cdots + a_n \mbox{ (mod 9)} \\
-        &\equiv a_0 - a_1 + \cdots + \left(-1\right)^n a_n \mbox{ (mod 11)} \\
+        a &\equiv a_0 + a_1 + \cdots + a_n \pmod{3} \\
+        &\equiv a_0 + a_1 + \cdots + a_n \pmod{9} \\
+        &\equiv a_0 - a_1 + \cdots + \left(-1\right)^n a_n \pmod{11} \\
     \end{align*}
 
     $\because$ If $f\left(x\right)=a_0+a_1x+\cdots+a_nx^n$, then
     \begin{align*}
-        f\left(10\right) &\equiv f\left(1\right) \mbox{ (mod 3)} \\
-        f\left(10\right) &\equiv f\left(1\right) \mbox{ (mod 9)} \\
-        f\left(10\right) &\equiv f\left(-1\right) \mbox{ (mod 11)} \\
+        f\left(10\right) &\equiv f\left(1\right) \pmod{3} \\
+        f\left(10\right) &\equiv f\left(1\right) \pmod{9} \\
+        f\left(10\right) &\equiv f\left(-1\right) \pmod{11} \\
     \end{align*}
 
     e. g. 
     \begin{align*}
-        26384 &\equiv 2+6+3+8+4 \equiv 2 \mbox{ (mod 3)} \\
-        26384 &\equiv 2+6+3+8+4 \equiv 5 \mbox{ (mod 9)} \\
-        26384 &\equiv 2-6+3-8+4 \equiv 6 \mbox{ (mod 11)} \\
+        26384 &\equiv 2+6+3+8+4 \equiv 2 \pmod{3} \\
+        26384 &\equiv 2+6+3+8+4 \equiv 5 \pmod{9} \\
+        26384 &\equiv 2-6+3-8+4 \equiv 6 \pmod{11} \\
     \end{align*}
 \end{example}
 
@@ -52,33 +52,33 @@
 
     Note that
     \[
-        2^5 \equiv -9 \mbox{ (mod 41)}.  
+        2^5 \equiv -9 \pmod{41}.  
     \]
     Thus
     \begin{align*}
         \left(2^5\right)^4 &\equiv \left(-9\right)^4 \\
         &\equiv 81 \times 81
     \end{align*}
-    Since $81 \equiv -1 \mbox{ (mod 41)}$, $81\times 81 \equiv 1 \mbox{ (mod 41)}$.
+    Since $81 \equiv -1 \pmod{41}$, $81\times 81 \equiv 1 \pmod{41}$.
     Hence
     \begin{align*}
         2^{20}-1 &\equiv\left(2^5-4\right)-1 \\
         &\equiv \left(-9 \right)^4-1 \\
-        &\equiv 1 - 1 \equiv 0 \mbox{ (mod 41)}.
+        &\equiv 1 - 1 \equiv 0 \pmod{41}.
     \end{align*}
 \end{example}
 
-Note that $7\times 2 \equiv 4 \times 2$ (mod 6), but $7 \not\equiv 4$ (mod 6),
-also $7 \equiv 4$ (mod 3).
+Note that $7\times 2 \equiv 4 \times 2\pmod{6}$, but $7 \not\equiv 4\pmod{6}$,
+also $7 \equiv 4\pmod{3}$.
 
 \begin{theorem}
     $a,\,b,\,c \in \mathbb{Z}$, $m \in \mathbb{Z}^+$,\, $d=\left(c,\,m\right)$.
 
-    If $ac \equiv bc$ (mod $m$), then $a \equiv b$ (mod $\frac{m}{d}$).
+    If $ac \equiv bc\pmod{m}$, then $a \equiv b \pmod{\frac{m}{d}}$.
 \end{theorem}
 
 \begin{proof}
-    Since $ac \equiv bc$ (mod $m$),
+    Since $ac \equiv bc\pmod{m}$,
     \[
         m \divides \left(ac-bc\right).    
     \]
@@ -96,13 +96,13 @@ also $7 \equiv 4$ (mod 3).
     \qed
 \end{proof}
 
-\paragraph{Question.} $2^{1137} \equiv \mbox{?}$ (mod 17)
+\paragraph{Question.} $2^{1137} \equiv \mbox{?}\pmod{17}$
 
 \begin{theorem}
     Let $m\in \mathbb{Z}^+$. For any $a\in \mathbb{Z}$, $\exists! r \in \mathbb{Z}$
     such that
     \[
-        a \equiv r \mbox{ (mod $m$)}
+        a \equiv r \pmod{m}
     \]
     where $0 \leq r \leq m - 1$.
 \end{theorem}
@@ -162,18 +162,18 @@ but $\left\{0,\,2,\,4,\,6\right\}$ is not a complete system of residues modulo 4
 \begin{theorem}
     $a,\,b \in \mathbb{Z}^+$, $m \in \mathbb{Z}^+$, $d=\left(a,\,m\right)$.
 
-    If $d \ndivides b$, then $ax \equiv b$ (mod $m$) has no solutions.
+    If $d \ndivides b$, then $ax \equiv b\pmod{m}$ has no solutions.
 
-    If $d \divides b$, then $ax \equiv b$ (mod $m$) has exactly $d$ incongrugent
+    If $d \divides b$, then $ax \equiv b\pmod{m}$ has exactly $d$ incongrugent
     solutions modulo $m$ as follows:
     \[
         x = x_0 + \frac{m}{d}t \qquad t=0,\,1,\,2,\,\cdots,\,d-1    
     \]
-    where $x_0$ is a particular solution of $ax\equiv b$ (mod $m$).
+    where $x_0$ is a particular solution of $ax\equiv b\pmod{m}$.
 \end{theorem}
 
 \begin{example}
-    $9x \equiv 12$ (mod 15)?
+    $9x \equiv 12\pmod{15}$?
 
     Note that $\left(9,\,15\right)=3\divides 12$, by theorem,
     $\exists$ exactly 3 incongrugent solutions modulo 15.
@@ -190,9 +190,9 @@ but $\left\{0,\,2,\,4,\,6\right\}$ is not a complete system of residues modulo 4
 
     Hence the general solution is given by
     \begin{align*}
-        x&=x_0\equiv8 \mbox{ (mod 15)} \\ 
-        x&=x_0+\frac{15}{3}\times 1\equiv13 \mbox{ (mod 15)} \\ 
-        x&=x_0+\frac{15}{3}\times 2=18\equiv 3 \mbox{ (mod 15)}.
+        x&=x_0\equiv8 \pmod{15} \\ 
+        x&=x_0+\frac{15}{3}\times 1\equiv13 \pmod{15} \\ 
+        x&=x_0+\frac{15}{3}\times 2=18\equiv 3 \pmod{15}.
     \end{align*}
 \end{example}
 
@@ -201,7 +201,7 @@ but $\left\{0,\,2,\,4,\,6\right\}$ is not a complete system of residues modulo 4
 \end{proof}
 
 \begin{remark}
-    Consider $ax \equiv 1$ (mod $m$).
+    Consider $ax \equiv 1\pmod{m}$.
     By the previous theorem, $\exists$ solutions of this congrugence
     if and only if $\left(a,\,m\right) = 1$.
 \end{remark}
@@ -209,15 +209,15 @@ but $\left\{0,\,2,\,4,\,6\right\}$ is not a complete system of residues modulo 4
 \begin{definition}
     $a \in \mathbb{Z}$, $m \in \mathbb{Z}^+$, $\left(a,\,m\right)=1$.
 
-    A solution of $ax \equiv 1$ (mod $m$) is called an \textbf{inverse} of
+    A solution of $ax \equiv 1\pmod{m}$ is called an \textbf{inverse} of
     $a$ modulo $m$.
 \end{definition}
 
-e. g. $7x\equiv 1$ (mod 31) $\Rightarrow$ $x=9$ (mod 31).
+e. g. $7x\equiv 1\pmod{31}$ $\Rightarrow$ $x=9\pmod{31}$.
 Thus 9 and all integers congrugent to 9 are inverses of 7 modulo 31.
 
-e. g. $7x \equiv 22$ (mod 31) $\Rightarrow$ $9\times 7x \equiv 9\times 22$ (mod 31)
-$\Rightarrow$ $1\times x \equiv 12$ (mod 31)
+e. g. $7x \equiv 22\pmod{31}$ $\Rightarrow$ $9\times 7x \equiv 9\times 22\pmod{31}$
+$\Rightarrow$ $1\times x \equiv 12\pmod{31}$
 
 \begin{remark}
     $\mathbb{Z}_n^*=\left\{\overline{a}\in \mathbb{Z}_m \mid \left(a,\,m\right)=1\right\}$.

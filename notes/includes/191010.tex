@@ -6,42 +6,42 @@
         \[
             \left(2\cdot 4\cdot 6 \times \cdots \times \left(p-1\right)\right)
             \equiv \left(-1\right)^{\frac{p-1}{2}} \left(1\cdot 3\cdot 5\times \cdots \times \left(p-2\right)\right)
-            \mbox{ (mod $p$)}
+            \pmod{p}
         \]
         and so
         \[
             \left(2\cdot 4\cdot 6 \times \cdots \times \left(p-1\right)\right)^2
             \equiv \left(1\cdot 3\cdot 5\times \cdots \times \left(p-2\right)\right)^2
-            \mbox{ (mod $p$)}.
+            \pmod{p}.
         \]
 
         By Wilson's theorem,
         \[
             -1 \equiv \left(p-1\right)! = \left(1 \cdot 3 \cdot 5 \times \cdots \times \left(p-2\right)\right)
             \left(2\cdot 4\cdot 6 \times \cdots \times \left(p-1\right)\right)
-            \mbox{ (mod $p$)}.
+            \pmod{p}.
         \]
         Thus
         \[
             \left(-1\right)^{\frac{p-1}{2}}\left(1\cdot 3\cdot 5\times \cdots \times \left(p-2\right)\right)^2
-            \equiv -1 \mbox{ (mod $p$)},
+            \equiv -1 \pmod{p},
         \]
         hence
         \[
             \left(1\cdot 3\cdot 5\times \cdots \times \left(p-2\right)\right)^2
-            \equiv \left(-1\right)^{\frac{p+1}{2}} \mbox{ (mod $p$)}.
+            \equiv \left(-1\right)^{\frac{p+1}{2}} \pmod{p}.
         \]
         \qed
-    \item ($\Rightarrow$) Suppose $x_0^2 \equiv -1$ (mod $p$) for some $x \in \mathbb{Z}$. Then
+    \item ($\Rightarrow$) Suppose $x_0^2 \equiv -1\pmod{p}$ for some $x \in \mathbb{Z}$. Then
         \[
             x_0^{p-1} = \left(x_0^2\right)^{\frac{p-1}{2}} \equiv \left(-1\right)^{\frac{p-1}{2}}.
         \]
-        On the other hand, by Euler's theorem, $x_0^{p-1} \equiv 1$ (mod $p$).
+        On the other hand, by Euler's theorem, $x_0^{p-1} \equiv 1\pmod{p}$.
         \footnote{
-            Note that $x_0^2 \equiv -1$ (mod $p$), thus $\left(x_0,\,p\right) \divides 1$,
+            Note that $x_0^2 \equiv -1\pmod{p}$, thus $\left(x_0,\,p\right) \divides 1$,
             and so $\left(x_0,\,p\right)=1$; i. e. $p \ndivides x_0$.
         }
-        Thus $\left(-1\right)^{\frac{p-1}{2}} \equiv 1$ (mod $p$); i. e. 
+        Thus $\left(-1\right)^{\frac{p-1}{2}} \equiv 1\pmod{p}$; i. e. 
         \[
             p \divides \left[1-\left(-1\right)^{\frac{p-1}{2}}\right].
         \]
@@ -49,7 +49,7 @@
         \footnote{
             If $1-\left(-1\right)^{\frac{p-1}{2}}=2\neq 0$, then $p \divides 2$. $\rightarrow\leftarrow$
         }
-        Therefore $\frac{p-1}{2}$ is even and so $p \equiv 1$ (mod 4).
+        Therefore $\frac{p-1}{2}$ is even and so $p \equiv 1\pmod{4}$.
 
         ($\Leftarrow$) Note that
         \begin{align*}
@@ -58,15 +58,15 @@
             \left(\left(p-1\right) \left(p-2\right) \left(p-3\right) \times \cdots \times \frac{p+1}{2}\right) \\
             &\equiv \left(1 \cdot 2 \cdot 3 \times \cdots \times \frac{p-1}{2}\right)
             \left(\left(-1\right) \left(-2\right) \left(-3\right) \times \cdots \times \frac{-\left(p-1\right)}{2}\right)
-            \mbox{ (mod $p$)} \\
+            \pmod{p} \\
             &\equiv \left(-1\right)^{\frac{p-1}{2}} \times 1^2 \cdot 2^2 \cdot 3^2 \times \cdots \times \left(\frac{p+1}{2}\right)^2
-            \mbox{ (mod $p$)} \\
+            \pmod{p} \\
         \end{align*}
         Thus
         \[
-            -1 \equiv \left(p-1\right)! \equiv \left(1 \cdot 2 \cdot 3 \times \cdots \times \frac{p-1}{2}\right)^2 \mbox{ (mod $p$)}.
+            -1 \equiv \left(p-1\right)! \equiv \left(1 \cdot 2 \cdot 3 \times \cdots \times \frac{p-1}{2}\right)^2 \pmod{p}.
         \]
-        Put $x_0 = 1 \cdot 2 \cdot 3 \times \cdots \times \frac{p-1}{2}$. Then $x_0^2 \equiv -1$ (mod $p$).
+        Put $x_0 = 1 \cdot 2 \cdot 3 \times \cdots \times \frac{p-1}{2}$. Then $x_0^2 \equiv -1\pmod{p}$.
         \qed
     \end{enumerate}
 \end{proof}
@@ -118,9 +118,9 @@
 \begin{proof}
     Suffies to show that no two integers in the list are congrugent modulo $n$.
 
-    Suppose that $km+r \equiv lm+r$ (mod $n$) where $0 \leq k,\,l < n$. Then
-    $km \equiv lm$ (mod $n$).
-    Since $\left(m,\,n\right)=1$, hence $k \equiv l$ (mod $n$).
+    Suppose that $km+r \equiv lm+r\pmod{n}$ where $0 \leq k,\,l < n$. Then
+    $km \equiv lm\pmod{n}$.
+    Since $\left(m,\,n\right)=1$, hence $k \equiv l\pmod{n}$.
     Since $0 \leq k,\,l < n$, $k=l$. \qed
 \end{proof}
 
@@ -203,10 +203,10 @@
     Then the system of congrugences
     \[
         \begin{cases}
-            x\equiv a_1 & \mbox{(mod $m_1$)} \\
-            x\equiv a_2 & \mbox{(mod $m_2$)} \\
+            x\equiv a_1 & \pmod{m_1} \\
+            x\equiv a_2 & \pmod{m_2} \\
             & \vdots \\
-            x\equiv a_r & \mbox{(mod $m_r$)} \\
+            x\equiv a_r & \pmod{m_r} \\
         \end{cases}
     \]
     where $a_i \in \mathbb{Z}$, has a unique solution modulo $M=m_1m_2\times\cdots\times m_r$.
@@ -220,15 +220,15 @@
     \begin{enumerate}
         \item \[
             \begin{cases}
-                x \equiv 1 & \mbox{(mod 4)} \\
-                x \equiv 3 & \mbox{(mod 5)} \\
-                x \equiv 2 & \mbox{(mod 7)}
+                x \equiv 1 & \pmod{4} \\
+                x \equiv 3 & \pmod{5} \\
+                x \equiv 2 & \pmod{7}
             \end{cases}    
         \]
         \begin{align*}
-            35 \times \underline{?}_\text{3} &\equiv 1 & \mbox{(mod 4)}\\
-            28 \times \underline{?}_\text{2} &\equiv 3 & \mbox{(mod 5)}\\
-            20 \times \underline{?}_\text{6} &\equiv 2 & \mbox{(mod 7)}
+            35 \times \underline{?}_\text{3} &\equiv 1 & \pmod{4}\\
+            28 \times \underline{?}_\text{2} &\equiv 3 & \pmod{5}\\
+            20 \times \underline{?}_\text{6} &\equiv 2 & \pmod{7}
         \end{align*}
         
         Note that
@@ -237,24 +237,24 @@
             &= 28 \cdot 5 = M_2m_2 \\
             &= 20 \cdot 7 = M_3m_3
         \end{align*}
-        thus $x=1\cdot 35\cdot 3 + 3\cdot 28\cdot 2 + 2 \cdot 20 \cdot 6 = 93$ (mod 140)
+        thus $x=1\cdot 35\cdot 3 + 3\cdot 28\cdot 2 + 2 \cdot 20 \cdot 6 = 93\pmod{140}$
         \item \begin{align*}
             & \begin{cases}
-                8x \equiv 4 & \mbox{(mod 14)} \\
-                5x \equiv 3 & \mbox{(mod 11)} \\
+                8x \equiv 4 & \pmod{14} \\
+                5x \equiv 3 & \pmod{11} \\
             \end{cases} \\
             & \Leftrightarrow \begin{cases}
-                4x \equiv 2 & \mbox{(mod 7)} \\
-                5x \equiv 3 & \mbox{(mod 11)} \\
+                4x \equiv 2 & \pmod{7} \\
+                5x \equiv 3 & \pmod{11} \\
             \end{cases} \\
             & \Leftrightarrow \begin{cases}
-                x \equiv 4 & \mbox{(mod 7)} \\
-                x \equiv 5 & \mbox{(mod 11)} \\
+                x \equiv 4 & \pmod{7} \\
+                x \equiv 5 & \pmod{11} \\
             \end{cases}
         \end{align*}
 
-        By CRT, $x=4 \cdot 11 \cdot 2 + 5 \cdot 7 \cdot 8 \equiv 368 \equiv 60$ (mod 77)
+        By CRT, $x=4 \cdot 11 \cdot 2 + 5 \cdot 7 \cdot 8 \equiv 368 \equiv 60\pmod{77}$
 
-        Note that $x \equiv 60$ (mod 77) $\Leftrightarrow$ $x \equiv 60$, $x \equiv 137$ (mod 154).
+        Note that $x \equiv 60\pmod{77}$ $\Leftrightarrow$ $x \equiv 60$, $x \equiv 137\pmod{154}$.
     \end{enumerate}
 \end{example}
