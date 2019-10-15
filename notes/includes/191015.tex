@@ -1,0 +1,161 @@
+\paragraph{Recall}
+
+By Euler, $\left(a,\,m\right)=1$, then $a^{\phi\left(m\right)} \equiv 1\pmod{m}$.
+Thus $\exists$ at least one positive integer $x$ such that $a^x \equiv 1\pmod{m}$.
+By WOP, $\exists$ a least posivite integer $x$ satisfying $a^x \equiv 1\pmod{m}$.
+
+\begin{definition}
+    $a,\,m \in \mathbb{Z}^+$, $\left(a,\,m\right)=1$.
+    The least positive integer $x$ such that $a^x \equiv 1\pmod{m}$ is called
+    the \textbf{order} of $a$ modulo $m$.
+
+    We denote this as $\mathrm{order}_m a$, or $\ord_m a$.
+\end{definition}
+e. g. $\ord_7 2 = 3$, $\ord_7 3 = 6$
+
+\begin{remark}
+    \begin{enumerate}
+        \item $a \equiv b\pmod{m}$, then $\ord_m a = \ord_m b$. ($\because b^{\ord_m a} \equiv a^{\ord_m a} \equiv 1 \Rightarrow \ord_m b\leq \ord_m a$)
+        \item Suppose $\left(a,\,m\right) \neq 1$. Then $a^x \equiv 1\pmod{m}$ has no solution.
+        Thus $a^k \not\equiv 1\pmod{m}$ $\forall k \in \mathbb{Z}^+$.
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}
+    $\left(a,\,m\right)=1$. A positive integer $x$ is a solution
+    of $a^x \equiv 1\pmod{m}$ if and only if $\ord_m a \divides x$. 
+\end{theorem}
+\begin{proof}
+    ($\Rightarrow$) By division algorithm,
+    \[
+        x = q \ord_m a + r \qquad 0 \leq r < \ord_m a.    
+    \]
+    Then
+    \begin{align*}
+        a^x &= a^{q \ord_m a + r} \\
+        &= \left(a^{\ord_m a}\right)^q a^r \\
+        &\equiv a^r \pmod{m}.
+    \end{align*}
+    Since $a^x \equiv 1$, $a^r \equiv 1$.
+    Since $0 \leq r < \ord_m a$, it follows that $r=0$.
+    Hence $a=q \ord_m a$ and so $\ord_m a \divides x$. 
+
+    ($\Leftarrow$) Since $\ord_m a \divides x$, $x=k \ord_m a$ for some $k \in \mathbb{Z}^+$.
+    Then $x^a \equiv x^{k \ord_m a} \equiv \left(a^{\ord_m a}\right)^k \equiv 1^k \equiv 1\pmod{m}$.
+\end{proof}
+
+\begin{corollary}
+    \begin{align*}
+        & \left(a,\,m\right)=1 \\
+        &\Rightarrow \ord_m a \divides \phi\left(m\right).
+    \end{align*}
+\end{corollary}
+
+e. g. $\ord_{17} 5 = 16$, $\phi\left(17\right)=16$.
+
+\paragraph{Recall} $m=7$, then $\ord_7 2 = 3$, $\ord_7 3 = 6$.
+
+$m=12$, then $\phi\left(12\right)=4$: so there is no positive integer $a$
+such that $\ord_m a = 4$.
+
+\begin{definition}[Primitive root]
+    $r,\,m \in \mathbb{Z}^+$ and $\left(r,\,m\right)=1$.
+    If $\ord_m r=\phi\left(m\right)$, then $r$ is called a \textbf{primitive root}
+    modulo $m$.   
+\end{definition}
+e. g.
+\begin{enumerate}
+    \item 3 is a primitive root modulo 7.
+    \item There are no primitive roots modulo 12.
+\end{enumerate}
+
+\begin{theorem}
+    $\left(r,\,m\right) \in \mathbb{Z}^+$, $\left(r,\,m\right)=1$.
+    If $r$ is a primitive root modulo $m$, then the integers
+    $r,\,r^2,\,\cdots,\,r^{\phi\left(m\right)}$ form a \underline{reduced residue system}
+    modulo $m$.
+\end{theorem}
+
+e. g. 2 is a primitive root modulo 9; $\phi\left(9\right)=6$.
+\begin{align*}
+    2 \equiv 2 \\
+    2^2 \equiv 4 \\
+    2^3 \equiv 8 \\
+    2^4 \equiv 7 \\
+    2^5 \equiv 5 \\
+    2^6 \equiv 1
+\end{align*}
+
+\begin{proof}
+    Suffices to show that the first $\phi\left(m\right)$ powers of
+    $r$ are all relatively prime to $m$ and that no two are
+    congrugent modulo $m$.
+
+    Since $\left(r,\,m\right)=1$, $\left(r^k,\,m\right)=1$ for any $k \in \mathbb{Z}^+$.
+    Thus $r,\,r^2,\,\cdots,\,r^{\phi\left(m\right)}$ are all relatively prime to $m$.
+
+    Assume that $r^i \equiv r^j \pmod{m}$. Since $1 \leq i,\,j \leq \phi\left(m\right)$, we have
+    $i=j$, since $i \equiv j \pmod{\phi\left(m\right)}$ by the next theorem.
+\end{proof}
+
+\begin{theorem}
+    $a,\,m \in \mathbb{Z}^+$, $\left(a,\,m\right)=1$.
+    $a^i \equiv a^j \pmod{m}$ if and only if $i \equiv j \pmod{\ord_m a}$ where
+    $i,\,j \in \mathbb{Z}^+ \cup \left\{0\right\}$.
+\end{theorem}
+\begin{proof}
+    ($\Rightarrow$) Suppose $a^i \equiv a^j \pmod{m}$ where $i \geq j$. Since
+    $\left(a,\,m\right)=1$, $\left(a^j,\,m\right)=1$. Then
+    \[
+        a^ja^{i-j} \equiv a^i \equiv a^j \pmod{m}.
+    \]
+    Since $\left(a^j,\,m\right)=1$, $a^{i-j}\equiv 1 \pmod{m}$.
+    Thus $\ord_m a \divides \left(i-j\right)$, therefore $i \equiv j \pmod{\ord_m a}$.
+
+    ($\Leftarrow$) Proof left for students.
+\end{proof}
+
+\begin{theorem}
+    $r,\,m \in \mathbb{Z}^+$, $\left(r,\,m\right)=1$.
+    Suppose $r$ is a primitive root modulo $m$. Then $r^n$ is also a 
+    primitive root modulo $m$ if and only if $\left(n,\,\phi\left(m\right)\right)=1$.
+\end{theorem}
+
+\begin{corollary}
+    If a positive integer $m$ has a primitive root, then it has a total of
+    \underline{$\phi\left(\phi\left(m\right)\right)$} incongrugent primitive roots.
+\end{corollary}
+
+e. g. $m=11$
+
+By Corollary, 11 has $\phi\left(\phi\left(11\right)\right)=4$ incongrugent
+primitive roots -- of 2, 6, 7, 8.
+
+\begin{lemma}
+    If $\ord_m a = t$, then \[\ord_m \left(a^u\right) = \frac{\ord_m a}{\left(\ord_m a,\,u\right)} = \frac{t}{\left(t,\,u\right)}.\]
+\end{lemma}
+
+\begin{proof}[of lemma]
+    Let $s:=\ord_m\left(a^u\right)$ and $v:=\left(t,\,u\right)$. Then
+    $t=t_1 v$, $u=u_1 v$ where $\left(t_1,\,u_1\right)=1$.
+
+    Note that
+    \[
+        \left(a^u\right)^{t_1} \equiv \left(a^{uv}\right)^{t_1}
+        \equiv \left(a^t\right)^{u_1} \equiv 1^{u_1} \equiv 1.
+    \]
+    Thus $s \divides t_1$.
+
+    On the other handm since $1\equiv\left(a^u\right)^s =a^{us}$, we have $t \divides us$.
+    Then $t=\underline{t_1 v} \divides us = \underline{u_1 vs}$, and so, $t_1 \divides u_1s$.
+
+    Since $\left(t_1,\,u_1\right)=1$, $t_1 \divides s$. Hence $s=t_1=\frac{t}{v}=\frac{t}{\left(t,\,u\right)}$.
+\end{proof}
+
+\begin{proof}[of theorem]
+    By Lemma,
+    \begin{align*}
+        \ord_m \left(r^n\right) &= \frac{\ord_m r}{\left(\ord_m r,\,n\right)} \\
+        &= \frac{\phi\left(m\right)}{\left(\phi\left(m\right),\,n\right)}.
+    \end{align*}
+\end{proof}
