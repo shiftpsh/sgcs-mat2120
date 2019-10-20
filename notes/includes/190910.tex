@@ -1,0 +1,136 @@
+\begin{enumerate}
+    \item \textbf{Well Ordering Principle}(WOP). Every nonempty set of
+    positive integers has a least element.
+    \item \textbf{Principle of Mathematical Induction}. Let $S$ be a
+    set of positive integers. If $S$ satisfies the following two conditions
+    \begin{enumerate}
+        \item $1 \in S$
+        \item $n \in S \Rightarrow n + 1 \in S$
+    \end{enumerate}
+    then $S$ is the set of all positive integers.
+    \item \textbf{Archimedian property}. $\forall a,\,b \in \mathbb{N}$, then 
+    $\exists n \in \mathbb{N}$ such that $na > b$.
+\end{enumerate}
+
+\begin{remark}
+    $1 \Leftrightarrow 2 \Rightarrow 3$.
+\end{remark}
+
+\begin{definition}
+    If $a,\,b \in \mathbb{Z}$, then \textbf{$a$ divides $b$}, denoted by 
+    $a \divides b$, if $c \in \mathbb{Z}$ such that $b = ac$.
+
+    We write $a \ndivides b$ if $a$ does not divide $b$.
+\end{definition}
+
+\begin{theorem}[The Division Algorithm]
+    If $a,\,b \in \mathbb{Z}$, $b>0$, then there are unique integers $q$ and $r$
+    such that
+    \[
+        a=bq+r
+    \]
+    where $0 \leq r < b$.
+\end{theorem}
+
+\begin{proof}
+    Consider
+    \[
+        S = \left\{a-bk \mid k \in \mathbb{Z}\right\}.
+    \]
+    Let $T$ be the set of all nonnegative integers in $S$. Since $T \neq \emptyset$, it follows the WOP,
+    thus $T$ has a least element of $r = a-bq$, and it is clear that $r \geq 0$.
+
+    We will claim that $r < b$. Suppose $r \geq b$. then
+    \begin{align*}
+        r &> r-b \\
+        &= a - bq - b \\
+        &= a - \left(q+1\right)b \geq 0.
+    \end{align*}
+    This contradicts to the choice of $r$: which is that $r$ is the minimum element of $S$.
+    Hence, $r<b$.
+    
+    We will claim that $q$ and $r$ are unique. Suppose that $a=bq_1+r_1=bq_2+r_2$, 
+    where $0 \leq r_1,\,r_2 < b$.
+    Note that
+    \begin{align*}
+        0&=b\left(q_1-q_2\right)+\left(r_1-r_2\right)\\
+        \Rightarrow r_2=r_1&=b\left(q_1-q_2\right),
+    \end{align*}
+    thus $b \divides\left(r_2-r_1\right)$.
+
+    Since $0 \leq r_1,\,r_2 < b$, we have $-1 < r_2-r_1 < b$.
+    Thus $r_2-r_1=0$, i. e. $r_1=r_2$.
+    Since $bq_1+r_1=bq_2+r_2$, $q_1=q_2$. \qed
+\end{proof}
+
+
+\begin{remark}
+    \begin{enumerate}
+        \item If $a,\,b\in\mathbb{Z}$, $b\neq 0$ then $a=bq+r$, where $0\leq r<\left|b\right|$.
+        \item If $f\left(x\right)=g\left(x\right)q\left(x\right)+r\left(x\right)$,
+        then $0 \leq \operatorname{\mathrm{deg}} r\left(x\right) < \operatorname{\mathrm{deg}} g\left(x\right)$.
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}[Greatest Common Divisor]
+    Suppose $a,\,b\in\mathbb{Z}$, where $a \neq 0$ and $b \neq 0$.
+    Then $\exists! d\in \mathbb{Z}$ satisfying the followings:
+    \begin{enumerate}
+        \item $d>0$.
+        \item $d \divides a$, $d \divides b$.
+        \item $k \divides a$, $k \divides b \Rightarrow k \divides d$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    By WOP, we may choose $d$ to be the least positive integer of the form\footnote{
+        Consider $S=\left\{ax+by \mid x,\,y\in\mathbb{Z}\right\}
+        \supset T=\left\{s \in S \mid s > 0\right\} \neq \emptyset$. By WOP, $\exists d \in T$.
+    }
+    \[
+        d=ax+by \qquad x,\,y\in\mathbb{Z}.
+    \]
+    It is clear that $d>0$, and if $k \divides a$, $k \divides d$
+    then $k \divides \left(ax+by\right)=d$.
+
+    Note that by the division algorithm,
+    $\exists t,\,u\in\mathbb{Z}$ such that $a=dt+u$ where $0 \leq u < d$. Then
+    \begin{align*}
+        dt+u &= \left(ax+by\right)t + u\\
+        &= axt + byt + u,
+    \end{align*}
+    and so
+    \[
+        a\left(1-xt\right)+b\left(-yt\right)=u.
+    \]
+    Since $u<d$, it follows the minimality of $d$ that $u=0$, thus $d \divides a$.
+    Similarily we can show that $d \divides b$.
+
+    Remains to show the uniqueness of d. Suppose that $d^\prime$ satifies above conditions.
+    then $d \divides d^\prime$ and $d^\prime \divides d$. Hence $d=d^\prime$, because $d,\,d^\prime>0$.
+\end{proof}
+
+\begin{definition}[Greatest Common Divisor]
+    $a,\,b \in \mathbb{Z}$, $a \neq 0$, $b \neq 0$.
+
+    The unique positive integer $d$ given by the theorem above is called the \textbf{greatest common divisor}
+    of $a$ and $b$. It is denoted by $\operatorname{\mathrm{gcd}}\left(a,\,b\right)$, or $\left(a,\,b\right)$.
+\end{definition}
+
+\begin{remark}
+    \begin{enumerate}
+        \item $\left(a,\,0\right)=\left|a\right|$, $\left(0,\,0\right):=0$.
+        \item $7=\left(14,\,21\right)$.
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}
+    For any $m \in \mathbb{Z}$,
+    \[
+        m\mathbb{Z} := \left\{mx \mid x \in \mathbb{Z}\right\}
+    \]
+    is closed under $+$ and $-$.\footnote{It's trivial.}
+
+    Conversely, if a nonempty subset $S$ of $\mathbb{Z}$ is closed under $+$ and $-$,
+    then $\exists! m \geq 0 \in \mathbb{Z}$ such that $S = m\mathbb{Z}$.
+\end{theorem}
