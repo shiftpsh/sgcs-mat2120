@@ -1,0 +1,172 @@
+\begin{theorem}
+    A positive integer $m$ possess a primitive root if and only if
+    $m=2,\,4,\,p^t$ or $2p^t$ where $p$ is odd prime and $t \in \mathbb{Z}^+$.
+\end{theorem}
+\begin{definition}[Index]
+    Let $m$ be a positive integer with primitive root $r$. If $a$ is
+    an integer with $\left(a,\,m\right)=1$, then $\exists!x$ with $1 \leq x \leq \phi\left(m\right)$
+    and $r^x \equiv a \pmod{m}$.
+    
+    We call $x$ as the \textbf{index} or the \textbf{discrete logarithm}
+    of $a$ to the base $r$ modulo $m$. We denote this by
+    $\ind_r a$.
+\end{definition}
+\begin{remark}
+    \begin{enumerate}
+        \item $r^{\ind_r a} \equiv a \pmod{m}$.
+        \footnote{Please don't do such things like $\cancel{a}^{\log_{\cancel{a}} b}=b$, or $\cancel{\sqrt{2^{\cancel{2}}}}=2$. It \underline{ruins} mathematics!}
+        \item $\left(a,\,m\right)=1$, $\left(b,\,m\right)=1$, $a \equiv b \pmod{m} \Rightarrow \ind_r a = \ind_r b$.
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}
+    Let $m$ be a positive integer with primitive root $r$, and $a$ be an integer
+    with $\left(a,\,m\right)=1$. Then,
+    \begin{enumerate}
+        \item $\ind_r 1 \equiv 0 \pmod{\phi\left(m\right)}$.
+        \item $\ind_r ab \equiv \ind_r a + \ind_r b \pmod{\phi\left(m\right)}$.
+        \item $\ind_r a^k \equiv k \ind_r a \pmod{\phi\left(m\right)}$, where $k \in \mathbb{Z}^+$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item By Euler's theorem, $r^{\phi\left(m\right)}\equiv 1 \pmod{m}$.
+        Since $r$ is a primitive root modulo $m$, no small positive power of $r$ is
+        congrugent to 1 modulo $m$.
+        Hence $\ind_r 1 = \phi\left(m\right) \equiv 0 \pmod{\phi\left(m\right)}$.
+        \item Note that
+        \[
+            r^{\ind_r ab} \equiv ab \pmod{m},
+        \] and \[
+            r^{\ind_r a + \ind_r b} = r^{\ind_r a}r^{\ind_r b} \equiv ab \pmod{m}.
+        \]
+        Thus $r^{\ind_r ab} \equiv r^{\ind_r a + \ind_r b}$,
+        hence $\ind_r ab \equiv \ind_r a + \ind_r b \pmod{\phi\left(m\right)}$.
+        \item Note that
+        \begin{align*}
+            r^{\ind_r a^k} &\equiv a^k \pmod{m} \\
+            r^{k \ind_r a} = \left(a^{\ind_r a}\right)^k &\equiv a^k \pmod{m}
+        \end{align*}
+        thus $r^{\ind_r a^k} \equiv r^{k \ind_r a} \pmod{m}$, hence
+        $\ind_r a^k \equiv k \ind_r a \pmod{\phi\left(m\right)}$.
+    \end{enumerate}
+\end{proof}
+
+\begin{example}
+    $6x^{12} \equiv 11 \pmod{17}$?
+
+    Note that 3 is a primitive root of 17.
+    \begin{center}
+        \begin{tabular}{c|cccccccccccccccc}
+            \hline
+            $a$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 \\
+            \hline
+            $\ind_r a$ & 16 & 14 & 1 & 12 & 5 & 15 & 11 & 10 & 2 & 3 & 7 & 13 & 4 & 9 & 6 & 8 \\
+            \hline
+        \end{tabular}
+    \end{center}
+    Taking $\ind_3$ on $6x^2 \equiv 11 \pmod{17}$, we have
+    \footnote{
+        \begin{align*}
+            \because 6x^2 & \equiv 11 \pmod{17} \\
+            \Leftrightarrow 3^{\ind_3 6x^2} & \equiv 3^{\ind_3 11} \pmod{17} \\
+            \Leftrightarrow \ind_3 6x^2 & \equiv \ind_3 11 \pmod{\phi\left(17\right)}
+        \end{align*}
+    }
+    \[
+        \ind_3 \left(6x^{12}\right) \equiv \ind_3 11 \pmod{16}.
+    \]
+    Thus
+    \begin{align*}
+        \ind_3 6 + \ind_3 x^{12} & \equiv \ind_3 11 \pmod{16} \\
+        \Leftrightarrow 15 + 12 \ind_3 x & \equiv 7 \pmod{16} \\
+        \Leftrightarrow 12 \ind_3 x \equiv -8 & \equiv 24 \pmod{16} \\
+        \Leftrightarrow \ind_3 x & \equiv 2 \pmod{4}.
+    \end{align*}
+    Hence $\ind_3 x \equiv 2,\,6,\,10,\,14 \pmod{16}$, therefore,
+    $x \equiv 9,\,15,\,8,\,2 \pmod{17}$.
+
+    Since each step in the computation is reversible, there are four
+    incongrugent solutions to the original equation.
+
+    c.f. If we take another primitive root then we still have the same solution.
+\end{example}
+
+\begin{theorem}
+    $\left(a,\,m\right)=1$. Suppose that $m$ has a primitive root of $r$.
+    Then the following statements are equivalent.
+    \begin{enumerate}
+        \item $x^n \equiv a \pmod{m}$ has a solution.
+        \item $\left(n,\,\phi\left(m\right)\right) \divides \ind_r a$.
+        \item $a^{\frac{\phi\left(m\right)}{\left(n,\,\phi\left(m\right)\right)}} \equiv 1 \pmod{m}$
+        has $\left(n,\,\phi\left(m\right)\right)$ solutions.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item[$1 \Rightarrow 2$.] Note that
+        \begin{align*}
+            x^n &\equiv a \pmod{m}
+            \Leftrightarrow n \ind_r x &\equiv \ind_r a \pmod{\phi\left(m\right)}.
+        \end{align*} 
+        Recall that $ax \equiv b \pmod{m}$ has a solution if and only if $\left(a,\,m\right)\divides b$.
+        If it has a solution, then it has $\left(a,\,m\right)$ solutions.
+        \item[$2 \Leftrightarrow 3$.] Let $c = \phi\left(m\right)$ and $d=\left(n,\,\phi\left(m\right)\right)=\left(n,\,c\right)$.
+        Then, $c = dc_1$ for some $c_1$.
+        
+        Note that\footnote{
+            e. g. $x^3 \equiv 4 \pmod{13}$ has no solution.
+        }
+        \begin{align*}
+            a^{\frac{c}{d}} = a^{c_1} &\equiv 1 \pmod{m} \\
+            \Leftrightarrow c_1 \ind_r a &\equiv 0 \pmod{\phi\left(m\right)} \\
+            \Leftrightarrow c_1d \divides c_1 \ind_r a \\
+            \Leftrightarrow d \divides \ind_r a.
+        \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\begin{note}
+    Suppose that $m$ has two primitive roots $r$ and $s$. Let $\left(a,\,m\right)=1$.
+    Then
+     \[
+        \ind_s a \equiv \ind_s r \cdot \ind_r a \pmod{\phi\left(m\right)}.
+    \]
+\end{note}
+
+\begin{proof}
+    Put $i=\ind_s a$, $j=\ind_s r$, $k=\ind_r a$. Then
+    \[
+        s^i \equiv a \quad s^j \equiv r \quad r^k \equiv a \pmod{m},
+    \]
+    thus
+    \[
+        s^i \equiv a \equiv r^k \equiv \left(s^j\right)^k \equiv s^{jk} \pmod{m},
+    \]
+    and so
+    \[
+        i \equiv jk \pmod{\phi\left(m\right)}.
+    \]\qed
+\end{proof}
+
+\begin{theorem}[Euler Criterion]
+    Let $p$ be an odd prime, and $\left(a,\,p\right)=1$. Then
+    $x^2 \equiv a \pmod{p}$
+    \begin{enumerate}
+        \item has a solution if and only if $p^{\frac{p-1}{2}}\equiv 1 \pmod{p}$.
+        \item has no solutions if and only if $p^{\frac{p-1}{2}}\equiv -1 \pmod{p}$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    By Euler's theorem, $a^{p-1} \equiv 1 \pmod{p}$. Then
+    \begin{align*}
+        a^{p-1}-1 &\equiv 0 \pmod{p} \\
+        \Leftrightarrow \left(a^{\frac{p-1}{2}}-1\right)\left(a^{\frac{p-1}{2}}+1\right) &\equiv 0 \pmod{p}.
+    \end{align*}
+    Note that $1 \not\equiv -1 \pmod{p}$ since $p$ is odd prime.
+    By the previous theorem, $x^2 \equiv a \pmod{p}$ has a solution if and only if
+    $a^{\frac{p-1}{\left(2,\,p-1\right)}}=a^{\frac{p-1}{2}}\equiv 1 \pmod{p}$.
+\end{proof}

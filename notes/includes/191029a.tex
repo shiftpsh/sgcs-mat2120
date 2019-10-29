@@ -1,0 +1,45 @@
+Consider $ax+b\equiv 0 \pmod{p}$ where $p$ is prime and $p \ndivides a$.
+\footnote{If $p\divides a$, then $b \equiv 0 \pmod{p}$.}
+Note that this is always solvable.
+\footnote{Since $\left(a,\,p\right)=1$, $ax+b\equiv 0 \Rightarrow x \equiv a^{p-2}\left(-b\right) \pmod {p}$.}
+
+Now consider $ax^2+bx+c \equiv 0 \pmod{p}$. Recall $ax^2+bx+c=0$ --
+put $x = y + \lambda$. Then
+\begin{align*}
+    a\left(y+\lambda\right)^2 + b\left(y+\lambda\right) + c &= 0 \\
+    \Rightarrow ay^2 + 2a\lambda y + a\lambda^2 + by + b\lambda + c &= 0 \\
+    \Rightarrow ay^2 + \left(2a\lambda + b\right)y + a\lambda^2 + b\lambda + c &= 0.
+\end{align*}
+Put $\lambda = -\frac{b}{2a}$. Then
+\begin{align*}
+    ay^2 &= -a\lambda^2 - b\lambda - c \\
+    &= -a\left(-\frac{b}{2a}\right)^2 - b\left(-\frac{b}{2a}\right) - c \\
+    &= \frac{b^2-4ac}{4a}.
+\end{align*}
+Thus
+\begin{align*}
+    y^2 &= \frac{b^2-4ac}{4a^2} \\
+    \Rightarrow y &= \pm \frac{\sqrt{b^2-4ac}}{2a},
+\end{align*}
+hence
+\[
+    x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}.
+\]
+
+Return to $ax^2+bx+c \equiv 0 \pmod{p}$. We may assume that $p\ndivides a$ and $p \neq 2$.
+\footnote{
+    If $p \divides a$, then $ax^2+bx+c \equiv 0 \Leftrightarrow bx+c\equiv 0\pmod{p}$.
+
+    If $p=2$, then $ax^2+bx+c \equiv 0 \pmod{2}$ is too easy.
+}
+Since $p \ndivides a$, we can find an inverse of $a$, say $a^*$, i. e.
+$a \cdot a^* \equiv 1 \pmod{p}$. Then
+\[
+    ax^2 + bx + c \equiv a\left(x^2 + a^* bx + a^* c\right) \pmod{p}.
+\]
+Since $p \neq 2$, we can find an inverse $2^* =\frac{p+1}{2}$ for 2 modulo $p$.
+Thus
+\begin{align*}
+    & x^2 + a^* bx + a^* c \\
+    & \equiv \left(x+2^* a^* b\right)^2 + a^* c - \left(2^*\right)^2 \left(a^*\right)^2 b^2 \pmod{p}
+\end{align*}
