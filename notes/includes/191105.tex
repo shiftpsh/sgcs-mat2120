@@ -1,0 +1,185 @@
+
+(Just returned from Bangkok; due to jet lag, errors may occur for this day's lecture notes. Please read with care.)
+
+\paragraph{Quesition.} How can ge calcaulate $\legendre{a}{p}$?
+
+Suppose that $a=\pm p_1^{e_1}p_2^{e_2}\times\cdots p_i^{e_i}$, where 
+$p_1,\,p_2,\,p_3,\,\cdots,\,p_i$ are distinct primes.
+Since $p \ndivides a$ and $p \neq p_i$, $\forall 1 \leq i \leq k$.
+Thus
+\[
+    \legendre{a}{p} = \legendre{\pm 1}{p}\legendre{p_1}{p}^{e_1}\times\cdots\times\legendre{p_i}{p}^{e_i}.
+\] 
+
+Hence in order to calcaulate $\legendre{a}{p}$, it suffice to be able to calculate $\legendre{q}{p}$
+where $p$ and $q$ are distinct primes.
+
+\begin{lemma}[Gauss's Lemma]
+    $p$ : odd prime. $p \ndivides a$.
+
+    If $s$ is the number of least positive residues mod $p$ of the integers
+    $a,\,2a,\,3a,\,\cdots,\,\frac{p-1}{2}a$ that are greater than $\frac{p}{2}$, then
+    $\legendre{a}{p}=\left(-1\right)^s$.
+\end{lemma}
+
+e. g. $\legendre{5}{11}$
+
+Yhe least positive residues of
+\[
+    1\cdot 5 \quad 2 \cdot 5 \quad 3 \cdot 5 \quad 4 \cdot 5 \quad 5 \cdot 5
+\]
+Note that $s=2$.
+
+\begin{proof}
+    (Proof left for homework; due November 7th.)
+\end{proof}
+
+\begin{theorem}
+    $p$ : odd prime.
+
+    \begin{align*}
+        \legendre{2}{p}&=\left(-1\right)^{\frac{p^2-1}{8}} \\
+        &= \begin{cases}
+            1 & \mbox{if $p \pm 1 \pmod{8}$} \\
+            -1 & \mbox{if $p \pm 3 \pmod{8}$}
+        \end{cases}
+    \end{align*}
+    \footnote{$\star$}
+\end{theorem}
+
+\begin{proof}
+    By Gauss's Lemma, $\legendre{2}{p}=\left(-1\right)^s$
+    where $s$ is the number of least positive residues mod $p$ of the integers $1\cdot 2$,
+    $2 \cdot 2$, $3 \cdot 2$, $\cdots$, $\frac{p-1}{2}\times 2$ that are greater than $\frac{p}{2}$.  
+    
+    Since all of these integers are less than $p$, we need only count these greater than $\frac{p}{2}$ to find.
+    Note that the integers $2j$ where $1\leq j\leq \frac{p-1}{2}$ are less than $\frac{p}{2}$ whem
+    $j \leq \frac{p}{4}$.
+
+    Thus $\exists \left\lfloor\frac{p}{4}\right\rfloor$ integers in the set less
+    that $\frac{p}{2}$. By Gauss's lemma,
+    \[
+        \legendre{2}{p} = \left(-1\right)^{\frac{p-1}{2} - \left\lfloor\frac{p}{4}\right\rfloor}.
+    \]
+    To prove the theorem, it suffices to show that $\frac{p-1}{2} - \left\lfloor\frac{p}{4}\right\rfloor \equiv \frac{p^2-1}{8} \pmod{2}$
+    for every odd integer $p$.
+
+    Note that it holds for a positive integer $p$ if and only if it holds for $p+8$.
+    It can be checked that it holds for $p\equiv\pm 1$, $p\equiv\pm 3 \pmod{8}$.
+    Hence we conclude that it holde for every odd integer $p$.
+\end{proof}
+
+e. g. 
+\[
+    \legendre{89}{13}=\legendre{-2}{13}=\legendre{-1}{13}\legendre{2}{13}
+    = 1\left(-1\right) =-1
+\]
+
+\begin{theorem}[The Law of Quadratic Reciprocity]
+    $p,\,q$ : distinct odd primes.
+    \[
+        \legendre{p}{q}=\left(-1\right)^{\frac{p-1}{2}\frac{q-1}{2}}\legendre{q}{p}
+    \]
+    or
+    \[
+        \legendre{p}{q}\legendre{q}{p} = \left(-1\right)^{\frac{p-1}{2}\frac{q-1}{2}}
+    \]
+\end{theorem}
+
+\begin{proof}
+    (See the book.)
+\end{proof}
+
+\begin{remark}
+    Note that
+    \[
+        \legendre{p-1}{2} = \begin{cases}
+            \mbox{even} & \mbox{if $p\equiv 1 \pmod{4}$} \\
+            \mbox{odd} & \mbox{if $p\equiv 3 \pmod{4}$}
+        \end{cases}
+    \]
+    thus
+    \[
+        \frac{p-1}{2}\frac{q-1}{2} = \begin{cases}
+            \mbox{even} & \mbox{if $p\equiv 1 \pmod{4}$ or $q\equiv 1 \pmod{4}$} \\
+            \mbox{odd} & \mbox{if $p\equiv q\equiv 3 \pmod{4}$}
+        \end{cases}
+    \]
+    hence 
+    \[
+        \legendre{p}{q}\legendre{q}{p} = \begin{cases}
+            1 & \mbox{if $p\equiv 1 \pmod{4}$ or $q\equiv 1 \pmod{4}$} \\
+            -1 & \mbox{if $p\equiv q\equiv 3 \pmod{4}$}
+        \end{cases}
+    \]
+    Since $\legendre{p}{q}$ and $\legendre{q}{p}$ are $\pm 1$,
+    \[
+        \legendre{p}{q}\legendre{q}{p} = \begin{cases}
+            \legendre{q}{p} & \mbox{if $p\equiv 1 \pmod{4}$ or $q\equiv 1 \pmod{4}$} \\
+            -\legendre{q}{p} & \mbox{if $p\equiv q\equiv 3 \pmod{4}$}
+        \end{cases}
+    \]
+\end{remark}
+
+\begin{theorem}
+    $p,\,q=2p+1$ : $p$, $q$ are odd primes.
+
+    $M_p=2^p-1$ : Mersenne number.
+
+    Then one of the following holds.
+    \begin{enumerate}
+        \item $q \divides M_p$
+        \item $q \divides M+p + 2$
+    \end{enumerate}
+
+    Moreover,
+    \begin{align*}
+        q \divides M_p & \Leftrightarrow q \equiv 1 \pmod{8} or \equiv -3 \pmod{8} \\
+        q \divides M_p & \Leftrightarrow q \equiv 1 \pmod{8} or \equiv -3 \pmod{8}
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    By Fermat's, $2^{q-1} \equiv 0 \pmod{q}$, then
+    \begin{align*}
+        M_p M_{p+2} &= \left(2^p-1\right)\left(2^p+1\right) \\
+        &= 2^{2p}-1 = 2^{q-1}-1
+        &\equiv 0 \pmod{q}.
+    \end{align*}
+\end{proof}
+
+Since $q$ is prime, $p\divides M_p$ or $p\divides M_{p+2}$.
+
+Note that
+\begin{align*}
+    q \divides M_p &\Leftrightarrow 2^p = 2^{\frac{q-1}{2}} \equiv 1 \pmod{q} \\
+    & \Leftrightarrow \legendre{2}{q}=1
+\end{align*}
+and
+\begin{align*}
+    2 \divides \left(2^p-2\right) &\Leftrightarrow 2^p = 2^{\frac{q-1}{2}} \equiv -1 \pmod{8} \\
+    &\Leftrightarrow \legendre{2}{q}=-1
+\end{align*}
+
+Hence it follows from the fact that
+\[
+    \legendre{2}{q} = \left(-1\right)^{\frac{q^2-1}{8}} = \begin{cases}
+        1 & q\equiv \pm 1 \pmod{8} \\
+        -1 & q\equiv \pm 3 \pmod{8}
+    \end{cases}
+\]
+
+\begin{theorem}[Pelpin's Test]
+    $F_m=2^{2^m}+1$ is a prime if and only if $3^{\frac{F_m-1}{2}} \equiv -1 \pmod{F_m}$.
+\end{theorem}
+
+\begin{proof}
+    ($\Leftarrow$) Suppose that $3^{\frac{F_m-1}{2}}\equiv -1\pmod{F_m}$.
+    Then $3^{F_m-1} \equiv 1 \pmod{F_m}$.
+
+    If $p$ is a prime that $p\divides F_m$, then $3^{F_m-1} \equiv 1 \pmod{p}$.
+    Note that $\left(3,\,p\right)=1$. Then \[\ord_p 3 \divides \left(F_m-1\right) = 2^{2^m}\],
+    and so $\ord_p 3$ must be a power of 2.
+
+    However, since $\ord_p 3 \ndivides 2^{2^n-1} = \frac{F_m-1}{2}$. This is a contradiction.
+\end{proof}
