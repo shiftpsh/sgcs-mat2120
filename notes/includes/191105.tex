@@ -1,7 +1,7 @@
 
 (Just returned from Bangkok; due to jet lag, errors may occur for this day's lecture notes. Please read with care.)
 
-\paragraph{Quesition.} How can ge calcaulate $\legendre{a}{p}$?
+\paragraph{Question.} How can we calcaulate $\legendre{a}{p}$?
 
 Suppose that $a=\pm p_1^{e_1}p_2^{e_2}\times\cdots p_i^{e_i}$, where 
 $p_1,\,p_2,\,p_3,\,\cdots,\,p_i$ are distinct primes.
@@ -61,12 +61,12 @@ Note that $s=2$.
     \[
         \legendre{2}{p} = \left(-1\right)^{\frac{p-1}{2} - \left\lfloor\frac{p}{4}\right\rfloor}.
     \]
-    To prove the theorem, it suffices to show that $\frac{p-1}{2} - \left\lfloor\frac{p}{4}\right\rfloor \equiv \frac{p^2-1}{8} \pmod{2}$
+    To prove the theorem, it suffice to show that $\frac{p-1}{2} - \left\lfloor\frac{p}{4}\right\rfloor \equiv \frac{p^2-1}{8} \pmod{2}$
     for every odd integer $p$.
 
     Note that it holds for a positive integer $p$ if and only if it holds for $p+8$.
     It can be checked that it holds for $p\equiv\pm 1$, $p\equiv\pm 3 \pmod{8}$.
-    Hence we conclude that it holde for every odd integer $p$.
+    Hence we conclude that it holds for every odd integer $p$.
 \end{proof}
 
 e. g. 
@@ -93,7 +93,7 @@ e. g.
 \begin{remark}
     Note that
     \[
-        \legendre{p-1}{2} = \begin{cases}
+        \frac{p-1}{2} = \begin{cases}
             \mbox{even} & \mbox{if $p\equiv 1 \pmod{4}$} \\
             \mbox{odd} & \mbox{if $p\equiv 3 \pmod{4}$}
         \end{cases}
@@ -101,21 +101,21 @@ e. g.
     thus
     \[
         \frac{p-1}{2}\frac{q-1}{2} = \begin{cases}
-            \mbox{even} & \mbox{if $p\equiv 1 \pmod{4}$ or $q\equiv 1 \pmod{4}$} \\
+            \mbox{even} & \mbox{if $p\equiv 1$ or $q\equiv 1 \pmod{4}$} \\
             \mbox{odd} & \mbox{if $p\equiv q\equiv 3 \pmod{4}$}
         \end{cases}
     \]
     hence 
     \[
         \legendre{p}{q}\legendre{q}{p} = \begin{cases}
-            1 & \mbox{if $p\equiv 1 \pmod{4}$ or $q\equiv 1 \pmod{4}$} \\
+            1 & \mbox{if $p\equiv 1$ or $q\equiv 1 \pmod{4}$} \\
             -1 & \mbox{if $p\equiv q\equiv 3 \pmod{4}$}
         \end{cases}
     \]
     Since $\legendre{p}{q}$ and $\legendre{q}{p}$ are $\pm 1$,
     \[
         \legendre{p}{q}\legendre{q}{p} = \begin{cases}
-            \legendre{q}{p} & \mbox{if $p\equiv 1 \pmod{4}$ or $q\equiv 1 \pmod{4}$} \\
+            \legendre{q}{p} & \mbox{if $p\equiv 1$ or $q\equiv 1 \pmod{4}$} \\
             -\legendre{q}{p} & \mbox{if $p\equiv q\equiv 3 \pmod{4}$}
         \end{cases}
     \]
@@ -129,26 +129,26 @@ e. g.
     Then one of the following holds.
     \begin{enumerate}
         \item $q \divides M_p$
-        \item $q \divides M+p + 2$
+        \item $q \divides \left( M_p + 2 \right)$
     \end{enumerate}
 
     Moreover,
     \begin{align*}
-        q \divides M_p & \Leftrightarrow q \equiv 1 \pmod{8} or \equiv -3 \pmod{8} \\
-        q \divides M_p & \Leftrightarrow q \equiv 1 \pmod{8} or \equiv -3 \pmod{8}
+        q \divides M_p & \Leftrightarrow q \equiv 1 \mbox{ or } q \equiv -3 \pmod{8} \\
+        q \divides \left(M_p + 2\right) & \Leftrightarrow q \equiv -1 \mbox{ or } q \equiv 3 \pmod{8}
     \end{align*}
 \end{theorem}
 
 \begin{proof}
     By Fermat's, $2^{q-1} \equiv 0 \pmod{q}$, then
     \begin{align*}
-        M_p M_{p+2} &= \left(2^p-1\right)\left(2^p+1\right) \\
-        &= 2^{2p}-1 = 2^{q-1}-1
+        M_p \left(M_p+2\right) &= \left(2^p-1\right)\left(2^p+1\right) \\
+        &= 2^{2p}-1 = 2^{q-1}-1 \\
         &\equiv 0 \pmod{q}.
     \end{align*}
 \end{proof}
 
-Since $q$ is prime, $p\divides M_p$ or $p\divides M_{p+2}$.
+Since $q$ is prime, $q\divides M_p$ or $q\divides \left(M_p+2\right)$.
 
 Note that
 \begin{align*}
@@ -157,7 +157,7 @@ Note that
 \end{align*}
 and
 \begin{align*}
-    2 \divides \left(2^p-2\right) &\Leftrightarrow 2^p = 2^{\frac{q-1}{2}} \equiv -1 \pmod{8} \\
+    2 \divides \left(2^p-2\right) &\Leftrightarrow 2^p = 2^{\frac{q-1}{2}} \equiv -1 \pmod{q} \\
     &\Leftrightarrow \legendre{2}{q}=-1
 \end{align*}
 
