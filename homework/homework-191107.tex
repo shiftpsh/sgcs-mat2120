@@ -1,0 +1,49 @@
+\input{header}
+
+\begin{document}
+
+\title{MAT2120 Number Theory\newline Homework, November 7th}
+\author{Suhyun Park (20181634)}
+\institute{Department of Computer Science and Engineering, Sogang University}
+
+\maketitle
+
+\begin{lemma}[Gauss's Lemma]
+    $p$ : odd prime. $p \ndivides a$. If $s$ is the number of least positive residues mod $p$ of the integers
+    $a,\,2a,\,3a,\,\cdots,\,\frac{p-1}{2}a$ that are greater than $\frac{p}{2}$, then
+    $\legendre{a}{p}=\left(-1\right)^s$.
+\end{lemma}
+
+\begin{proof}
+    Let
+    \begin{align*}
+        z &= a \cdot 2a \cdot 3a \times \cdots \times \frac{p-1}{2}a \\ 
+        &= a^{\frac{p-1}{2}} \left[1 \cdot 2 \cdot 3 \times \cdots \times \frac{p-1}{2}\right].
+    \end{align*}
+    
+    Since $a$ and $p$ are coprime, $a,\,2a,\,\cdots,\,\frac{p-1}{2}a$ are distinct modulo $p$.
+
+    If we define $f\left(x\right)$ to be
+    \[
+        f\left(x\right) = \begin{cases}
+            x & \mbox{if } 1 \leq x \leq \frac{p-1}{2} \\
+            p-x & \mbox{if } \frac{p+1}{2} \leq x \leq p-1
+        \end{cases}
+    \]
+    then since $s$ is the count of least positive residues mod $p$ of the integers, it will count
+    $\frac{p+1}{2} \leq ka \leq p-1$, hence
+    \[
+        z = \left(-1\right)^s \left[f\left(1\right) f\left(2\right) f\left(3\right) \times \cdots \times f\left(\frac{p-1}{2}\right)\right].
+    \]
+
+    Note that if, for some positive integer $1 \leq n,\,m \leq \frac{p-1}{2}$, $na \equiv \pm ma \pmod{p}$,
+    then since $a$ is coprime to $p$, $n \equiv m \pmod{p}$ ($\because 1 \leq n,\,m \leq \frac{p-1}{2}$). This gives that
+    $f\left(a\right),\,f\left(2a\right),\,\cdots,\,f\left(\frac{p-1}{2}a\right)$ is just a rearrangement of
+    $1,\,2,\,\cdots,\,\frac{p-1}{2}$. Therefore since
+    \[
+        z=a^{\frac{p-1}{2}} \left[1 \cdot 2 \cdot 3 \times \cdots \times \frac{p-1}{2}\right]=\left(-1\right)^s \left[1 \cdot 2 \cdot 3 \times \cdots \times \frac{p-1}{2}\right],
+    \]
+    it is clear that $a^{\frac{p-1}{2}} = \left(-1\right)^s$. \qed
+\end{proof}
+
+\end{document}
