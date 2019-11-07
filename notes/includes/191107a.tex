@@ -1,0 +1,46 @@
+Using the Euclidean algorithm, we can express rational numbers
+as continued fractions.
+
+\begin{definition}[Finite Continued Fraction]
+    A \textbf{finite continued fraction} is an expression of the form
+    \[
+        a_0 + \dfrac{1}{a_1 + \dfrac{1}{a_2 + \dfrac{1}{\ddots + \dfrac{1}{a_n}}}}
+        = \left[a_0;\,a_1,\,a_2,\,\cdots,\,a_n\right]
+    \]
+    where $a_0,\,a_1,\,\cdots,\,a_n$ are real numbers whom of which
+    $a_1,\,a_2,\,\cdots,\,a_n$ are positive.
+    
+    A finite continued fraction is simple if $a_0,\,a_1,\,\cdots,\,a_n \in \mathbb{Z}$.
+\end{definition}
+
+\begin{theorem}
+    Every finite simple continued fraction represents a rational number.
+    Conversely, every rational number can be expressed as a finite simple
+    continued fraction.
+\end{theorem}
+
+\begin{remark}
+    $\frac{62}{23} = \left[2,\,1,\,2,\,3,\,2\right] = \left[2,\,1,\,2,\,3,\,1,\,1\right]$
+\end{remark}
+
+\begin{definition}
+    A continued fraction $\left[a_0;\,a_1,\,\cdots,\,a_k\right]$
+    where $k$ is a nonnegative integer less than $n$ is called the
+    \textbf{$k$-th convergerent} of a continued fraction $\left[a_0;\,a_1,\,\cdots,\,a_n\right]$.
+
+    The $k$-th convergent is denoted by $C_k$.
+\end{definition}
+
+\begin{theorem}
+    Let $a_0,\,a_1,\,\cdots,\,a_n$ be real numbers with $a_1 a_2 \times\cdots\times a_n > 0$.
+    Define the sequence $\left\{p_i\right\}$ and $\left\{q_i\right\}$ 
+    recursively as
+    \[
+        \begin{cases}
+            p_0 := a_0 & q_0 := 1 \\
+            p_1 := a_1a_0 & q_1 := a_1 \\
+            p_k := a_kp_{k-1} + p_{k-2} & q_k := a_k q_{k-1} + q_{k-2} \qquad \mbox{ for } k = 2,\,3,\,\cdots,\,n
+        \end{cases}
+    \]
+    then $C_k = \frac{p_k}{q_k}$.
+\end{theorem}

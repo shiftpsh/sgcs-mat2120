@@ -1,0 +1,86 @@
+Therefore $\ord_p 3 = 2^{2^m} = F_m-1$.
+
+Note that $\ord_p 3 = F_m - 1 \leq p-1$ $\because 3^{p-1} \equiv 1 \pmod{p}$ by Fermat.
+Hence $p=F_m$. Therefore $F_m$ is prime.
+
+($\Rightarrow$) Suppose $F_m=2^{2^m}+1$ is prime. Note that
+\begin{align*}
+    \legendre{3}{F_m}&=\left(-1\right)^{\frac{F_m-1}{2}\frac{3-1}{2}}\legendre{F_m}{3} \\
+    &= \legendre{F_m}{3} \\
+    &= \legendre{2}{3} \qquad \because F_m \equiv 2 \pmod{3} \\
+    &= -1.
+\end{align*}
+
+By Euler criterion, $\legendre{3}{F_m}=3^{\frac{F_m-1}{2}} \pmod{F_m}$.
+Hence we conclude that $3^{\frac{F_m-1}{2}} \equiv -1 \pmod{F_m}$.
+
+\begin{definition}[Jacobi symbol]
+    $n$: odd positive integer $>1$, $\left(a,\,n\right)=1$. Then the
+    \textbf{Jacobi symbol} $\jacobi{a}{n}$ is defined by
+    \begin{align*}
+        \jacobi{a}{n} &= \jacobi{a}{p_1^{t_1} p_2^{t_2} \times\cdots\times p_m^{t_m}} \\
+        &= \legendre{a}{p_1}^{t_1}\legendre{a}{p_2}^{t_2}\times\cdots\times \legendre{a}{p_m}^{t_m}
+    \end{align*}
+    where $n = p_1^{t_1} p_2^{t_2} \times\cdots\times p_m^{t_m}$ is a prime factorization of $n$.
+\end{definition}
+
+\begin{remark}
+    \begin{enumerate}
+        \item If $n$ is odd prime, then the Jacobi symbol is same as Legendre symbol.
+        \item When $n$ is composite, $\jacobi{a}{n}$ does not tell us where $x^2 \equiv a \pmod{n}$
+        has a solution.
+    \end{enumerate}
+\end{remark}
+
+e. g. $a=2$, $n=15$
+\[
+    \jacobi{2}{15} = \jacobi{2}{3} \jacobi{2}{5} = \left(-1\right)\left(-1\right) = 1
+\]
+but $x^2 \equiv 2 \pmod{15}$ has no solutions.
+
+\begin{theorem}
+    \begin{enumerate}
+        \item $a \equiv b \pmod{m} \Rightarrow \jacobi{a}{n} = \jacobi{b}{n}$.
+        \item $\jacobi{ab}{n}=\jacobi{a}{n}\jacobi{b}{n}$
+        \item $\jacobi{-1}{n}=\left(-1\right)^{\frac{n-1}{2}}$
+        \item $\jacobi{2}{n}=\left(-1\right)^{\frac{n^2-1}{8}}$
+        \item $\jacobi{n}{m}\jacobi{m}{n}=\left(-1\right)^{\frac{n-1}{2}\frac{m-1}{2}}$ if $\left(n,\,m\right)=1$
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    (Easy; see the book.)
+\end{proof}
+
+\begin{example}
+    $\jacobi{713}{1009}$? $\Rightarrow 713 = 23 \cdot 31$, 1009 is prime.
+
+    \begin{enumerate}
+        \item \begin{align*}
+            \jacobi{23}{1009} &= \jacobi{1009}{23}\\
+            &= \jacobi{20}{23} = \jacobi{2^2}{23}\jacobi{5}{23} \\
+            &= \jacobi{5}{23} = \jacobi{23}{5} \\
+            &= \jacobi{3}{5} = \jacobi{5}{3} \\
+            &= \jacobi{2}{3} = -1
+        \end{align*}
+        \begin{align*}
+            \jacobi{31}{1009} &= \jacobi{1009}{31} \\
+            &= \jacobi{17}{31} = \jacobi{31}{17} \\
+            &= \jacobi{14}{17} = \jacobi{2}{17}\jacobi{7}{17} \\
+            &= \jacobi{7}{17} = \jacobi{17}{7} \\
+            &= \jacobi{3}{7} = -\jacobi{7}{3}\\
+            &= -\jacobi{4}{3} = -1
+        \end{align*}
+        \begin{align*}
+            \jacobi{713}{1009} &= \jacobi{23}{1009}\jacobi{31}{1009} \\
+            &= \left(-1\right)\left(-1\right) = 1.
+        \end{align*}
+        \item \begin{align*}
+            \jacobi{713}{1009} &= \jacobi{1009}{713} = \jacobi{296}{713} \\
+            &= \jacobi{2^3}{713}\jacobi{37}{713} = \jacobi{2}{713}\jacobi{37}{713} \\
+            &= \jacobi{37}{713} = \jacobi{713}{37} = \jacobi{10}{37} \\
+            &= \jacobi{2}{37}\jacobi{5}{37} = -\jacobi{37}{5} \\
+            &= -\jacobi{2}{5} = 1
+        \end{align*}
+    \end{enumerate}
+\end{example}
