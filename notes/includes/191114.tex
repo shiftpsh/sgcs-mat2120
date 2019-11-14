@@ -1,0 +1,169 @@
+\begin{theorem}
+    Let $\alpha=\alpha_0$ be an irrational number and define the sequence
+    $a_0,\,a_1,\,\cdots$ recursively by
+    \begin{align*}
+        a_k &:= \left\lfloor\alpha_k\right\rfloor \\
+        \alpha_{k+1} &= \frac{1}{\alpha_k-a_k} & \mbox{for } k=0,\,1,\,\cdots
+    \end{align*}
+    then $\alpha=\left[a_0;\,a_1,\,a_2,\,\cdots\right]$.
+\end{theorem}
+
+\begin{proof}
+    Clearly $a_k \in \mathbb{Z}$ $\forall k$. Note that $\alpha_0=\alpha$ is
+    irrational if $\alpha_k$ is irrational, then $\alpha_{k+1}$ is irrational.
+    Thus $\alpha_k$ is irrational for every $k$.
+
+    Thus
+    \[
+        \alpha_k \neq a_k\mbox{ and }a_k<\alpha_k<a_k + 1 \qquad \forall k,
+    \]
+    and so
+    $0 < \alpha_k-a_k < 1$, hence 
+    \[
+        \alpha_{k+1}=\frac{1}{\alpha_k-a_k} < 1
+    \]
+    and
+    \[
+        a_{k+1}=\left\lfloor\alpha_{k+1}\right\rfloor \geq 1 \qquad \mbox{for } k=0,\,1,\,2,\,\cdots.
+    \]
+    Therefore $a_1,\,a_2,\,\cdots$ are positive integers.
+    Note that
+    \[
+        \alpha_k=a_k+\frac{1}{\alpha_k+1} \qquad \mbox{for } k=0,\,1,\,2,\,\cdots,
+    \]
+    and so
+    \begin{align*}
+        \alpha=\alpha_0&=a_0+\frac{1}{\alpha_1} \\
+        &= a_0+\frac{1}{a_1+\frac{1}{\alpha_2}} \\
+        &= \vdots \\
+    \end{align*}
+
+    We want to show that
+    \[
+        \lim_{k \rightarrow \infty} \left[a_0;\,a_1,\,a_2,\,\cdots\right] = \alpha.
+    \]
+    Note that, by theorem 12.9,
+    \begin{align*}
+        \alpha&=\left[a_0;\,a_1,\,a_2,\,\cdots,\,a_k,\,\alpha_{k+1}\right]\\
+        &=\frac{\alpha_{k+1}p_k+p_{k-1}}{\alpha_{k+1}q_k+q_{k-1}},
+    \end{align*}
+    hence
+    \begin{align*}
+        \left|\alpha-C_k\right| &= \left|\frac{\alpha_{k+1}p_k+p_{k-1}}{\alpha_{k+1}q_k+q_{k-1}}-\frac{p_k}{q_k}\right| \\
+        &= \left|\frac{-\left(p_kq_{k-1}-p_{k-1}q_k\right)}{\left(\alpha_{k+1}q_k+q_{k-1}\right)q_k}\right| \\
+        &= \left|\frac{\left(-1\right)^k}{\left(\alpha_{k+1}q_k+q_{k-1}\right)q_k}\right| \\
+        &< \left|\frac{\left(-1\right)^k}{q_{k+1}q_k}\right|
+    \end{align*}
+    Thus
+    \[
+        \left|\alpha-C_k\right|<\frac{1}{q_{k+1}q_k}<\frac{1}{\left(k+1\right)k} \rightarrow 0 \mbox{ as } k \rightarrow \infty,
+    \]
+    hence
+    \[
+        \lim_{k\rightarrow \infty} C_k = \alpha = \left[a_0;\,a_1,\,a_2,\,\cdots\right].
+    \]
+\end{proof}
+
+\begin{theorem}[Uniqueness of Infinite Continued Fraction]
+    If the two infinite simple continued fractions
+    $\left[a_0;\,a_1,\,a_2,\,\cdots\right]$ and $\left[b_0;\,b_1,\,b_2,\,\cdots\right]$
+    represent two same irrational number, then $a_k = b_k$ for $k=0,\,1,\,2,\,\cdots$.
+\end{theorem}
+
+\begin{proof}
+    Let $\alpha = \left[a_0;\,a_1,\,a_2,\,\cdots\right]$.
+    Since $C_0=a_0$ and $C_1=a_0+\frac{1}{a_1}$, it follows that
+    \[
+        C_0=a_0<\alpha<a_0+\frac{1}{a_1}=C_1,
+    \]
+    thus $a_0 = \left\lfloor \alpha \right\rfloor$.
+
+    Note that
+    \[
+        \left[ a_0;\,a_1,\,a_2,\,\cdots \right] = a_0+\frac{1}{\left[ a_1,\,a_2,\,\cdots \right]}.
+    \]
+
+    Suppose that $\left[ a_0;\,a_1,\,a_2,\,\cdots \right] = \left[ b_0;\,b_1,\,b_2,\,\cdots \right]$.
+    Then $b_0=\left\lfloor \alpha\right\rfloor=a_0$ and
+    \[
+        a_0+\frac{1}{\left[ a_1;\,a_2,\,\cdots \right]} = b_0+\frac{1}{\left[ b_1;\,b_2,\,\cdots \right]},
+    \]
+    thus
+    \[
+        \frac{1}{\left[ a_1;\,a_2,\,\cdots \right]} = \frac{1}{\left[ b_1;\,b_2,\,\cdots \right]}.
+    \]
+    Continuing this process by induction gives $a_k=b_k$ for $k=0,\,1,\,\cdots$.
+\end{proof}
+
+e. g.
+\begin{align*}
+    \sqrt{3} &= \left[ 1;\,1,\,2,\,1,\,2,\,\cdots \right] \\
+    &= \left[ 1;\,\overline{1,\,2} \right]
+\end{align*}
+(calculation left for homework.)
+
+\begin{theorem}
+    If $\alpha$ is an irrational number, then there are infinitely many
+    rational number $\frac{p}{q}$ such that
+    \[
+        \left|\alpha-\frac{p}{q}\right|<\frac{1}{q^2}.
+    \]
+\end{theorem}
+
+\begin{proof}
+    Let $\frac{p_k}{q_k}$ be the $k$-th convergent of an infinite simple
+    continued fraction of $\alpha$. Then we know that
+    \[
+        \left|\alpha-\frac{p_k}{q_k}\right| < \frac{1}{q_kq_{k+1}} < \frac{1}{q_k^2}.
+    \]
+\end{proof}
+
+\begin{remark}
+    Is is known that the convergent of an infinite simple continued fraction
+    of $\alpha$ are the best approximation to $\alpha$ in the sense that
+    $\frac{p_k}{q_k}$ is closest to $\alpha$ than any other rational numbers with a
+    denominator less that $q_k$.
+\end{remark}
+
+\begin{definition}[Periodic Continued Fraction]
+    An infinite simple continued fraction $\left[ a_0;\,a_1,\,a_2,\,\cdots \right]$
+    is \textbf{periodic} if $\exists N,\,k\in\mathbb{Z}^+$ such that
+    $a_n=a_{n+k}$ for all $n \geq N$.\footnote{
+        ``periodic with period $k$ with $N$-steps''
+    }
+\end{definition}
+
+\begin{definition}[Quadratic Irrational]
+    $\alpha \in \mathbb{R}$ is said to be \textbf{quadratic irrational}
+    if $\alpha$ is irrational and $\alpha$ is a root of $Ax^2+Bx+C=0$,
+    where $A,\,B,\,C \in \mathbb{Z}$ and $A \neq 0$.
+\end{definition}
+
+e. g. $\sqrt{3}$ is a quadratic irrational, while $\sqrt[3]{3}$ is not.
+
+\begin{lemma}
+    $\alpha$ is quadratic irrational if and only if $\exists a,\,b,\,c \in \mathbb{Z}$
+    with $b > 0$, $c \neq 0$ such that $b$ is not a perfect square and
+    \[
+        \alpha = \frac{a+\sqrt{b}}{c}.
+    \]
+\end{lemma}
+
+\begin{proof}
+    ($\Rightarrow$) By the assumption,
+    \[
+        A\alpha^2+B\alpha+C=0 \quad \mbox{where} \quad A,\,B,\,C \in \mathbb{Z} \mbox{ and } A \neq 0.
+    \]
+    Then
+    \[
+        \alpha = \frac{-B\pm\sqrt{B^2-4AC}}{2A}.
+    \]
+    Since $\alpha$ is irrational, $B^2 - 4AC > 0$, and $B^2-4AC$ is not a perfect square.
+    Put $\left( a,\,b,\,c \right) = \left( -B,\,B^2-4AC,\,2A \right)$,
+    or $\left( a,\,b,\,c \right) = \left( B,\,B^2-4AC,\,-2A \right)$. Then
+    \[
+        \alpha = \frac{a+\sqrt{b}}{c}.
+    \]
+
+    ($\Leftarrow$) It is trivial.
+\end{proof}
