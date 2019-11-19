@@ -1,0 +1,176 @@
+\begin{lemma}
+    $\alpha$ : quadratic irrational. $r,\,s,\,t,\,u \in \mathbb{Z}$, then
+    $\frac{r\alpha+s}{t\alpha+u}$ is rational or quadratic irrational.    
+\end{lemma}
+\begin{proof}
+    By previous lemma,
+    \[
+        \alpha=\frac{a+\sqrt{b}}{c} \mbox{ where } \cdots
+    \]
+    then
+    \begin{align*}
+        \frac{r\alpha+s}{t\alpha+u} &= \frac{r\left(\frac{a+\sqrt{b}}{c}\right)+s}{t\left(\frac{a+\sqrt{b}}{c}\right)+u} \\
+        &= \frac{ar + cs + r\sqrt{b}}{at + cu + t\sqrt{b}} \\
+        &= \frac{\left(\qquad\right)+\left(\qquad\right)\sqrt{b}}{\left(at+cu\right)^2-t^2b} \mbox{ (see the book for detailed calculation.)}
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    An infinite simple continued fraction of $\alpha$ is periodic if and only if
+    $\alpha$ is quadratic irrational.
+\end{theorem}
+
+e. g. $x=\left[ 3;\,\overline{1,\,2} \right]$
+
+$\Rightarrow y=\left[ \overline{1;\,2} \right] \Rightarrow y = \left[ 1;\,2,\,y \right] = 1 + \frac{1}{2 + \frac{1}{y}}$
+
+\begin{proof}
+    ($\Rightarrow$, by Euler in 1737) Let
+    \[\alpha=\left[ a_0;\,a_1,\,a_2,\,\cdots,\,a_{N-1},\,a_{N},\,a_{N+1},\,\cdots,\,a_{N+k} \right]\]
+    and
+    \[\beta=\left[ a_{N};\,a_{N+1},\,\cdots,\,a_{N+k} \right].\]
+    Then
+    \[\beta=\left[ a_{N};\,a_{N+1},\,\cdots,\,a_{N+k},\,\beta \right].\]
+    By Theorem 12.9.,
+    \begin{align}
+        \beta=\frac{\beta p_k+p_{k-1}}{\beta q_k+q_{k-1}}
+    \end{align}
+    where $\frac{p_k}{q_k}$, $\frac{p_{k+1}}{q_{k+1}}$ are convergents of $\beta$.
+    Clearly\footnote{$\beta$ is represented as an infinite simple continued fraction.},
+    $\beta$ is irrational.
+
+    By (1),
+    \[
+        q_k \beta^2 + \left(q_{k-1}-p_k\right)\beta - p_k=0,
+    \]
+    thus $\beta$ is a quadratic irrational.
+
+    Note that
+    \[
+        \alpha = \left[ a_0;\,a_1,\,a_2,\,\cdots,\,a_{N-1},\,\beta \right].
+    \]
+    By theorem,
+    \[
+        \alpha = \frac{\beta p_{N-1}+p_{N-2}}{\beta q_{N-1}+q_{N-2}} 
+    \]
+    where $\frac{p_{N-1}}{q_{N-1}}$, $\frac{p_{k+{N-2}}}{q_{k+{N-2}}}$ are convergents of $\alpha$.
+    Hence $\alpha$ is quadratic irrational, and it represents an infinite simple continued fraction.
+
+    ($\Leftarrow$, by Lagrange in 1770)
+    \begin{lemma}
+        If $\alpha$ is a quadratic irrational, then $\alpha$ can be written as
+        \[
+            \alpha = \frac{P+\sqrt{d}}{Q}
+        \]
+        where $P,\,Q \in \mathbb{Z}$, $Q\neq 0$, $d > 0$, $d$ is not perfect square,
+        and $Q \divides \left(d-P^2\right)$.
+    \end{lemma}
+    \begin{proof}[of Lemma]
+        By Lemma,
+        \[
+            \alpha = \frac{a+\sqrt{b}}{c}.
+        \]
+        Put $P:=a\left|c\right|$, $Q:=c\left|c\right|$, $d=bc^2$. Then
+        $P,\,Q,\,d\in\mathbb{Z}$, $d>0$, and $d$ is not perfect square since $b$ is also not.
+
+        Note that
+        \begin{align*}
+            d-p^2 &= bc^2 - a^2c^2 \\
+            &= \left(b-a^2\right)c^2 \\
+            &= \pm \left(b-a^2\right)Q,
+        \end{align*}
+        thus $Q \divides \left(d-p^2\right)$.
+    \end{proof}
+    \begin{theorem}
+        $\alpha$ : quadratic irrational. By Lemma,
+        \[
+            \alpha_0=\alpha=\frac{P_0+\sqrt{d}}{Q_0}.
+        \]
+        Define $\alpha_k:=\frac{a_k+\sqrt{d}}{Q_k}$, $a_k:=\left\lfloor \alpha_k\right\rfloor$,
+        $P_{k+1}:=a_kQ_k-P_k$, $Q_{k+1}:=\frac{a-P_{k+1}^2}{Q_k}$ for $k=0,\,1,\,2,\,\cdots$.
+        Then
+        \[
+            \alpha=\left[a_0;\,a_1,\,a_2,\,\cdots\right].
+        \]
+    \end{theorem}
+    \begin{proof}
+        \underline{Claim} $P_k,\,Q_k \in \mathbb{Z}$ with $Q_k \neq 0$ and $Q_k \divides \left(d-p_k^2\right)$.
+
+        Note that the induction base is true. Now suppose that 
+        $P_k,\,Q_k \in \mathbb{Z}$ with $Q_k \neq 0$ and $Q_k \divides \left(d-P_k\right)^2$. Then
+        \begin{align*}
+            P_{k+1} &= a_kQ_k-P_k \in \mathbb{Z} \\
+            Q_{k+1} &= \frac{d-P_{k+1}^2}{Q_k} \\
+            &= \frac{d-\left(a_kQ_k - P_k\right)^2}{Q_k} \\
+            &= \frac{d-P_k^2}{Q_k} + 2a_kP_k - a_k^2Q_k.
+        \end{align*}
+        By the induction hypothesis, $Q_{k+1} \in \mathbb{Z}$ and $Q_{k+1} \divides \left(d-P_{k+1}^2\right)$.
+
+        \underline{Claim} $\alpha = \left[ a_0;\,a_1,\,a_2,\,\cdots \right]$
+
+        Suffices to show that
+        \[
+            \alpha_{k+1}=\frac{1}{\alpha_k-a_k} \mbox{ for } k=0,\,1,\,2,\,\cdots.
+        \]
+        Note that
+        \begin{align*}
+            \alpha_k-a_k &= \frac{p_k+\sqrt{d}}{Q_k}-a_k \\
+            &= \frac{\sqrt{d}-\left(a_kQ_k-P_k\right)}{Q_k} \\ 
+            &= \frac{\sqrt{d}-P_{k+1}}{Q_k} \\
+            &= \frac{\left( \sqrt{d}-P_{k+1} \right)\left( \sqrt{d}+P_{k+1} \right)}{Q_k\left( \sqrt{d}-P_{k+1} \right)} \\
+            &= \frac{d-P_{k+1}^2)}{Q_k\left( \sqrt{d}-P_{k+1} \right)} \\
+            &= \frac{Q_k+1}{\sqrt{d}+P_{k+1}} \\
+            &= \frac{1}{\alpha_{k+1}}.
+        \end{align*}
+    \end{proof}
+
+    We return to our original proof ($\Leftarrow$).
+
+    By the previous theorem,
+    $@a = \left[ a_0;\,a_1,\,a_2,\,\cdots \right]$ where $a_k=\left\lfloor\frac{P_k+\sqrt{d}}{Q_k}\right\rfloor$.
+    Note that
+    \[
+        \alpha=\left[ a_0;\,a_1,\,a_2,\,\cdots,\,a_{k-1},\,\alpha_k \right],
+    \]
+    thus $\alpha=\frac{p_{k-1}\alpha_k+p_{k-2}}{q_{k-1}\alpha_k+q_{k-2}}$ by theorem.
+
+    \begin{definition}
+        $\alpha = \frac{a+\sqrt{b}}{c}$; Define $\alpha^\prime:=\frac{a-\sqrt{b}}{c}$.
+    \end{definition}
+
+    By taking conjugates,
+    \[
+        \alpha^\prime = \frac{p_{k-1}\alpha^\prime_k+p_{k-2}}{q_{k-1}\alpha^\prime_k+q_{k-2}}.
+    \]
+    Then
+    \[
+        \alpha_k^\prime = -\frac{q_{k-2}}{q_{k-1}}
+        \left(\frac
+            {\alpha^\prime -\frac{p_{k-2}}{q_{k-2}}}
+            {\alpha^\prime -\frac{p_{k-1}}{q_{k-1}}}
+        \right).
+    \]
+    Note that $\frac{p_{k-2}}{q_{k-2}} \rightarrow \alpha$,
+    $\frac{p_{k-1}}{q_{k-1}} \rightarrow \alpha$ as $k \rightarrow \infty$. And so,
+    $\frac
+    {\alpha^\prime -\frac{p_{k-2}}{q_{k-2}}}
+    {\alpha^\prime -\frac{p_{k-1}}{q_{k-1}}} \rightarrow 1$.
+
+    Thus $\exists N$ such thst $\alpha_k^\prime < 0$ for $k \geq N$.
+
+    Since $\alpha_k>0$ for $k \geq 1$($\because a_k:=\left\lfloor\alpha_k\right\rfloor>0$), 
+    it follows that
+    \begin{align*}
+        \alpha_k-\alpha_k^\prime &= \frac{P_k+\sqrt{d}}{Q_k} - \frac{P_k-\sqrt{d}}{Q_k} \\
+        &= \frac{2\sqrt{k}}{Q_k} > 0 \mbox{ for } k \geq N.
+    \end{align*}
+    Thus $Q_k>0$ for $k \geq N$.
+
+    Since $Q_kQ_{k+1} = d-P_{k+1}^2$, it follows that for $k \geq N$, $Q_k \leq Q_kQ_{k+1} = d-P_{k+1}^2<d$.
+
+    Also for $k \geq N$,
+    \[
+        P_{k+1}^2 < d = \left(P_{k+1}^2+Q_kQ_{k+1}\right)
+    \]
+    and so $-\sqrt{d}<P_{k+1}<\sqrt{d}$.
+\end{proof}
