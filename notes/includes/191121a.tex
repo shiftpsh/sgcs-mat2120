@@ -1,0 +1,71 @@
+
+\paragraph{Note} It is known that the ancient Greeks studied the Diophantine equation $x^2-2y^2=1$ to
+try to understand $\sqrt{2}$. Note that
+\[
+    \frac{x^2}{y^2} = 2+\frac{1}{y^2} \Rightarrow
+    \sqrt{2+\frac{1}{y^2}} \rightarrow \frac{x}{y} = \sqrt{2} \mbox{ as } y \rightarrow \infty.
+\]
+
+Consider $x^2-dy^2=n$ where $d,\,n \in \mathbb{Z}$.
+\begin{itemize}
+    \item When $d<0$ and $n<0$, there are no solutions.
+    \item When $d<0$ and $n<0$, there can be at most a finitely many solutions.
+    \footnote{$\because x^2-dy^2=n \Rightarrow \left|x\right|\leq \sqrt{n}$;
+    $\left|y\right|\leq\sqrt\frac{n}{\left|d\right|}$}
+    \item When $d$ is a perfect square, say $d=D^2$, then $x^2-dy^2=x^2-D^2y^2
+    =\left(x-Dy\right)\left(x+Dy\right)$. Thus any solution of $x^2-dy^2=n$ corresponds to
+    a simultaneous solution of $\begin{cases}
+        x+Dy=a \\
+        x-Dy=b
+    \end{cases}$ where $n=ab$ and $a,\,b\in\mathbb{Z}$. Hence there are only finitely many solutions.
+\end{itemize}
+
+Now we are interested in the case when $x^2-dy^2=n$ where $d,\,n\in\mathbb{Z}$, and $d>0$ is
+not a perfect square.
+
+\begin{theorem}
+    If $x$ is an irrational number and $\frac{r}{s}$ is a rational number in lowest terms where
+    $r,\,s\in\mathbb{Z}$, $s>0$, such that $\left|\alpha-\frac{r}{s}\right|<\frac{1}{2s^2}$ then
+    $\frac{r}{s}$ is a convergent of the simple continued fraction of $\alpha$.
+\end{theorem}
+\begin{proof}
+    (See the book.)
+\end{proof}
+
+\begin{theorem}
+    Let $d,\,n\in\mathbb{Z}$, $d>0$ is anot a perfect square, and $\left|n\right|\leq\sqrt{d}$.
+    If $x^2-dy^2=n$, $x>0$, $y>0$, then $\frac{x}{y}$ is a convergent of the simple continued
+    fraction of $\sqrt{d}$.
+\end{theorem}
+
+\begin{proof}
+    We only consider the case where $n>0$. Note that
+    \[x^2-dy^2=n \Leftrightarrow \left(x+y\sqrt{d}\right)\left(x-y\sqrt{d}\right)=n,\]
+    thus $x-y\sqrt{d}>0$, i. e. $x>y\sqrt{d} \Rightarrow \frac{x}{y}>\sqrt{d}$.
+
+    Note that
+    \begin{align*}
+        \frac{x}{y}-\sqrt{d}&=\frac{x-y\sqrt{d}}{y}\frac{x+y\sqrt{d}}{x+y\sqrt{d}}\\
+        &= \frac{x^2-y^2d}{y\left(x+y\sqrt{d}\right)} \\
+        &< \frac{n}{y\left(2y\sqrt{d}\right)} \\
+        &< \frac{\sqrt{d}}{2y^2\sqrt{d}} = \frac{1}{2y^2}.
+    \end{align*}
+
+    By previous theorem, we see that $\frac{x}{y}$ is a convergent of the
+    simple continued fraction of $\sqrt{d}$.
+\end{proof}
+
+\begin{theorem}
+    $d>0$, $d\in\mathbb{Z}$ and is not a perfect square.
+
+    $\frac{p_k}{q_k}$ : the $k$-th convergent of the simple continued fraction of $\sqrt{d}$.
+
+    $n$ : the periodic length of the simple continued fraction of $\sqrt{d}$. Then,
+    \begin{enumerate}
+        \item If $n$ is even, the positive solution of $x^2-dy^2=1$ are $x=p_{jn-1}$, $y=q_{jn-1}$
+        where $j\in\mathbb{N}$; and $x^2-dy^2=-1$ has no solutions.
+        \item If $n$ is odd, the positive solutions of $x2-dy^2=1$ are $x=p_{2jn-1}$, $y=q_{2jn-1}$
+        where $j\in\mathbb{N}$, and that of $x^2-dy^2=-1$ are $x=p_{\left(2j-1\right)n-1}$,
+        $y=q_{\left(2j-1\right)n-1}$.
+    \end{enumerate}
+\end{theorem}

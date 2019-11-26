@@ -44,13 +44,44 @@ $q=\frac{p-1}{2}$.
 of $p$ if $p \equiv \pm 1 \pmod{8}$ and a quadratic nonresidue of $p$ if
 $p \equiv \pm 3 \pmod{8}$.
 
-{\Large TODO}
+\begin{proof}
+    By Gauss's Lemma, $\legendre{2}{p}=\left(-1\right)^s$
+    where $s$ is the number of least positive residues mod $p$ of the integers $1\cdot 2$,
+    $2 \cdot 2$, $3 \cdot 2$, $\cdots$, $\frac{p-1}{2}\times 2$ that are greater than $\frac{p}{2}$.  
+    
+    Since all of these integers are less than $p$, we need only count these greater than $\frac{p}{2}$ to find.
+    Note that the integers $2j$ where $1\leq j\leq \frac{p-1}{2}$ are less than $\frac{p}{2}$ whem
+    $j \leq \frac{p}{4}$.
+
+    Thus $\exists \left\lfloor\frac{p}{4}\right\rfloor$ integers in the set less
+    that $\frac{p}{2}$. By Gauss's lemma,
+    \[
+        \legendre{2}{p} = \left(-1\right)^{\frac{p-1}{2} - \left\lfloor\frac{p}{4}\right\rfloor}.
+    \]
+    To prove the theorem, it suffice to show that $\frac{p-1}{2} - \left\lfloor\frac{p}{4}\right\rfloor \equiv \frac{p^2-1}{8} \pmod{2}$
+    for every odd integer $p$.
+
+    Note that it holds for a positive integer $p$ if and only if it holds for $p+8$.
+    It can be checked that it holds for $p\equiv\pm 1$, $p\equiv\pm 3 \pmod{8}$.
+    Hence we conclude that it holds for every odd integer $p$.
+\end{proof}
 
 % Question 4.
 \subsubsection{4.} Using problem 2 above, show that the prime 1999
 divides $2^{999}-1$.
 
-{\Large TODO}
+\begin{proof}
+    By Problem 3, 2 is a quadratic residue of 1999; hence there exists integer $x$
+    such that $x^2 \equiv 2 \pmod{1999}$, hence
+    \begin{align*}
+        x^2 &\equiv 2 \pmod{1999} \\
+        \Rightarrow \left(x^2\right)^{999} &\equiv 2^{999} \pmod{1999} \\
+        \Rightarrow x^{1998} = x^{\phi\left(1999\right)} &\equiv 2^{999} \pmod{1999} \\
+        \Rightarrow 1 &\equiv 2^{999} \pmod{1999} \\
+        \Rightarrow 0 &\equiv 2^{999}-1 \pmod{1999}.
+    \end{align*}
+    Therefore 1999 divides $2^{999}-1$.
+\end{proof}
 
 % Question 5.
 \subsubsection{5.} Calculate $\legendre{6}{19}$ using \textbf{(a)} Euler's
@@ -113,8 +144,29 @@ and $p$ an odd prime with $p \neq 5$. Show that
         -1 & \mbox{if }p \equiv \pm 5 \pmod{12}.
     \end{cases}
 \]
-
-{\Large TODO}
+\begin{proof}
+    If $p \equiv 1 \pmod{4}$,
+    \[
+        \legendre{3}{p}=\legendre{p}{3}=\begin{cases}
+            1 & \mbox{if } p \equiv 1 \pmod{3}, \\
+            -1 & \mbox{if } p \equiv 2 \pmod{3}. \\
+        \end{cases}
+    \]
+    Similarity, if $p \equiv -1 \pmod{4}$,
+    \[
+        \legendre{3}{p}=-\legendre{p}{3}=\begin{cases}
+            -1 & \mbox{if } p \equiv 1 \pmod{3}, \\
+            1 & \mbox{if } p \equiv 2 \pmod{3}. \\
+        \end{cases}
+    \]
+    Hence it is clear that
+    \[
+        \legendre{3}{p} = \begin{cases}
+            1 & \mbox{if } p \equiv \pm 1 \pmod{12}, \\
+            -1 & \mbox{if }p \equiv \pm 5 \pmod{12}.
+        \end{cases}
+    \]
+\end{proof}
 
 % Question 8.
 \subsubsection{8.} Show that if $p>3$ is an odd prime, then
@@ -124,7 +176,15 @@ and $p$ an odd prime with $p \neq 5$. Show that
         -1 & \mbox{if }p \equiv -1 \pmod{6}.
     \end{cases}
 \]
-
-{\Large TODO}
+\begin{proof}
+    Note that
+    \begin{align*}
+        \legendre{-3}{p} &= \legendre{-1}{p}\legendre{3}{p} \\
+        &= \left(-1\right)^{\frac{p-1}{2}}\left(-1\right)^{\frac{3-1}{2}\frac{p-1}{2}}\legendre{p}{3} \\
+        &= \legendre{p}{3}.
+    \end{align*}
+    Hence, if $p \equiv 1 \pmod{6}$, then $\legendre{-3}{p}=\legendre{p}{3}=\legendre{1}{3}=1$,
+    and if $p \equiv -1 \pmod{6}$, then $\legendre{-3}{p}=\legendre{p}{3}=\legendre{-1}{3}=-1$.
+\end{proof}
 
 \end{document}

@@ -1,0 +1,76 @@
+Thus we can see that $\exists$ only a finite number of pussible values
+for $P_k$ and $Q_k$ for $k \geq N$.
+
+Since $\exists$ infinitely many integers $k$ with $k \geq N$, $\exists$
+two integers $i$ and $j$ such that $P_i=P_j$ and $Q_i=Q_j$.
+By the defining relation for $\alpha_k$, we can see that $\alpha_i=\alpha_j$.
+Consequently, we can see that $a_i=a_j$ and $a_{i+1}=a_{j+1}$.
+Hence
+\begin{align*}
+    \alpha&=\left[ a_0;\,a_1,\,a_2,\,\cdots,\,a_{i-1},\,a_i,\,a_{i+1},\,\cdots,\,a_{j-1},\,a_i,\,\cdots \right]\\
+    &= \left[ a_0;\,a_!,\,a_2,\,\cdots,\,a_{i-1},\,\overline{a_i,\,\cdots,\,a_{j-1}} \right].
+\end{align*}
+
+\begin{definition}
+    A simple continued fraction $\left[ a_0;\,a_1,\,a_2,\,\cdots \right]$ is
+    called \textbf{purely periodic} if $\exists n \in \mathbb{Z}^+$ such that
+    $a_k=a_{k+n}$ for $k=0,\,1,\,2,\,\cdots$. i. e.,
+    \[
+        \left[ a_0;\,a_1,\,a_2,\,\cdots \right] = \left[ \overline{a_0;\,a_1,\,a_2,\,\cdots,\,a_{n-1}} \right]
+    \]
+\end{definition}
+
+e. g. $\left[ \overline{2;\,3} \right]=\frac{3+\sqrt{15}}{3}$ is purely periodic.
+
+$\left[ 2;\,\overline{2,\,4} \right]=\sqrt{6}$ is not purely periodic.
+
+\begin{definition}
+    A quadratic irrational $\alpha$ is said to be \textbf{reduced} if
+    $\alpha > 1$ and $-1 < \alpha^\prime < 0$.
+\end{definition}
+
+\begin{theorem}
+    The simple continued fraction of quadratic irrational number $\alpha$
+    is purely periodic if and only if $\alpha$ is reduced.
+\end{theorem}
+
+\begin{proof}
+    (Proof omitted.)
+\end{proof}
+
+\begin{remark}
+    Consider $\sqrt{D}$, where $D$ is not a perfect square. Note that
+    $\left\lfloor \sqrt{D}\right\rfloor+\sqrt{D}$ is reduced.
+    Thus the simple continued fraction of $\left\lfloor \sqrt{D}\right\rfloor+\sqrt{D}$
+    is purely periodic.
+
+    Note that the initial partial quotient of the simple continued fraction of
+    $\left\lfloor \sqrt{D}\right\rfloor+\sqrt{D}$ is
+    \[
+        \left\lfloor\left\lfloor \sqrt{D}\right\rfloor+\sqrt{D}\right\rfloor
+        =2\left\lfloor \sqrt{D}\right\rfloor
+        =2a_0,
+    \]
+    where $a_0=\left\lfloor \sqrt{D}\right\rfloor$.
+    Thus
+    \begin{align*}
+        \left\lfloor \sqrt{D}\right\rfloor+\sqrt{D}
+        &= \left[ \overline{2a_0;\,a_1,\,a_2,\,\cdots,\,a_n} \right] \\
+        &= \left[ 2a_0;\,a_1,\,a_2,\,\cdots,\,a_n,\,\overline{2a_0, \,a_1,\,a_2,\,\cdots,\,a_n} \right]
+    \end{align*}
+    hence
+    \begin{align*}
+        \sqrt{D}
+        &= \left[ a_0;\,a_1,\,a_2,\,\cdots,\,a_n,\,\overline{2a_0, \,a_1,\,a_2,\,\cdots,\,a_n} \right] \\
+        &= \left[ a_0;\,\overline{a_1,\,a_2,\,\cdots,\,a_n,\,2a_0} \right].
+    \end{align*}
+\end{remark}
+
+\paragraph{FYI} $e=\left[ 2;\,1,\,2,\,1,\,1,\,4,\,1,\,1,\,6,\,1,\,1,\,8,\,\cdots \right]$
+
+$\pi = \left[ 3;\,7,\,15,\,1,\,282,\,1,\,1,\,2,\,\cdots \right]$
+
+\[
+    \pi = \dfrac{4}{1+\dfrac{1^2}{2+\dfrac{3^2}{2+\dfrac{5^2}{2+\dfrac{7^2}{2+\dfrac{9^2}{\vdots}}}}}}
+    = \dfrac{4}{1+\dfrac{1^2}{3+\dfrac{2^2}{5+\dfrac{3^2}{7+\dfrac{4^2}{9+\dfrac{5^2}{\vdots}}}}}}
+\]
