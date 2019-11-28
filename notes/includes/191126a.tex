@@ -1,0 +1,80 @@
+\begin{definition}
+    A \textbf{pythagorean triple} $\left(x,\,y,\,z\right)$, i. e. $x^2+y^2=z^2$, is
+    called \textbf{primitive} if $\left(x,\,y,\,z\right)=1$.
+\end{definition}
+
+\begin{lemma}
+    If $\left(x,\,y,\,z\right)$ is a primitive pythagorean triple,
+    then $\left(x,\,y\right)=\left(x,\,z\right)=\left(y,\,z\right)=1$.
+\end{lemma}
+
+\begin{proof}
+    Suppose $\left(x,\,y\right) >1$. Then $\exists p$ such that $p$ is prime and $p \divides \left(x,\,y\right)$.
+    Then $p\divides x$ and $p \divides y$, and so $p \divides x^2$ and $p \divides y^2$.
+    Thus $p \divides \left(x^2+y^2\right) = z^2$, hence $p \divides z$. $\rightarrow\leftarrow$
+\end{proof}
+
+\paragraph{Homework} Show that $\sqrt{3}$ is not rational using infinite descent method.
+
+\begin{lemma}
+    $\left(x,\,y,\,z\right)$ : primitive pythagorean triple. Then
+    $\left(x\mbox{ : even},\, y\mbox{ : odd}\right)$ or
+    $\left(x\mbox{ : odd},\, y\mbox{ : even}\right)$.
+\end{lemma}
+
+\begin{proof}
+    By previous lemma, $x$ and $y$ cannot be both even.
+
+    Suppose that $x$ and $y$ are both odd. Then $x^2 \equiv y^2 \equiv 1 \pmod{4}$.
+    Thus $z^2=x^2+y^2 \equiv 2\left(1+1\right) \pmod{4}$. $\rightarrow\leftarrow$
+\end{proof}
+
+\begin{lemma}
+    If $r,\,s,\,t \in \mathbb{Z}$ such that $\left(r,\,s\right)=1$ and $rs=t^2$, then
+    $\exists m,\,n \in \mathbb{Z}^+$ such that $r=m^2$, $s=n^2$.
+\end{lemma}
+
+\begin{proof}
+    (See the text.)
+\end{proof}
+
+\begin{theorem}
+    The triple $\left(x,\,y,\,z\right)$of positive integers is a primitive pythagorean
+    triple with $y$ : even, if and only if $\exists m>n \in \mathbb{Z}^+$, $\left(m,\,n\right)=1$
+    and $\left(m\mbox{ : even},\, n\mbox{ : odd}\right)$ or
+    $\left(m\mbox{ : odd},\, n\mbox{ : even}\right)$, such that
+    \begin{align*}
+        x&=m^2-n^2, \\
+        y&=2mn, \\
+        z&=m^2+n^2.
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    ($\Rightarrow$) Let $\left(x,\,y,\,z\right)$ be a primitive pythagorean triple.
+    Then $x$ and $z$ are both odd by lemma, and so $z+x$ and $z-x$ are both even.
+    Thus $\exists r,\,s \in \mathbb{Z}+$ with
+    \[r=\frac{z+x}{2},\quad s=\frac{z-x}{2}.\]
+    Since $x^2+y^2=z^2$,$y^2=z^2-x^2=\left(z+x\right)\left(z-x\right)$,
+    Thus
+    \[\left( \frac{y}{2} \right)^2=\left( \frac{z+x}{2} \right)\left( \frac{z-x}{2} \right)=rs.\]
+
+    \underline{Claim} $\left(r,\,s\right)=1$. Let $\left(r,\,s\right)=d$. Then
+    \begin{align*}
+        d \divides r,\, d\divides s &\Rightarrow d \divides \left(r+s\right) \Rightarrow d \divides z \\
+        &\Rightarrow d \divides \left(r-s\right) \Rightarrow d \divides x,
+    \end{align*}
+    thus $d \divides \left(z,\,r\right)$ and so $d=1$.
+
+    By lemma, $\exists m,\,n\in\mathbb{Z}^+$ such that $m>n$, $r=m^2$, $s=n^2$.
+    hence
+    \begin{align*}
+        x&=r-s=m^2-n^2, \\
+        y&=\left(4rs\right)=2mn, \\
+        z&=r+s=m^2+n^2.
+    \end{align*}
+    Note that any common divisor of $m$ and $n$ must also divide $x=m^2-n^2$,
+    $y=2mn$, $z=m^2+n^2$. Thus $\left(m,\,n\right)=1$.
+    Note also that $m$ and $n$ cannot be both odd, and since $\left(m,\,n\right)=1$,
+    they cannot be both even.
+\end{proof}

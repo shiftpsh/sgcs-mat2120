@@ -1,0 +1,42 @@
+\begin{theorem}
+    Let $\left(x_1,\,y_1\right)$ be the least positive solution of $x^2-dy^2=1$
+    where $d>0$ is not a perfect square. Then all positive solutions $\left(x_k,\,y_k\right)$
+    are given by $x_k+y_k \sqrt{d} = \left( x_1+y_1\sqrt{d} \right)^k$ where $k \in \mathbb{N}$.
+\end{theorem}
+\begin{proof}
+    \underline{Claim 1} $\left(x_k,\,y_k\right)$ is a solution.
+
+    Note that
+    \[x_k - y_k\sqrt{d} = \left(x_1-y_1 \sqrt{d}\right)^k.\]
+    Then
+    \begin{align*}
+        a_k^2-dy_k^2 &= \left(x_k-y_k\sqrt{d}\right)\left(x_k+y_k\sqrt{d}\right) \\
+        &= \left(x_1-y_1\sqrt{d}\right)^k\left(x_1+y_1\sqrt{d}\right)^k \\
+        &= \left(x_1^2 - dy_1^2\right)^k = 1^k = 1.
+    \end{align*}
+
+    \underline{Claim 2} Every positive solution is equal to $\left(x_k,\,y_k\right)$
+    for some $k$.
+
+    Assume that $\left(X,\,Y\right)$ is a positive solution different from
+    $\left( x_k,\,y_k \right)$. Then $\exists n \in \mathbb{N}$ such that
+    \[\left(x_1-y_1\sqrt{d}\right)^n < X+Y\sqrt{d} < \left(x_1+y_1\sqrt{d}\right)^n.\]
+    Note that 
+    \[1<\left(x_1-y_1\sqrt{d}\right)^n\left(X+Y\sqrt{d}\right)<x_1+y_1\sqrt{d}.\]
+    Put $s+t\sqrt{d} := \left(x_1-y_1\sqrt{d}\right)^k\left(X+Y\sqrt{d}\right)$.
+    Note that
+    \begin{align*}
+        s^2-t^2d &= \left(s-t\sqrt{d}\right)\left(s+t\sqrt{d}\right) \\
+        &= \left(x_1+y_1\sqrt{d}\right)^n\left(X-Y\sqrt{d}\right)\times \left(x_1-y_1\sqrt{d}\right)^n\left(X+Y\sqrt{d}\right) \\
+        &= \left(x_1^2-y_1^2d\right)\left(X^2-Y^2d\right) \\
+        &= 1.
+    \end{align*}
+    Thus $\left(s,\,t\right)$ is a solution of $x^2-dy^2=1$. Moreover, we know that
+    $1<s+t\sqrt{d}<x_1+y_1\sqrt{d}$. Since $s+t\sqrt{d}>1$, $0<\left(s+t\sqrt{d}\right)^{-1}=s-t\sqrt{d}<1$,
+    hence
+    \begin{align*}
+        s&=\frac{1}{2}\left[\left(s+t\sqrt{d}\right)+\left(s-t\sqrt{d}\right)\right]>0,\\
+        t&=\frac{1}{2\sqrt{d}}\left[\left(s+t\sqrt{d}\right)-\left(s-t\sqrt{d}\right)\right]>0.
+    \end{align*}
+    Therefore, $\left(s,\,t\right)$ is a positive solution of $x^2-dy^2=1$, but this makes a contradiction.
+\end{proof}
