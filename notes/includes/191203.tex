@@ -1,0 +1,131 @@
+
+\begin{theorem}
+    $x^4+y^4=z^4$ has no nontrivial rational solution.
+\end{theorem}
+
+\begin{proof}
+    Suffices to show that $x^4+y^4=z^2$ has no nontrivial solution.
+    \footnote{Any solution of $x^4+y^4=z^4=\left(z^*\right)^2$
+    gives a solution of $x^4+y^4=z^4$.}
+
+    Assume that $x^4+y^4=z^2$ has a nonzero positive integer solution of $\left(x_0,\,y_0,\,z_0\right)$.
+    We may assume that $\left(x_0,\,y_0\right)=1$. Note that
+    \[
+        x_0^4+y_0^4=d^4\left(x_1^4+y_1^4\right)
+    \]
+    thus $d^4 \divides z_0^2$ and so $d^4 \divides z_0$, hence $z_0=d^2z_1$ for
+    some $z_1\in\mathbb{Z}^+$. Therefore
+    $d^4\left(x_1^4+y_1^4\right)=d^4z_1^2$ and so $x_1^4+y_1^4=z_1^2$.
+
+    Note that $\left(x_0^2\right)^2+\left(y_0^2\right)^2=z_0^2$, and so
+    $\left(x_0^2,\,y_0^2,\,z_0\right)$ is a pythagorean triple.
+    Note also that $\left(x_0^2,\,y_0^2\right)=1$,
+    thus $\left(x_0^2,\,y_0^2,\,z_0\right)=1$, and so $\left(x_0^2,\,y_0^2,\,z_0\right)$
+    is a primitive pythagorean triple.
+
+    By Theorem, $\exists m,\,n \in \mathbb{Z}^+$, $\left(m,\,n\right)=1$,
+    $m \not\equiv n \pmod{2}$ such that 
+    \[
+        x_0^2=m^2-n^2 \quad y_0^2=2mn \quad z_0=m^2+n^2,
+    \]
+    where we can change $x_0$ and $y_0$ if necessary to make $y_0^2$ even.
+
+    Note that
+    \[
+        x_0^2+n^2=m^2.
+    \]
+    Since $\left(n,\,m\right)=1$, $\left(x,\,n,\,m\right)=1$; thus
+    $\left(x,\,n,\,m\right)$ is also a primitive pythagorean triple.
+    
+    Note that $m$ is odd and $n$ is even. By theorem, there $\exists r,\,s \in \mathbb{Z}^+$,
+    $\left(r,\,s\right)=1$, $r \not\equiv s \pmod{2}$ such that
+    \[
+        x_0^2=r^2-s^2 \quad n=2rs \quad m=r^2+s^2.
+    \]
+    Since $\left(n,\,m\right)=1$ and $m$ is odd, it follows that $\left(m,\,2n\right)=1$.
+    Since $y_0^2=2mn$, $\exists z_1,\,w \in \mathbb{Z}^+$ such that $m=z_1^2$,
+    $2n=w^2$. Following that $w^2$ is even, $w$ is also even, and so $w=2v$ for
+    some $v \in \mathbb{Z}^+$. Thus
+    \[
+        v^2=\frac{n}{2}=rs.
+    \]
+    Since $\left(r,\,s\right)=1$, $r=x_1^2$, $s=y_1^2$ for some $x_1,\,y_1\in\mathbb{Z}^+$,
+    and $\left(x_1,\,y_1\right)=1$ by Lemma. Thus
+    \[
+        x_1^4+y_1^4=r^2+s^2=m=z_1^2.
+    \]
+    Note that $z_1 \leq z_1^4 = m^2 < m^2+n^2 = z_0$, which it contradicts to
+    the WOP.
+\end{proof}
+
+\begin{theorem}[Mordell--Weil Theorem]
+    $E\left(\mathbb{Q}\right):=\left\{\left(x,\,y\right)\in\mathbb{Q}^2 \mid y^2=x^3+ax+b\right\}
+    \cup \left\{\mathcal{O}\right\}$ is a \textbf{finitely generated} abelian group.
+\end{theorem}
+\marginpar{$\mathcal{O}$: point at infinity}
+
+\begin{theorem}
+    A positive integer $n$ is congruent if and only if $y^2=x^3-n^2x$ has a
+    point $\left(x,\,y\right)\in\mathbb{Q}^2$ and $y \neq 0$.
+
+    More precisely, $\exists$ a one-to-one correspondence between $C_n$ and $E_n$ where
+    \begin{align*}
+        C_n &:= \left\{\left(a,\,b,\,c\right)\in\mathbb{Q}^3 \mid a^2+b^2=c^2,\,\frac{1}{2}ab=n\right\},\\
+        E_n &:= \left\{\left(x,\,y\right)\in\mathbb{Q}^2 \mid y^2=x^3-n^2x,\,y\neq 0\right\}.
+    \end{align*}
+\end{theorem}
+\footnote{May appear in final exam.}
+
+Mutually inverse correspondences
+\[
+    f: C_n \rightarrow E_n \qquad g: E_n \rightarrow C_n
+\]
+are given by
+\begin{align*}
+    f\left(\left(a,\,b,\,c\right)\right) &= \left(\frac{nb}{c-a},\,\frac{2n^2}{c-a}\right),\\
+    g\left(\left(x,\,y\right)\right) &= \left(\frac{x^2-n^2}{y},\,\frac{2nx}{y},\,\frac{x^2+n^2}{y}\right).
+\end{align*}
+
+\begin{proof}
+    ($\Rightarrow$) Suppose that $n$ is a congruent number. Then $\exists a,\,b,\,c\in\mathbb{Q}$
+    such that $a^2+b^2=c^2$, $\frac{ab}{2}=n$.
+
+    Put $u:=c-a$. Then $c=a+u$. Note that
+    \begin{align*}
+        a^2+b^2=c^2&=\left(a+u\right)^2 \\
+        &= a^2 + 2au + u^2 \\
+        \Rightarrow b^2-u^2 &= 2au.
+    \end{align*}
+    Note also that
+    \[
+        \frac{ab}{2}=n \quad \mbox{and also} \quad a=\frac{2n}{b}.
+    \]
+    Thus
+    \begin{align*}
+        2au = \frac{4nu}{b} &= b^2-u^2 \\
+        \Rightarrow \frac{4nu}{b}\frac{b}{u^3} &= \left(b^2-u^2\right)\frac{b}{u^3} \\
+        \Rightarrow \frac{4n}{u} &= \frac{b^3}{u^3}-\frac{b}{u} \\
+        \Rightarrow \frac{4n^4}{u^2} &= \left(\frac{nb}{u}\right)^3-n^2\left(\frac{nb}{u}\right) \\
+        \Rightarrow \left(\frac{2n^2}{u}\right)^2 &= \left(\frac{nb}{u}\right)^3-n^2\left(\frac{nb}{u}\right)
+    \end{align*}
+    Hence $y^2=x^3-n^2x$ where
+    \[
+        x=\frac{nb}{u}=\frac{nb}{c-a}, \qquad y=\frac{2n^2}{u}=\frac{2n^2}{c-a}.
+    \]
+
+    ($\Leftarrow$) Suppose that $\left(x,\,y\right)\in\mathbb{Q}^2$ on $y^2=x^3-n^2x$.
+    Put
+    \[
+        a=\frac{x^2-n^2}{y},\quad b=\frac{2nx}{y},\quad c=\frac{x^2-n^2}{y}.
+    \]
+    Then
+    \begin{align*}
+        a^2+b^2 &= \left(\frac{x^2-n^2}{y}\right)^2+\left(\frac{2nx}{y}\right)^2 \\
+        &= \frac{\left(x^2+n^2\right)^2}{y^2} = c^2
+    \end{align*}
+    and 
+    \begin{align*}
+        ab &= \frac{x^2-n^2}{y} \times \frac{2nx}{y} \\
+        &= \frac{2n\left(x^3-nx\right)}{y^2}= 2n.
+    \end{align*}
+\end{proof}
