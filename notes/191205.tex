@@ -1,0 +1,105 @@
+\footnote{Book recommendations:
+\begin{enumerate}
+    \item \textit{Elliptic Curves, Modular Forms, and Their L-functions}
+    \item \textit{The Arithmetic of Elliptic Curves}
+\end{enumerate}
+}
+\begin{remark}
+    \begin{enumerate}
+        \item $\left(a,\,b,\,c\right)\in\left(\mathbb{Q}^+\right)^3
+        \leftrightarrow \left(x,\,y\right)\in\left(\mathbb{Q}^+\right)^2$, $y \neq 0$
+        \item \begin{align*}
+            \left(x,\,y\right) &\leftrightarrow \left(a,\,b,\,c\right) \\
+            \left(-4,\,-6\right) &\leftrightarrow \left(\frac{3}{2},\,\frac{20}{3},\,-\frac{41}{6}\right) \\
+            \left(-4,\,6\right) &\leftrightarrow \left(-\frac{3}{2},-\frac{20}{3},\,\frac{41}{6}\right) \\
+        \end{align*}
+    \end{enumerate}
+\end{remark}
+
+\paragraph{Recall} $E\left(\mathbb{Q}\right):=\left\{\left(x,\,y\right)\in\mathbb{Q}^2\mid y^2=x^3+ax+b\right\}\cup\left\{\mathcal{O}\right\}$
+is a finitely generated abelian group. $\rightarrow \underbrace{\mathbb{Z} \oplus \cdots \oplus \mathbb{Z}}_{\text{torsion-free part}}
+\oplus \underbrace{\mathbb{Z}_{n_1} \oplus \mathbb{Z}_{n_2} \oplus \cdots \oplus \mathbb{Z}_{n_k}}_{\text{torsion part}}$
+
+\begin{theorem}[Ogg's Conjecture, Proved by Mazur]
+    $E\left(\mathbb{Q}\right)_{tors}$ is isomorphic to one of the following:
+    \begin{itemize}
+        \item $\mathbb{Z}_n$ where $1 \leq n \leq 10$, $n = 12$
+        \item $\mathbb{Z}_2 \oplus \mathbb{Z}_{2n}$, where $1 \leq n \leq 4$.
+    \end{itemize}
+\end{theorem}
+
+\begin{theorem}[Tunnell's Theorem, 1983]
+    If $n$ is an odd square-free positive integer and $n$ is a congruent number, then
+    \begin{align*}
+        & \#\left\{\left(x,\,y,\,z\right)\in\mathbb{Z}^3\mid n=2x^2+y^2+32z^2\right\}\\
+        & = \frac{1}{2}\#\left\{\left(x,\,y,\,z\right)\in\mathbb{Z}^3\mid n=2x^2+y^2+8z^2\right\}.
+    \end{align*}
+
+    If $n$ is an even square-free positive integer and $n$ is a congruent number, then
+    \begin{align*}
+        & \#\left\{\left(x,\,y,\,z\right)\in\mathbb{Z}^3\mid \frac{n}{2}=2x^2+y^2+32z^2\right\}\\
+        & = \frac{1}{2}\#\left\{\left(x,\,y,\,z\right)\in\mathbb{Z}^3\mid \frac{n}{2}=2x^2+y^2+8z^2\right\}.
+    \end{align*}
+
+    Moreover, if Birch and Swinnerton-Dyer conjecture holds, then the converse of the above also holds.
+\end{theorem}
+
+\begin{conjecture}[Birch and Swinnerton-Dyer Conjecture]
+    Let $E$ be an elliptic curve over $\mathbb{Q}$ and let $L\left(E,\,s\right)$ be the
+    $L$-functions attached to $E$. Then
+    \begin{enumerate}
+        \item $L\left(E,\,s\right)$ has a zero at $s=1$ of order equal to rank $R_E$ of $E\left(\mathbb{Q}\right)$.
+        In other words, the Taylor expansion of $L\left(E,\,s\right)$ at $s=1$ is of the form \[
+            L\left(E,\,s\right)=c_0\left(s-1\right)^{R_E}+c_1\left(s-1\right)^{R_E+1}+c_2\left(s-1\right)^{R_E+2}+\cdots
+        \]
+        where $R_E$ is the algebraic rank of $E\left(\mathbb{Q}\right)$.
+    \end{enumerate}
+\end{conjecture}
+
+FYI: $S$: sphere. $\mathrm{\Pi}_3\left(S^2\right) \approx \mathbb{Z}$ by Hopf fibration.
+\[
+    \mathrm{\Pi}_{m}\left(S^n\right)= \begin{cases}
+        \mathbb{Z} & \mbox{if } m=n \\
+        \left\{e\right\} & \mbox{if } m<n \\
+        \mbox{unknown} & \mbox{if } m>n
+    \end{cases}
+\]
+
+(Sketch of the proof of FLT) It suffices to consider FLT holds for
+odd primes $n$.\footnote{
+    When $n \geq 3$, suppose $\left(x,\,y,\,z\right)$ is a nontrivial solution
+    to $x^n+y^n=z^n$. If $n$ has an odd prime factor $p$, say $n=p_k$,
+    then $\left(x^k\right)^p+\left(y^k\right)^p=\left(z^k\right)^p$ and so
+    $\left(x^k,\,y^k,\,z^k\right)$ is a nontrivial solution for $x^p+y^p=z^p$.
+
+    If $n$ has no odd prime factor, then $n$ is a power of 2; we may assume that $n \geq 4$.
+    Then $4 \divides n$, i. e. $n=4k$. Thus $\left(x^k,\,y^k,\,z^k\right)$ is a
+    nontrivial solution to $x^4+y^4=z^4$, which does not exist.
+}
+
+Consider an elliptic curve
+\[
+    y^2=x^3-x.
+\]
+In $F_2\left(=\mathbb{Z}_2\right)$, $y^2=x^3-x$ has two solutions $\left(0,\,0\right)$, $\left(1,\,0\right)$.
+Note that
+\begin{align*}
+    x^3-x&=x\left(x^2-1\right)\\
+    &=x\left(x-1\right)\left(x+1\right)\\
+    &=x\left(x-1\right)^2 \quad \left(\because \mathbb{Z}_2\right)
+\end{align*}
+thus $y^2=x^3-x$ has a double root of $\left(1,\,0\right)$.
+
+In $F_3\left(=\mathbb{Z}_3\right)$, $y^2=x^3-x$ has 3 solutions of $\left(0,\,0\right)$,
+$\left(1,\,0\right)$, $\left(2,\,0\right)$.
+Repeating this process gives
+
+\begin{center}
+    \begin{tabular}{c|cccccccccc}
+        \hline
+        $F_p$ & $F_2$ & $F_3$ & $F_5$ & $F_7$ & $F_{11}$ & $F_{13}$ & $F_{17}$ & $F_{19}$ & $F_{23}$ & $\cdots$ \\
+        \hline
+        $S\left(p\right)$ & 2 & 3 & 7 & 7 & 11 & 7 & 15 & 19 & 23 & $\cdots$ \\
+        \hline
+    \end{tabular}
+\end{center}
