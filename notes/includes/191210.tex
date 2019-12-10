@@ -1,0 +1,115 @@
+
+\begin{definition}
+    \begin{enumerate}
+        \item Stable reduction: no double roots
+        \item Multiplicative reduction: double roots
+        \item Additive reduction: triple roots.
+    \end{enumerate}
+    An elliptic curve $E$ is \textbf{semistable} if $E$ has a
+    stable reduction or multiplicative reduction.
+\end{definition}
+
+Now consider
+\[
+    \Phi\left(z\right)=
+    e^{2\pi iz}\prod_{k=1}^\infty\left(1-e^{8k\pi iz}\right)^2\left(1-e^{16k\pi iz}\right)^2.
+\]
+
+Let $q := e^{2\pi iz}$, then
+\begin{align*}
+    \Phi\left(z\right) &= q \prod_{k=1}^\infty \left(1-q^{4k}\right)^2\left(1-q^{8k}\right)^2\\
+    &= q-\underline{2q^5}-3q^9+\underline{6q^13}+\underline{2q^17}+q^25+\cdots.
+\end{align*}
+It is well known that
+\[
+    \Phi\left(\frac{az+b}{cz+d}\right)=\left(cz+d\right)^2\Phi\left(z\right)
+\]
+where $ad-bc=1$; i. e. it is a modular form. Moreover, if we let the
+coefficients of $\Phi\left(z\right)$ as $a\left(n\right)$, we get
+\begin{center}
+    \begin{tabular}{c|cccccccccc}
+        \hline
+        $F_p$ & $F_2$ & $F_3$ & $F_5$ & $F_7$ & $F_{11}$ & $F_{13}$ & $F_{17}$ & $F_{19}$ & $F_{23}$ & $\cdots$ \\
+        \hline
+        $S\left(p\right)$ & 2 & 3 & 7 & 7 & 11 & 7 & 15 & 19 & 23 & $\cdots$ \\
+        $a\left(p\right)$ & 0 & 0 & $-2$ & 0 & 0 & 6 & 2 & 0 & 0 & $\cdots$ \\
+        \hline
+    \end{tabular}
+\end{center}
+where we can see that $S\left(p\right)+a\left(p\right)=p$; hence $y^2=x^3-x$ is modular.
+
+We return to the FLT. Suppose that FLT does not hold, i. e. $\exists$ prime
+$p \geq 3$ and $a,\,b,\,c\in\mathbb{Z}^+$ such that $a^p+b^p=c^p$.
+Then $\exists$ an elliptic curve $y=x\left(x-a^p\right)\left(x+b^p\right)$.
+We call this the Frey curve. (1985 Frey)
+
+It is also well known that the Frey curve is semistable but not modular. (1986 Ribet)
+Thus there $\exists$ elliptic curve which is semistable but not modular.
+
+\begin{conjecture}[Taniyama--Shimura]
+    Every elliptic curve is modular.
+\end{conjecture}
+
+In 1994, Andrew Wiles showed that every semistable elliptic curve is modular, but
+this is a contradiction. Hence the FLT holds.
+
+In 2001, Brenil, Conrad, Piamond and Taylor showed that the Taniyana--Shimura
+conjecture is a theorem.
+
+\begin{note}
+    Consider $\mathbb{Z}\left[\sqrt{-5}\right]
+    := \left\{a+b\sqrt{-5}\mid a,\,b\in\mathbb{Z}\right\}$. Then $\mathbb{Z}\left[\sqrt{-5}\right]$ is
+    closed under $+$, $-$, $\times$, but is not an unique factorization domain(UFD).
+    Examples include $9=3\times 3=\left(2+\sqrt{-5}\right)\left(2-\sqrt{-5}\right)$.
+\end{note}
+
+\begin{definition}
+    \begin{enumerate}
+        \item For any $a,\,b\in\mathbb{Z}\left[\sqrt{-5}\right]$,
+        \[
+            a\divides b \leftrightarrow \exists c \in \mathbb{Z}\left[\sqrt{-5}\right]
+            \quad \mbox{such that} \quad b=ac,
+        \]
+        i. e. $\mathbb{Z}\left[\sqrt{-5}\right]$ is a \textbf{commutative ring}.
+        \item $a\in \mathbb{Z}\left[\sqrt{-5}\right]$. $a$ is said to be an \textbf{unit}
+        if $a$ has a multiplicative inverse, i. e. $\exists b \in \mathbb{Z}\left[\sqrt{-5}\right]$
+        such that $ab=ba=1$.
+        \item $p\in \mathbb{Z}\left[\sqrt{-5}\right]$. $p$ is said to be a \textbf{prime}
+        if $p\neq 0$, $p$ is not an unit, and $p \divides ab \Rightarrow p \divides a,\, p \divides b$.
+        \item $p$ is said to be an irreducible element if $p \neq 0$, $p$ is not an unit, and
+        $p=ab$ where $a$ or $b$ is an unit.
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    In $\mathbb{Z}$, all prime elements are irreducible, and all irreducible elements are prime.
+\end{remark}
+
+\begin{note}
+    \begin{enumerate}
+        \item The set of all units in $\mathbb{Z}\left[\sqrt{-5}\right]=\left\{-1,\,1\right\}$.
+        \footnote{
+            Define the norm map $f:\mathbb{Z}\left[\sqrt{-5}\right]\rightarrow \mathbb{Z}$
+            where $f:a+b\sqrt{-5}\mapsto a^2+5b^2=\left(a+b\sqrt{-5}\right)\left(a-b\sqrt{-5}\right)$.
+            It is easy to see that for any $\alpha,\,\beta \in \mathbb{Z}\left[\sqrt{-5}\right]$,
+            $f\left(\alpha\right)f\left(\beta\right)=f\left(\alpha\beta\right)$, and $\alpha=0$
+            if and only if $f\left(\alpha\right)=0$. 
+
+            Note that $a^2+5b^2=1$ if and only if $a=\pm 1$ and $b=0$. Thus if
+            $\left(a+b\sqrt{-5}\right)\left(c+d\sqrt{-5}\right)=1$, then
+            $f\left(a+b\sqrt{-5}\right)f\left(c+d\sqrt{-5}\right)=f\left(1\right)$, hence
+            $a^2+5b^2=c^2+5d^2=1$ and so $a=c=\pm 1$ and $b=d=0$.
+        }
+        \item 3, $2-\sqrt{-5}$, $2+\sqrt{-5}$ are irreducible elements.
+        \footnote{
+            Clearly 3, $2-\sqrt{-5}$, $2+\sqrt{-5}$ are nonzero and not an unit. Note that
+            \begin{align*}
+                f\left(3\right) = 9 &= f\left(2+\sqrt{-5}\right) \\
+                &= f\left(2-\sqrt{-5}\right).
+            \end{align*}
+            If $z=a+b\sqrt{-5}$ is a factor among 3, $2-\sqrt{-5}$, $2+\sqrt{-5}$,
+            then $f\left(z\right)=1$, 3, or 9. Suppose $f\left(z\right)=3$, then
+            $a^2+5b^2=3$, which is a contradiction.
+        }
+    \end{enumerate}
+\end{note}

@@ -1,0 +1,136 @@
+\input{header}
+
+\begin{document}
+
+\title{MAT2120 Number Theory\newline\space Problems IV}
+\author{Suhyun Park (20181634)}
+\institute{Department of Computer Science and Engineering, Sogang University}
+
+\maketitle
+
+% Question 1.
+\subsubsection{1.} Let $d$ be a positive integer. Show that the simple continued fraction of $\sqrt{d^2+1}$ is
+$\left[d;\,\overline{2d}\right]$, and find the simple continued fraction of $\sqrt{101}$.
+
+\paragraph{Solution.} Since $\left\lfloor\sqrt{d^2+1}\right\rfloor=d$, the first term is given by $d$.
+
+Subtracting $d$ from $\sqrt{d^2+1}$ gives
+\begin{align*}
+    \sqrt{d^2+1}-d &= \frac{\left(\sqrt{d^2+1}\right)^2-d^2}{\sqrt{d^2+1}+d} \\
+    &= \frac{1}{\sqrt{d^2+1}+d},
+\end{align*}
+hence the second term is given by $2d$.
+
+Repeating this process by subtracting $2d$ from $\sqrt{d^2+1}+d$ gives $\sqrt{d^2+1}-d$, which is same with above result;
+thus $\sqrt{d^2+1}=\left[d;\,\overline{2d}\right]$, and therefore $\sqrt{101}=\left[10;\,\overline{20}\right]$.
+
+% Question 2.
+\subsubsection{2.} Show that the simple continued fraction of $\sqrt{d}$, where $d$ is a positive integer,
+has period length 1 if and only if $d=a^2+1$, where $a$ is a nonnegative integer.
+
+\begin{proof}
+    ($\Rightarrow$) 
+
+    ($\Leftarrow$) Proved in Problem 1.
+\end{proof}
+
+% Question 3.
+\subsubsection{3.} Find the least positive solutions in integers of $x^2-29y^2=-1$.
+
+\paragraph{Solution.} Note that $\sqrt{29}=\left[5;\,\overline{2,\,1,\,1,\,2,\,10}\right]$. The convergents $h_n$ and $k_n$ are
+
+\begin{center}
+    \begin{tabular}{c|ccccccccc}
+    \hline
+    $n$ & $-2$ & $-1$ & 0 & 1 & 2 & 3 & 4 & 5 & $\cdots$ \\
+    \hline
+    $a_n$ & -- & -- & 5 & 2  & 1  & 1  & 2  & 10 & $\cdots$ \\
+    \hline
+    $h_n$ & 0  & 1  & 5 & 11 & 16 & 27 & \textbf{70} & 727 & $\cdots$ \\
+    $k_n$ & 1  & 0  & 1 & 2  & 3  & 5  & \textbf{13} & 135 & $\cdots$ \\
+    \hline
+    $h_n^2-29k_n^2$ & $-1$ & 1 & $-4$ & 5 & $-5$ & 4 & $\mathbf{-1}$ & 4 & $\cdots$ \\
+    \hline
+    \end{tabular}
+\end{center}
+
+Thus the minimal solution is given by $\left(x,\,y\right)=\left(70,\,13\right)$.
+
+% Question 4.
+\subsubsection{4.}
+
+% Question 5.
+\subsubsection{5.} Determine all right triangles with sides of integral length whose areas equal their perimeters.
+
+\paragraph{Solution.} Let $a$ and $b$ be the lengths of the sides. We have the relation of
+\[
+    \frac{ab}{2}=a+b+\sqrt{a^2+b^2},
+\]
+hence
+\begin{align*}
+    ab &= 2a + 2b + 2\sqrt{a^2+b^2} \\
+    \Rightarrow\left(ab-2a-2b\right)^2 &= 4a^2+4b^2 \\
+    \Rightarrow a^2b^2-4a^2b-4ab^2+8ab &= 0 \\
+    \Rightarrow ab - 4a - 4b + 8 &= 0 \qquad \because ab \neq 0 \\
+    \Rightarrow a=4\cdot\frac{b-2}{b-4}.
+\end{align*}
+If $c:=b-4$, then
+\[
+    a=4+\frac{8}{c},
+\]
+thus if $a$ is an integer, then $c=\pm 1,\,\pm 2,\,\pm 4$ or $\pm 8$; hence
+$b=2,\,3,\,5,\,6,\,8$ or 12. Calculating for each $b$ gives
+
+\begin{center}
+    \begin{tabular}{c|cccccc}
+        \hline
+        $b$ & 2 & 3 & 5 & 6 & 8 & 12 \\
+        \hline
+        $a$ & 0 & $-4$ & 12 & 8 & 6 & 5 \\
+        \hline
+    \end{tabular}
+\end{center}
+
+hence there exists only two triangles, $\left(3,\,4,\,5\right)$ and $\left(5,\,12,\,13\right)$, which its
+areas equal their perimeters.
+
+% Question 6.
+\subsubsection{6.} Use the fact that 2 is not a congruent number to show that $\sqrt{2}$ is irrational.
+
+\begin{proof}
+    Suppose $\sqrt{2}=\frac{a}{b}$ for $a,\,b \in \mathbb{Z}^+$ and $\left(a,\,b\right)=1$.
+    Then $2b^2=a^2$. Let $p$ be an odd prime that is not congruent to $\pm 1$ modulo 8. Then,
+    \[
+        \legendre{2b^2}{p}=\legendre{2}{p}=-1\neq \legendre{a^2}{p}=1,
+    \]
+    hence leads to contradiction. Therefore $\sqrt{2}$ is irrational. \qed
+\end{proof}
+
+
+% Question 7.
+\subsubsection{7.} Show that if $\left(x,\,y,\,z\right)$ is a Pythagorean triple, then $xyz$ is divisible by 60.
+
+\begin{proof}
+    Since $\left(x,\,y,\,z\right)$ is a Pythagorean triple, for $r,\,s\in\mathbb{Z}^+$ and $r+s \equiv 1 \pmod{2}$, let
+    \[
+        x=r^2-s^2 \quad y=2rs \quad z=r^2+s^2,
+    \]
+    which gives
+    \[
+        xyz= 2rs\left(r^2-s^2\right)\left(r^2+s^2\right).
+    \]
+
+    To prove that $60 \divides xyz$, it suffices to prove that $3\divides xyz$, $4\divides xyz$ and $5\divides xyz$.
+
+    \begin{itemize}
+        \item[($4\divides xyz$)] Since $r+s \equiv 1 \pmod{2}$, $r$ or $s$ is even; therefore $4 \divides 2rs \Rightarrow 4 \divides xyz$.
+        \item[($3\divides xyz$)] If $3\divides r$, it is trivial.
+        Otherwise if $3 \ndivides r$ and $3 \ndivides s$, by Euler,
+        $r^{\phi\left(3\right)} \equiv 1 \pmod{3} \Rightarrow r^2-1 \equiv 0 \pmod{3}$ and $s^2-1 \equiv 0 \pmod{3}$;
+        hence $3 \divides \left[\left(r^2-1\right)-\left(s^2-1\right)\right]=\left(r^2-s^2\right)$.
+        \item[($5\divides xyz$)] Similarity, if $5\divides r$, it is trivial.
+        Otherwise if $5 \ndivides r$, by Euler, $5 \divides \left(r^4-s^4\right)$. \qed
+    \end{itemize}
+\end{proof}
+
+\end{document}
