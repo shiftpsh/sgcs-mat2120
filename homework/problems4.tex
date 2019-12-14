@@ -29,7 +29,26 @@ thus $\sqrt{d^2+1}=\left[d;\,\overline{2d}\right]$, and therefore $\sqrt{101}=\l
 has period length 1 if and only if $d=a^2+1$, where $a$ is a nonnegative integer.
 
 \begin{proof}
-    ($\Rightarrow$) 
+    ($\Rightarrow$) Suppose the period of the simple continued fraction of $\sqrt{d}$ is 1. Then we can see that
+    $\sqrt{d} = \left[a;\,\overline{2a}\right]$.
+
+    Let $x=\left[2a;\,\overline{2a}\right]$. Then $\left[a;\,\overline{2a}\right]=\left[a;\,x\right]$. Note that
+    \[
+        x=\left[ 2a;\,x \right] = 2a+\frac{1}{x},
+    \]
+    thus
+    \begin{align*}
+        x^2-2ax-1&=0\\
+        \therefore x=a+\sqrt{a^2+1}.
+    \end{align*}
+    Hence
+    \begin{align*}
+        \sqrt{d} &= \left[a;\,x\right] \\
+        &= a+\frac{1}{x} \\
+        &= a+\frac{1}{a+\sqrt{a^2+1}} \\
+        &= \sqrt{a^2+1} \\
+        \therefore d&=a^2+1.
+    \end{align*}
 
     ($\Leftarrow$) Proved in Problem 1.
 \end{proof}
@@ -57,7 +76,21 @@ has period length 1 if and only if $d=a^2+1$, where $a$ is a nonnegative integer
 Thus the minimal solution is given by $\left(x,\,y\right)=\left(70,\,13\right)$.
 
 % Question 4.
-\subsubsection{4.}
+\subsubsection{4.} Show that if $p$ is prime and $x^p+y^p=z^p$, then $p \divides \left(x+y-z\right)$.
+
+\begin{proof}
+    Recall that, by Fermat, for $\forall a \in \mathbb{Z}$:
+    \[
+        a^p \equiv a \pmod{p}.
+    \]
+    Thus
+    \begin{align*}
+        x^p+y^p&\equiv z^p \pmod{p} \\
+        \Rightarrow x+y&\equiv z \pmod{p} \\
+        \therefore p &\divides \left(x+y-z\right).
+    \end{align*}
+    \qed
+\end{proof}
 
 % Question 5.
 \subsubsection{5.} Determine all right triangles with sides of integral length whose areas equal their perimeters.
@@ -98,12 +131,8 @@ areas equal their perimeters.
 \subsubsection{6.} Use the fact that 2 is not a congruent number to show that $\sqrt{2}$ is irrational.
 
 \begin{proof}
-    Suppose $\sqrt{2}=\frac{a}{b}$ for $a,\,b \in \mathbb{Z}^+$ and $\left(a,\,b\right)=1$.
-    Then $2b^2=a^2$. Let $p$ be an odd prime that is not congruent to $\pm 1$ modulo 8. Then,
-    \[
-        \legendre{2b^2}{p}=\legendre{2}{p}=-1\neq \legendre{a^2}{p}=1,
-    \]
-    hence leads to contradiction. Therefore $\sqrt{2}$ is irrational. \qed
+    Suppose the right triangle with sides 2, 2, and $2\sqrt{2}$. Suppose $\sqrt{2}\in\mathbb{Q}$.
+    then $2 \cdot 2 \cdot \frac{1}{2} = 2$ is congruent, but it is not, hence $\sqrt{2}\not\in\mathbb{Q}$. \qed
 \end{proof}
 
 
