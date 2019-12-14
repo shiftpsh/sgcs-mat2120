@@ -37,7 +37,21 @@ therefore $x \equiv 6 \pmod{13}$.
 $\legendre{1}{p} + \legendre{2}{p} + \cdots + \legendre{q}{p}=0$, where
 $q=\frac{p-1}{2}$.
 
-{\Large TODO}
+\begin{proof}
+    Recall that, if $p$ is odd prime, then
+    \[
+        \legendre{-1}{p} = 1 \qquad \mbox{if and only if } p \equiv 1 \pmod{4}.
+    \]
+    Note that
+    \[
+        \legendre{p-a}{p}=\legendre{-a}{p}=\legendre{-1}{p}\legendre{a}{p}=\legendre{a}{p}.
+    \]
+    \underline{Claim} $p$ : odd prime, then $\sum_{k=1}^{p-1}\legendre{k}{p}=0$. Thus,
+    \begin{align*}
+        0 &= \legendre{1}{p}+\legendre{2}{p}+\cdots+\legendre{p-1}{p} \\
+        &= 2\left[\legendre{1}{p}+\legendre{2}{p}+\cdots+\legendre{q}{p}\right] \qquad \mbox{where } q=\frac{p-1}{2}.
+    \end{align*}
+\end{proof}
 
 % Question 3.
 \subsubsection{3.} Let $p$ be an odd prime. Show that 2 is a quadratic residue
@@ -134,7 +148,32 @@ and $p$ an odd prime with $p \neq 5$. Show that
     \end{cases}
 \]
 
-{\Large TODO}
+\begin{proof}
+    Note that
+    \begin{align*}
+        \sqrt{5} F_p &= \left(\frac{1+\sqrt{5}}{2}\right)^p - \left(\frac{1-\sqrt{5}}{2}\right)^p \\
+        \Rightarrow \sqrt{5} 2^pf_p &= \left(1+\sqrt{5}\right)^p - \left(1-\sqrt{5}\right)^p \\
+        &= \sum_{r=0}^p \binom{p}{r}\sqrt{5}^r - \sum_{r=0}^p \binom{p}{r}\left(-\sqrt{5}\right)^r \\
+        &= 2\left[\binom{p}{1}\sqrt{5} + \binom{p}{3}\sqrt{5}^3 + \cdots + \binom{p}{p}\sqrt{5}^p\right],
+    \end{align*}
+    thus
+    \[
+        2^{p-1}F_p = \binom{p}{1} + 5\binom{p}{3} + \cdots + 5^{\frac{p-1}{2}}\binom{p}{p}.
+    \]
+    Since $p \divides \binom{p}{k}$ for $1 \leq k \leq p-1$ and $\binom{p}{p}=1$, we can see that
+    \[
+        2^{p-1}F_p \equiv 5^{\frac{p-1}{2}} \pmod{p}.
+    \]
+    Note that, by Fermat, $2^{p-1} \equiv 1 \pmod{p}$ and by Euler, $5^{\frac{p-1}{2}}\equiv\legendre{5}{p} \pmod{p}$,
+    hence $F_p \equiv \legendre{5}{p} \pmod{p}$. Note also that, by the quadratic reciprocity, $\legendre{5}{p}=\legendre{p}{5}$.
+    Hence
+    \[
+        F_p \equiv \legendre{5}{p} = \legendre{p}{5} = \begin{cases}
+            1 \pmod{p} & p = \pm 1 \pmod{5}, \\
+            -1 \pmod{p} & p = \pm 2 \pmod{5}.
+        \end{cases}
+    \]
+\end{proof}
 
 % Question 7.
 \subsubsection{7.} Show that if $p>3$ is an odd prime, then
