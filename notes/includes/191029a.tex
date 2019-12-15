@@ -1,3 +1,23 @@
+\begin{theorem}[Euler Criterion]
+    Let $p$ be an odd prime, and $\left(a,\,p\right)=1$. Then
+    $x^2 \equiv a \pmod{p}$
+    \begin{enumerate}
+        \item has a solution if and only if $a^{\frac{p-1}{2}}\equiv 1 \pmod{p}$.
+        \item has no solutions if and only if $a^{\frac{p-1}{2}}\equiv -1 \pmod{p}$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    By Euler's theorem, $a^{p-1} \equiv 1 \pmod{p}$. Then
+    \begin{align*}
+        a^{p-1}-1 &\equiv 0 \pmod{p} \\
+        \Leftrightarrow \left(a^{\frac{p-1}{2}}-1\right)\left(a^{\frac{p-1}{2}}+1\right) &\equiv 0 \pmod{p}.
+    \end{align*}
+    Note that $1 \not\equiv -1 \pmod{p}$ since $p$ is odd prime.
+    By the previous theorem, $x^2 \equiv a \pmod{p}$ has a solution if and only if
+    $a^{\frac{p-1}{\left(2,\,p-1\right)}}=a^{\frac{p-1}{2}}\equiv 1 \pmod{p}$.
+\end{proof}
+
 Consider $ax+b\equiv 0 \pmod{p}$ where $p$ is prime and $p \ndivides a$.
 \footnote{If $p\divides a$, then $b \equiv 0 \pmod{p}$.}
 Note that this is always solvable.
